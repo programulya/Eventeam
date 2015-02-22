@@ -1,2 +1,2 @@
-# EventeamLocations
+# Eventeam
 New edition of Eventeam!
