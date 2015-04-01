@@ -1,0 +1,164 @@
+/*------------------------------------------------------------------
+Project:    Paperclip
+Author:     Yevgeny S.
+URL:        http://simpleqode.com/
+      https://twitter.com/YevSim
+Version:    1.2.0
+Created:        11/03/2014
+Last change:    18/02/2015
+-------------------------------------------------------------------*/
+
+/* ===== Colors ===== */
+
+@new-gray: #f6f6f6;
+@new-gray-dark: darken(@new-gray, 5%);
+@new-gray-darker: darken(@new-gray, 7%);
+@new-yellow: #f8f79b;
+@new-red: #ed3e49;
+@new-blue: #2babcf;
+
+/*** Color Options ***/
+
+@new-atlantis: #9bc949;
+@new-lochmara: #0088CC;
+@new-blue-chill: #0B8C8F;
+@new-cinnabar: #E6572B;
+@new-go-ben: #7A6A53;
+@new-cadillac: #AB526B;
+@new-smart-blue: #5B7C8D;
+@new-cascade: #95a5a6;
+@new-froly: #F56991;
+
+
+/*** Change the 2 values below to create new color schemes ***/
+
+@primary-color: @new-red;
+@secondary-color: @new-blue;
+
+/*** Color Helpers ***/
+
+.text-theme-primary {
+  color: @primary-color;
+}
+.text-theme-secondary {
+  color: @secondary-color;
+}
+.bg-theme-primary {
+  background: @primary-color;
+}
+.bg-theme-secondary {
+  background: @secondary-color;
+}
+
+/* ===== Helper Classes ===== */
+
+/*** Animation delay ***/
+
+.delay-1 {
+  .animation-delay(300ms);
+}
+.delay-2 {
+  .animation-delay(600ms);
+}
+.delay-3 {
+  .animation-delay(900ms);
+}
+.delay-4 {
+  .animation-delay(1200ms);
+}
+.delay-5 {
+  .animation-delay(1500ms);
+}
+.delay-6 {
+  .animation-delay(1800ms);
+}
+.delay-7 {
+  .animation-delay(2100ms);
+}
+.delay-8 {
+  .animation-delay(2400ms);
+}
+
+/*** Perfect Text Circle ***/
+
+.circle(@diameter) {
+  height: @diameter;
+  width: @diameter;
+  border-radius: @diameter;
+  line-height: @diameter;
+  text-align: center;
+}
+
+/*** Correct margins for titles ***/
+
+.first-child {
+  margin-top: 0 !important;
+}
+.second-child {
+  margin-top: 0 !important;
+}
+@media (max-width: @screen-xs-max) {
+  .second-child {
+    margin-top: 20px !important;
+  }
+}
+
+/*** Lists ***/
+
+.list-style-none {
+  list-style: none;
+  padding-left: 0;
+}
+
+/** Horizontal line with an arrow ***/
+
+hr.arrow-down {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  border-top: 1px solid @new-gray-dark;
+  border-bottom: 15px solid @new-gray;
+  &:after {
+    content:url(../img/arrow.png);
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    top: -5px;       
+  }
+}
+
+.shadow-effect {
+  position: relative;
+  background: white;
+
+  &:before, &:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width:300px;
+    background: #777;
+    .box-shadow(0 15px 10px #777);
+    .rotate(-3deg);
+  }
+  &:after {
+    .rotate(3deg);
+    right: 10px;
+    left: auto;
+  }
+}
+
+/*** Other ***/
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+.opacity-100 {
+  .opacity(100%);
+}
+.opacity-0 {
+  .opacity(0);
+}
