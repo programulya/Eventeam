@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System;
+using System.Linq;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -15,6 +17,16 @@ namespace Eventeam
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            using (var db = new EventeamEntities())
+            {
+                var cities = db.Cities.ToList();
+
+                foreach (var c in cities)
+                {
+                    Console.WriteLine("{0} {1}", c.CityID, c.Name);
+                }
+            }
         }
     }
 }
