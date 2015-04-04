@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -20,11 +21,12 @@ namespace Eventeam
 
             using (var db = new EventeamEntities())
             {
-                var cities = db.Cities.ToList();
+                var platforms = db.Platforms.ToList();
 
-                foreach (var c in cities)
+                foreach (var platform in platforms)
                 {
-                    Console.WriteLine("{0} {1}", c.CityID, c.Name);
+                    Console.WriteLine("{0} {1} {2} {3}", platform.Geography, platform.Name, platform.Level,
+                        platform.Location);
                 }
             }
         }

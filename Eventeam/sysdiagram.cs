@@ -12,16 +12,12 @@ namespace Eventeam
     using System;
     using System.Collections.Generic;
     
-    public partial class Level
+    public partial class sysdiagram
     {
-        public Level()
-        {
-            this.Platforms = new HashSet<Platform>();
-        }
-    
-        public int LevelID { get; set; }
-        public int Name { get; set; }
-    
-        public virtual ICollection<Platform> Platforms { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

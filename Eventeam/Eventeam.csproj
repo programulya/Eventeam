@@ -127,6 +127,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Category.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
     <Compile Include="City.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
@@ -162,7 +165,19 @@
     <Compile Include="Location.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
+    <Compile Include="Platform.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Type.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Type1.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate.css" />

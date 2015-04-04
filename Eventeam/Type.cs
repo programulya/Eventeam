@@ -12,16 +12,9 @@ namespace Eventeam
     using System;
     using System.Collections.Generic;
     
-    public partial class Level
+    public partial class Type
     {
-        public Level()
-        {
-            this.Platforms = new HashSet<Platform>();
-        }
-    
-        public int LevelID { get; set; }
-        public int Name { get; set; }
-    
-        public virtual ICollection<Platform> Platforms { get; set; }
+        public int TypeID { get; set; }
+        public string Name { get; set; }
     }
 }
