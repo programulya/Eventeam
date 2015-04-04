@@ -14,7 +14,14 @@ namespace Eventeam
     
     public partial class City
     {
+        public City()
+        {
+            this.Platforms = new HashSet<Platform>();
+        }
+    
         public int CityID { get; set; }
         public string Name { get; set; }
+    
+        public virtual ICollection<Platform> Platforms { get; set; }
     }
 }

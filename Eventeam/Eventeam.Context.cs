@@ -30,5 +30,10 @@ namespace Eventeam
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Classification> Classifications { get; set; }
         public virtual DbSet<Kitchen> Kitchens { get; set; }
+        public virtual DbSet<Platform> Platforms { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Type> Types { get; set; }
+        public virtual DbSet<Type1> Type1 { get; set; }
     }
 }

@@ -10,6 +10,14 @@
         <EntityTypeShape EntityType="EventeamModel.Location" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EventeamModel.Classification" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EventeamModel.Kitchen" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventeamModel.Platform" Width="1.5" PointX="5.375" PointY="3.625" />
+        <EntityTypeShape EntityType="EventeamModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="EventeamModel.Category" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="EventeamModel.Type" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EventeamModel.Type1" Width="1.5" PointX="7.75" PointY="3.75" />
+        <AssociationConnector Association="EventeamModel.FK_Platform_City" />
+        <AssociationConnector Association="EventeamModel.FK_Platform_Level" />
+        <AssociationConnector Association="EventeamModel.FK_Platform_Location" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

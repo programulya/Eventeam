@@ -12,16 +12,18 @@ namespace Eventeam
     using System;
     using System.Collections.Generic;
     
-    public partial class Level
+    public partial class Platform
     {
-        public Level()
-        {
-            this.Platforms = new HashSet<Platform>();
-        }
-    
+        public int PlatformID { get; set; }
+        public string Name { get; set; }
+        public int CityID { get; set; }
         public int LevelID { get; set; }
-        public int Name { get; set; }
+        public int LocationID { get; set; }
+        public System.Data.Entity.Spatial.DbGeography Geography { get; set; }
+        public string Address { get; set; }
     
-        public virtual ICollection<Platform> Platforms { get; set; }
+        public virtual City City { get; set; }
+        public virtual Level Level { get; set; }
+        public virtual Location Location { get; set; }
     }
 }
