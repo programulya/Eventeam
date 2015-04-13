@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="CityID" />
           </Key>
-          <Property Name="CityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CityID" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Level">
@@ -31,12 +31,13 @@
             <PropertyRef Name="PlatformID" />
           </Key>
           <Property Name="PlatformID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="CityID" Type="int" Nullable="false" />
           <Property Name="LevelID" Type="int" Nullable="false" />
           <Property Name="LocationID" Type="int" Nullable="false" />
           <Property Name="Geography" Type="geography" Nullable="false" />
-          <Property Name="Address" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Site" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -48,21 +49,56 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="Category">
+        <EntityType Name="Hotel">
           <Key>
-            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="HotelID" />
           </Key>
-          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HotelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlatformID" Type="int" Nullable="false" />
+          <Property Name="HotelCategoryID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Site" Type="nvarchar" MaxLength="200" />
+          <Property Name="Rooms" Type="int" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
+          <Property Name="Entertainment" Type="nvarchar(max)" />
+          <Property Name="Rehabilitation" Type="nvarchar(max)" />
+          <Property Name="Parking" Type="nvarchar(max)" />
+          <Property Name="Internet" Type="nvarchar(max)" />
+          <Property Name="Other" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HotelCategory">
+          <Key>
+            <PropertyRef Name="HotelCategoryID" />
+          </Key>
+          <Property Name="HotelCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HotelID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="RoomCategoryID" Type="int" Nullable="false" />
+          <Property Name="RoomTypeID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoomCategory">
+          <Key>
+            <PropertyRef Name="RoomCategoryID" />
+          </Key>
+          <Property Name="RoomCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <EntityType Name="Type">
+        <EntityType Name="RoomType">
           <Key>
             <PropertyRef Name="TypeID" />
           </Key>
           <Property Name="TypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <EntityType Name="Type1">
+        <EntityType Name="NonStandardType">
           <Key>
             <PropertyRef Name="TypeID" />
           </Key>
@@ -83,6 +119,30 @@
           <Property Name="ClassificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="200" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Hotel_HotelCategory">
+          <End Role="HotelCategory" Type="Self.HotelCategory" Multiplicity="0..1" />
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelCategory">
+              <PropertyRef Name="HotelCategoryID" />
+            </Principal>
+            <Dependent Role="Hotel">
+              <PropertyRef Name="HotelCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hotel_Platform">
+          <End Role="Platform" Type="Self.Platform" Multiplicity="1" />
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformID" />
+            </Principal>
+            <Dependent Role="Hotel">
+              <PropertyRef Name="PlatformID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Platform_City">
           <End Role="City" Type="Self.City" Multiplicity="1" />
           <End Role="Platform" Type="Self.Platform" Multiplicity="*" />
@@ -119,17 +179,95 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Room_Category">
+          <End Role="RoomCategory" Type="Self.RoomCategory" Multiplicity="1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomCategory">
+              <PropertyRef Name="RoomCategoryID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="RoomCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Hotel">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="HotelID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="HotelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_RoomType">
+          <End Role="RoomType" Type="Self.RoomType" Multiplicity="1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="RoomTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="EventeamModelStoreContainer">
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Platform" EntityType="Self.Platform" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Category" EntityType="Self.Category" Schema="Hotel" store:Type="Tables" />
-          <EntitySet Name="Type" EntityType="Self.Type" Schema="Hotel" store:Type="Tables" />
-          <EntitySet Name="Type1" EntityType="Self.Type1" Schema="NonStandard" Table="Type" store:Type="Tables" />
+          <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="Hotel" store:Type="Tables" />
+          <EntitySet Name="HotelCategory" EntityType="Self.HotelCategory" Schema="Hotel" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="Hotel" store:Type="Tables" />
+          <EntitySet Name="RoomCategory" EntityType="Self.RoomCategory" Schema="Hotel" store:Type="Tables" />
+          <EntitySet Name="RoomType" EntityType="Self.RoomType" Schema="Hotel" store:Type="Tables" />
+          <EntitySet Name="NonStandardType" EntityType="Self.NonStandardType" Schema="NonStandard" store:Type="Tables" />
           <EntitySet Name="Classification" EntityType="Self.Classification" Schema="Restaurant" store:Type="Tables" />
           <EntitySet Name="Kitchen" EntityType="Self.Kitchen" Schema="Restaurant" store:Type="Tables" />
+          <AssociationSet Name="FK_Hotel_HotelCategory" Association="Self.FK_Hotel_HotelCategory">
+            <End Role="HotelCategory" EntitySet="HotelCategory" />
+            <End Role="Hotel" EntitySet="Hotel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hotel_Platform" Association="Self.FK_Hotel_Platform">
+            <End Role="Platform" EntitySet="Platform" />
+            <End Role="Hotel" EntitySet="Hotel" />
+          </AssociationSet>
           <AssociationSet Name="FK_Platform_City" Association="Self.FK_Platform_City">
             <End Role="City" EntitySet="City" />
             <End Role="Platform" EntitySet="Platform" />
@@ -142,17 +280,117 @@
             <End Role="Location" EntitySet="Location" />
             <End Role="Platform" EntitySet="Platform" />
           </AssociationSet>
+          <AssociationSet Name="FK_Room_Category" Association="Self.FK_Room_Category">
+            <End Role="RoomCategory" EntitySet="RoomCategory" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Hotel" Association="Self.FK_Room_Hotel">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_RoomType" Association="Self.FK_Room_RoomType">
+            <End Role="RoomType" EntitySet="RoomType" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EventeamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EventeamEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(EventeamModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(EventeamModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Cities" EntityType="EventeamModel.City" />
+          <EntitySet Name="Levels" EntityType="EventeamModel.Level" />
+          <EntitySet Name="Locations" EntityType="EventeamModel.Location" />
+          <EntitySet Name="Platforms" EntityType="EventeamModel.Platform" />
+          <EntitySet Name="sysdiagrams" EntityType="EventeamModel.sysdiagram" />
+          <EntitySet Name="Hotels" EntityType="EventeamModel.Hotel" />
+          <EntitySet Name="HotelCategories" EntityType="EventeamModel.HotelCategory" />
+          <EntitySet Name="Rooms" EntityType="EventeamModel.Room" />
+          <EntitySet Name="RoomCategories" EntityType="EventeamModel.RoomCategory" />
+          <EntitySet Name="RoomTypes" EntityType="EventeamModel.RoomType" />
+          <EntitySet Name="NonStandardTypes" EntityType="EventeamModel.NonStandardType" />
+          <EntitySet Name="Classifications" EntityType="EventeamModel.Classification" />
+          <EntitySet Name="Kitchens" EntityType="EventeamModel.Kitchen" />
+          <AssociationSet Name="FK_Platform_City" Association="EventeamModel.FK_Platform_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Platform" EntitySet="Platforms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Platform_Level" Association="EventeamModel.FK_Platform_Level">
+            <End Role="Level" EntitySet="Levels" />
+            <End Role="Platform" EntitySet="Platforms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Platform_Location" Association="EventeamModel.FK_Platform_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Platform" EntitySet="Platforms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hotel_Platform" Association="EventeamModel.FK_Hotel_Platform">
+            <End Role="Platform" EntitySet="Platforms" />
+            <End Role="Hotel" EntitySet="Hotels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Hotel" Association="EventeamModel.FK_Room_Hotel">
+            <End Role="Hotel" EntitySet="Hotels" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Category" Association="EventeamModel.FK_Room_Category">
+            <End Role="RoomCategory" EntitySet="RoomCategories" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_RoomType" Association="EventeamModel.FK_Room_RoomType">
+            <End Role="RoomType" EntitySet="RoomTypes" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hotel_HotelCategory" Association="EventeamModel.FK_Hotel_HotelCategory">
+            <End Role="HotelCategory" EntitySet="HotelCategories" />
+            <End Role="Hotel" EntitySet="Hotels" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="CityID" />
           </Key>
-          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Platforms" Relationship="EventeamModel.FK_Platform_City" FromRole="City" ToRole="Platform" />
         </EntityType>
         <EntityType Name="Level">
@@ -168,61 +406,25 @@
             <PropertyRef Name="LocationID" />
           </Key>
           <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Platforms" Relationship="EventeamModel.FK_Platform_Location" FromRole="Location" ToRole="Platform" />
         </EntityType>
-        <EntityType Name="Classification">
-          <Key>
-            <PropertyRef Name="ClassificationID" />
-          </Key>
-          <Property Name="ClassificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Kitchen">
-          <Key>
-            <PropertyRef Name="ClassificationID" />
-          </Key>
-          <Property Name="ClassificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityContainer Name="EventeamEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cities" EntityType="Self.City" />
-          <EntitySet Name="Levels" EntityType="Self.Level" />
-          <EntitySet Name="Locations" EntityType="Self.Location" />
-          <EntitySet Name="Classifications" EntityType="Self.Classification" />
-          <EntitySet Name="Kitchens" EntityType="Self.Kitchen" />
-          <EntitySet Name="Platforms" EntityType="EventeamModel.Platform" />
-          <EntitySet Name="sysdiagrams" EntityType="EventeamModel.sysdiagram" />
-          <EntitySet Name="Categories" EntityType="EventeamModel.Category" />
-          <EntitySet Name="Types" EntityType="EventeamModel.Type" />
-          <EntitySet Name="Type1" EntityType="EventeamModel.Type1" />
-          <AssociationSet Name="FK_Platform_City" Association="EventeamModel.FK_Platform_City">
-            <End Role="City" EntitySet="Cities" />
-            <End Role="Platform" EntitySet="Platforms" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Platform_Level" Association="EventeamModel.FK_Platform_Level">
-            <End Role="Level" EntitySet="Levels" />
-            <End Role="Platform" EntitySet="Platforms" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Platform_Location" Association="EventeamModel.FK_Platform_Location">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="Platform" EntitySet="Platforms" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="Platform">
           <Key>
             <PropertyRef Name="PlatformID" />
           </Key>
           <Property Name="PlatformID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="CityID" Type="Int32" Nullable="false" />
           <Property Name="LevelID" Type="Int32" Nullable="false" />
           <Property Name="LocationID" Type="Int32" Nullable="false" />
           <Property Name="Geography" Type="Geography" Nullable="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Site" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="City" Relationship="EventeamModel.FK_Platform_City" FromRole="Platform" ToRole="City" />
           <NavigationProperty Name="Level" Relationship="EventeamModel.FK_Platform_Level" FromRole="Platform" ToRole="Level" />
           <NavigationProperty Name="Location" Relationship="EventeamModel.FK_Platform_Location" FromRole="Platform" ToRole="Location" />
+          <NavigationProperty Name="Hotels" Relationship="EventeamModel.FK_Hotel_Platform" FromRole="Platform" ToRole="Hotel" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -234,25 +436,83 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Category">
+        <EntityType Name="Hotel">
           <Key>
-            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="HotelID" />
           </Key>
-          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="HotelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlatformID" Type="Int32" Nullable="false" />
+          <Property Name="HotelCategoryID" Type="Int32" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Site" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Rooms" Type="Int32" Nullable="false" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
+          <Property Name="Entertainment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Rehabilitation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Parking" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Internet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Other" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Platform" Relationship="EventeamModel.FK_Hotel_Platform" FromRole="Hotel" ToRole="Platform" />
+          <NavigationProperty Name="Rooms1" Relationship="EventeamModel.FK_Room_Hotel" FromRole="Hotel" ToRole="Room" />
+          <NavigationProperty Name="HotelCategory" Relationship="EventeamModel.FK_Hotel_HotelCategory" FromRole="Hotel" ToRole="HotelCategory" />
         </EntityType>
-        <EntityType Name="Type">
+        <EntityType Name="HotelCategory">
+          <Key>
+            <PropertyRef Name="HotelCategoryID" />
+          </Key>
+          <Property Name="HotelCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hotels" Relationship="EventeamModel.FK_Hotel_HotelCategory" FromRole="HotelCategory" ToRole="Hotel" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HotelID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RoomCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="RoomTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hotel" Relationship="EventeamModel.FK_Room_Hotel" FromRole="Room" ToRole="Hotel" />
+          <NavigationProperty Name="RoomCategory" Relationship="EventeamModel.FK_Room_Category" FromRole="Room" ToRole="RoomCategory" />
+          <NavigationProperty Name="RoomType" Relationship="EventeamModel.FK_Room_RoomType" FromRole="Room" ToRole="RoomType" />
+        </EntityType>
+        <EntityType Name="RoomCategory">
+          <Key>
+            <PropertyRef Name="RoomCategoryID" />
+          </Key>
+          <Property Name="RoomCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Rooms" Relationship="EventeamModel.FK_Room_Category" FromRole="RoomCategory" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="RoomType">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Rooms" Relationship="EventeamModel.FK_Room_RoomType" FromRole="RoomType" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="NonStandardType">
           <Key>
             <PropertyRef Name="TypeID" />
           </Key>
           <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
         </EntityType>
-        <EntityType Name="Type1">
+        <EntityType Name="Classification">
           <Key>
-            <PropertyRef Name="TypeID" />
+            <PropertyRef Name="ClassificationID" />
           </Key>
-          <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Kitchen">
+          <Key>
+            <PropertyRef Name="ClassificationID" />
+          </Key>
+          <Property Name="ClassificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_Platform_City">
@@ -291,55 +551,124 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Hotel_Platform">
+          <End Type="EventeamModel.Platform" Role="Platform" Multiplicity="1" />
+          <End Type="EventeamModel.Hotel" Role="Hotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformID" />
+            </Principal>
+            <Dependent Role="Hotel">
+              <PropertyRef Name="PlatformID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Hotel">
+          <End Type="EventeamModel.Hotel" Role="Hotel" Multiplicity="1" />
+          <End Type="EventeamModel.Room" Role="Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="HotelID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="HotelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Category">
+          <End Type="EventeamModel.RoomCategory" Role="RoomCategory" Multiplicity="1" />
+          <End Type="EventeamModel.Room" Role="Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomCategory">
+              <PropertyRef Name="RoomCategoryID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="RoomCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_RoomType">
+          <End Type="EventeamModel.RoomType" Role="RoomType" Multiplicity="1" />
+          <End Type="EventeamModel.Room" Role="Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="RoomTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hotel_HotelCategory">
+          <End Type="EventeamModel.HotelCategory" Role="HotelCategory" Multiplicity="0..1" />
+          <End Type="EventeamModel.Hotel" Role="Hotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelCategory">
+              <PropertyRef Name="HotelCategoryID" />
+            </Principal>
+            <Dependent Role="Hotel">
+              <PropertyRef Name="HotelCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="EventeamModelStoreContainer" CdmEntityContainer="EventeamEntities">
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="EventeamModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="EventeamModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="EventeamModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="EventeamModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EventeamModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="EventeamModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EventeamModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="EventeamModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="EventeamModel.Store.sp_upgraddiagrams" />
           <EntitySetMapping Name="Cities">
             <EntityTypeMapping TypeName="EventeamModel.City">
               <MappingFragment StoreEntitySet="City">
-                <ScalarProperty Name="CityID" ColumnName="CityID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Levels">
             <EntityTypeMapping TypeName="EventeamModel.Level">
               <MappingFragment StoreEntitySet="Level">
-                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Locations">
             <EntityTypeMapping TypeName="EventeamModel.Location">
               <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Classifications">
-            <EntityTypeMapping TypeName="EventeamModel.Classification">
-              <MappingFragment StoreEntitySet="Classification">
-                <ScalarProperty Name="ClassificationID" ColumnName="ClassificationID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Kitchens">
-            <EntityTypeMapping TypeName="EventeamModel.Kitchen">
-              <MappingFragment StoreEntitySet="Kitchen">
-                <ScalarProperty Name="ClassificationID" ColumnName="ClassificationID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Platforms">
             <EntityTypeMapping TypeName="EventeamModel.Platform">
               <MappingFragment StoreEntitySet="Platform">
+                <ScalarProperty Name="Site" ColumnName="Site" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Geography" ColumnName="Geography" />
                 <ScalarProperty Name="LocationID" ColumnName="LocationID" />
@@ -361,31 +690,85 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="EventeamModel.Category">
-              <MappingFragment StoreEntitySet="Category">
+          <EntitySetMapping Name="Hotels">
+            <EntityTypeMapping TypeName="EventeamModel.Hotel">
+              <MappingFragment StoreEntitySet="Hotel">
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="Internet" ColumnName="Internet" />
+                <ScalarProperty Name="Parking" ColumnName="Parking" />
+                <ScalarProperty Name="Rehabilitation" ColumnName="Rehabilitation" />
+                <ScalarProperty Name="Entertainment" ColumnName="Entertainment" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Rooms" ColumnName="Rooms" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="HotelCategoryID" ColumnName="HotelCategoryID" />
+                <ScalarProperty Name="PlatformID" ColumnName="PlatformID" />
+                <ScalarProperty Name="HotelID" ColumnName="HotelID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Types">
-            <EntityTypeMapping TypeName="EventeamModel.Type">
-              <MappingFragment StoreEntitySet="Type">
+          <EntitySetMapping Name="HotelCategories">
+            <EntityTypeMapping TypeName="EventeamModel.HotelCategory">
+              <MappingFragment StoreEntitySet="HotelCategory">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="HotelCategoryID" ColumnName="HotelCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="EventeamModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+                <ScalarProperty Name="RoomCategoryID" ColumnName="RoomCategoryID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoomCategories">
+            <EntityTypeMapping TypeName="EventeamModel.RoomCategory">
+              <MappingFragment StoreEntitySet="RoomCategory">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RoomCategoryID" ColumnName="RoomCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoomTypes">
+            <EntityTypeMapping TypeName="EventeamModel.RoomType">
+              <MappingFragment StoreEntitySet="RoomType">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Type1">
-            <EntityTypeMapping TypeName="EventeamModel.Type1">
-              <MappingFragment StoreEntitySet="Type1">
+          <EntitySetMapping Name="NonStandardTypes">
+            <EntityTypeMapping TypeName="EventeamModel.NonStandardType">
+              <MappingFragment StoreEntitySet="NonStandardType">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="Classifications">
+            <EntityTypeMapping TypeName="EventeamModel.Classification">
+              <MappingFragment StoreEntitySet="Classification">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassificationID" ColumnName="ClassificationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kitchens">
+            <EntityTypeMapping TypeName="EventeamModel.Kitchen">
+              <MappingFragment StoreEntitySet="Kitchen">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ClassificationID" ColumnName="ClassificationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

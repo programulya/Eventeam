@@ -18,17 +18,6 @@ namespace Eventeam
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            using (var db = new EventeamEntities())
-            {
-                var platforms = db.Platforms.ToList();
-
-                foreach (var platform in platforms)
-                {
-                    Console.WriteLine("{0} {1} {2} {3}", platform.Geography, platform.Name, platform.Level,
-                        platform.Location);
-                }
-            }
         }
     }
 }

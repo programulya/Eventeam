@@ -5,19 +5,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d36d111fc5d140f388062c11b429b77a" Name="Diagram1" ZoomLevel="100">
-        <EntityTypeShape EntityType="EventeamModel.City" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventeamModel.Level" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventeamModel.Location" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventeamModel.Classification" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventeamModel.Kitchen" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventeamModel.Platform" Width="1.5" PointX="5.375" PointY="3.625" />
-        <EntityTypeShape EntityType="EventeamModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="EventeamModel.Category" Width="1.5" PointX="2.75" PointY="6.75" />
-        <EntityTypeShape EntityType="EventeamModel.Type" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="EventeamModel.Type1" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="EventeamModel.City" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="EventeamModel.Level" Width="1.5" PointX="0.75" PointY="6.375" />
+        <EntityTypeShape EntityType="EventeamModel.Location" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EventeamModel.Platform" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="EventeamModel.sysdiagram" Width="1.5" PointX="0.75" PointY="9.25" />
+        <EntityTypeShape EntityType="EventeamModel.Hotel" Width="1.5" PointX="5.25" PointY="2.5" />
+        <EntityTypeShape EntityType="EventeamModel.HotelCategory" Width="1.5" PointX="7.75" PointY="7.25" />
+        <EntityTypeShape EntityType="EventeamModel.Room" Width="1.5" PointX="7.5" PointY="3" />
+        <EntityTypeShape EntityType="EventeamModel.RoomCategory" Width="1.5" PointX="5.25" PointY="7.375" />
+        <EntityTypeShape EntityType="EventeamModel.RoomType" Width="1.5" PointX="5.25" PointY="10.75" />
+        <EntityTypeShape EntityType="EventeamModel.NonStandardType" Width="1.5" PointX="7.75" PointY="10.25" />
+        <EntityTypeShape EntityType="EventeamModel.Classification" Width="1.5" PointX="9.75" PointY="2.25" />
+        <EntityTypeShape EntityType="EventeamModel.Kitchen" Width="1.5" PointX="9.75" PointY="5.25" />
         <AssociationConnector Association="EventeamModel.FK_Platform_City" />
         <AssociationConnector Association="EventeamModel.FK_Platform_Level" />
         <AssociationConnector Association="EventeamModel.FK_Platform_Location" />
+        <AssociationConnector Association="EventeamModel.FK_Hotel_Platform" />
+        <AssociationConnector Association="EventeamModel.FK_Room_Hotel" />
+        <AssociationConnector Association="EventeamModel.FK_Room_Category" />
+        <AssociationConnector Association="EventeamModel.FK_Room_RoomType" />
+        <AssociationConnector Association="EventeamModel.FK_Hotel_HotelCategory" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

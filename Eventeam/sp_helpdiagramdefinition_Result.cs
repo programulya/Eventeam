@@ -10,11 +10,10 @@
 namespace Eventeam
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Type1
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int TypeID { get; set; }
-        public string Name { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

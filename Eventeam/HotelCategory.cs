@@ -12,9 +12,16 @@ namespace Eventeam
     using System;
     using System.Collections.Generic;
     
-    public partial class Type
+    public partial class HotelCategory
     {
-        public int TypeID { get; set; }
-        public string Name { get; set; }
+        public HotelCategory()
+        {
+            this.Hotels = new HashSet<Hotel>();
+        }
+    
+        public int HotelCategoryID { get; set; }
+        public int Name { get; set; }
+    
+        public virtual ICollection<Hotel> Hotels { get; set; }
     }
 }

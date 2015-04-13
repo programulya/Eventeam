@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Eventeam.Controllers;
@@ -6,30 +7,31 @@ using Eventeam.Controllers;
 namespace Eventeam.Tests.Controllers
 {
     [TestClass]
-    public class ValuesControllerTest
+    public class HotelsControllerTest
     {
         [TestMethod]
         public void Get()
         {
             // Arrange
-            var controller = new ValuesController();
+            var controller = new HotelsController();
 
             // Act
             var result = controller.Get();
 
             // Assert
             Assert.IsNotNull(result);
-            var list = result as IList<string> ?? result.ToList();
-            Assert.AreEqual(2, list.Count());
-            Assert.AreEqual("value1", list.ElementAt(0));
-            Assert.AreEqual("value2", list.ElementAt(1));
+            var list = result;
+            var hotels = list as IList<Hotel> ?? list.ToList();
+            Assert.AreEqual(2, hotels.Count());
+            Assert.AreEqual("value1", hotels.ElementAt(0));
+            Assert.AreEqual("value2", hotels.ElementAt(1));
         }
 
         [TestMethod]
         public void GetById()
         {
             // Arrange
-            var controller = new ValuesController();
+            var controller = new HotelsController();
 
             // Act
             var result = controller.Get(5);
@@ -42,7 +44,7 @@ namespace Eventeam.Tests.Controllers
         public void Post()
         {
             // Arrange
-            var controller = new ValuesController();
+            var controller = new HotelsController();
 
             // Act
             // Assert
@@ -53,7 +55,7 @@ namespace Eventeam.Tests.Controllers
         public void Put()
         {
             // Arrange
-            var controller = new ValuesController();
+            var controller = new HotelsController();
 
             // Act
             // Assert
@@ -64,7 +66,7 @@ namespace Eventeam.Tests.Controllers
         public void Delete()
         {
             // Arrange
-            var controller = new ValuesController();
+            var controller = new HotelsController();
 
             // Act
             // Assert

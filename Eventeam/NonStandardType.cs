@@ -12,9 +12,9 @@ namespace Eventeam
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class NonStandardType
     {
-        public int CategoryID { get; set; }
+        public int TypeID { get; set; }
         public string Name { get; set; }
     }
 }

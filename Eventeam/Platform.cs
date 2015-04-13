@@ -14,6 +14,11 @@ namespace Eventeam
     
     public partial class Platform
     {
+        public Platform()
+        {
+            this.Hotels = new HashSet<Hotel>();
+        }
+    
         public int PlatformID { get; set; }
         public string Name { get; set; }
         public int CityID { get; set; }
@@ -21,9 +26,11 @@ namespace Eventeam
         public int LocationID { get; set; }
         public System.Data.Entity.Spatial.DbGeography Geography { get; set; }
         public string Address { get; set; }
+        public string Site { get; set; }
     
         public virtual City City { get; set; }
         public virtual Level Level { get; set; }
         public virtual Location Location { get; set; }
+        public virtual ICollection<Hotel> Hotels { get; set; }
     }
 }

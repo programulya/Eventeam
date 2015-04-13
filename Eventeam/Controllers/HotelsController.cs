@@ -1,14 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace Eventeam.Controllers
 {
-    public class ValuesController : ApiController
+    public class HotelsController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<Hotel> Get()
         {
-            return new[] { "value1", "value2" };
+            using (var db = new EventeamEntities())
+            {
+                var hotels = db.Hotels;
+
+                return hotels.AsEnumerable();
+            }
         }
 
         // GET api/values/5

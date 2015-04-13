@@ -127,9 +127,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Category.cs">
-      <DependentUpon>Eventeam.tt</DependentUpon>
-    </Compile>
     <Compile Include="City.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
@@ -137,7 +134,7 @@
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Eventeam.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,6 +153,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hotel.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelCategory.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
     <Compile Include="Kitchen.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
@@ -165,17 +168,29 @@
     <Compile Include="Location.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
+    <Compile Include="NonStandardType.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
     <Compile Include="Platform.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoomCategory.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoomType.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>Eventeam.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Type.cs">
-      <DependentUpon>Eventeam.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Type1.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
   </ItemGroup>
