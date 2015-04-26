@@ -7,7 +7,7 @@ namespace Eventeam
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            // TODO Add more resorces
+            // TODO Add more resources
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
