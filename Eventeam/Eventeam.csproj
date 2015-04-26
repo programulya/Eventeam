@@ -259,6 +259,14 @@
     <Content Include="images\photo-4.jpg" />
     <Content Include="images\photo-5.jpg" />
     <Content Include="images\photo-6.jpg" />
+    <Content Include="images\portfolio\kanefronfest_001--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest_001-.jpg" />
+    <Content Include="images\portfolio\kanefronfest_002--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest_002-.jpg" />
+    <Content Include="images\portfolio\kanefronfest_003--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest_003-.jpg" />
+    <Content Include="images\portfolio\kanefronfest_004--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest_004-.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\screenshot.png" />
     <Content Include="images\showcase.png" />
