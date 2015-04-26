@@ -10,23 +10,28 @@ namespace Eventeam.Controllers
     public class HotelsController : ApiController
     {
         // GET api/values
-        public IEnumerable<Hotel> Get()
+        public JsonResult<List<Hotel>> Get()
         {
             using (var db = new EventeamEntities())
             {
-                var hotels = db.Hotels;
+                var hotels = db.Hotels.ToList();
 
-                return hotels.AsEnumerable();
+                return Json(hotels);
             }
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public JsonResult<Hotel> Get(int id)
         {
-            return "value";
+            using (var db = new EventeamEntities())
+            {
+                var hotel = db.Hotels.FirstOrDefault(h => h.HotelID == id);
+
+                return Json(hotel);
+            }
         }
 
-        // POST api/values
+        /*// POST api/values
         public void Post([FromBody]string value)
         {
         }
@@ -39,6 +44,6 @@ namespace Eventeam.Controllers
         // DELETE api/values/5
         public void Delete(int id)
         {
-        }
+        }*/
     }
 }
