@@ -16,7 +16,9 @@ namespace Eventeam
     {
         public Platform()
         {
+            this.Halls = new HashSet<Hall>();
             this.Hotels = new HashSet<Hotel>();
+            this.Restaurants = new HashSet<Restaurant>();
         }
     
         public int PlatformID { get; set; }
@@ -31,6 +33,8 @@ namespace Eventeam
         public virtual City City { get; set; }
         public virtual Level Level { get; set; }
         public virtual Location Location { get; set; }
+        public virtual ICollection<Hall> Halls { get; set; }
         public virtual ICollection<Hotel> Hotels { get; set; }
+        public virtual ICollection<Restaurant> Restaurants { get; set; }
     }
 }

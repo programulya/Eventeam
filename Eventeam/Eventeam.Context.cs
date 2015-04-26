@@ -32,6 +32,7 @@ namespace Eventeam
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Platform> Platforms { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Hall> Halls { get; set; }
         public virtual DbSet<Hotel> Hotels { get; set; }
         public virtual DbSet<HotelCategory> HotelCategories { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
@@ -40,6 +41,7 @@ namespace Eventeam
         public virtual DbSet<NonStandardType> NonStandardTypes { get; set; }
         public virtual DbSet<Classification> Classifications { get; set; }
         public virtual DbSet<Kitchen> Kitchens { get; set; }
+        public virtual DbSet<Restaurant> Restaurants { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

@@ -248,6 +248,5 @@ namespace Eventeam.Controllers
 
             return View();
         }
-
     }
 }

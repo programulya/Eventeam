@@ -14,7 +14,14 @@ namespace Eventeam
     
     public partial class Classification
     {
+        public Classification()
+        {
+            this.Restaurants = new HashSet<Restaurant>();
+        }
+    
         public int ClassificationID { get; set; }
         public string Name { get; set; }
+    
+        public virtual ICollection<Restaurant> Restaurants { get; set; }
     }
 }

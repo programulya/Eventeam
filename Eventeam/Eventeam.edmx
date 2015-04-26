@@ -49,6 +49,22 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="Hall">
+          <Key>
+            <PropertyRef Name="HallID" />
+          </Key>
+          <Property Name="HallID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlatformID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Square" Type="int" />
+          <Property Name="Theater" Type="int" />
+          <Property Name="Class" Type="int" />
+          <Property Name="PPlanting" Type="int" />
+          <Property Name="MeetingRoom" Type="int" />
+          <Property Name="Banquet" Type="int" />
+          <Property Name="Buffet" Type="int" />
+          <Property Name="Equipment" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Hotel">
           <Key>
             <PropertyRef Name="HotelID" />
@@ -114,11 +130,37 @@
         </EntityType>
         <EntityType Name="Kitchen">
           <Key>
-            <PropertyRef Name="ClassificationID" />
+            <PropertyRef Name="KitchenID" />
           </Key>
-          <Property Name="ClassificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KitchenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="200" Nullable="false" />
         </EntityType>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="RestaurantID" />
+          </Key>
+          <Property Name="RestaurantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlatformID" Type="int" Nullable="false" />
+          <Property Name="ClassificationID" Type="int" />
+          <Property Name="KitchenID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Banquet" Type="int" />
+          <Property Name="Buffet" Type="int" />
+          <Property Name="Square" Type="int" />
+          <Property Name="Seating" Type="int" />
+        </EntityType>
+        <Association Name="FK_Hall_Platform">
+          <End Role="Platform" Type="Self.Platform" Multiplicity="1" />
+          <End Role="Hall" Type="Self.Hall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformID" />
+            </Principal>
+            <Dependent Role="Hall">
+              <PropertyRef Name="PlatformID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Hotel_HotelCategory">
           <End Role="HotelCategory" Type="Self.HotelCategory" Multiplicity="0..1" />
           <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
@@ -176,6 +218,42 @@
             </Principal>
             <Dependent Role="Platform">
               <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Classification">
+          <End Role="Classification" Type="Self.Classification" Multiplicity="0..1" />
+          <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classification">
+              <PropertyRef Name="ClassificationID" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="ClassificationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Kitchen">
+          <End Role="Kitchen" Type="Self.Kitchen" Multiplicity="1" />
+          <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kitchen">
+              <PropertyRef Name="KitchenID" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="KitchenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Platform">
+          <End Role="Platform" Type="Self.Platform" Multiplicity="1" />
+          <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformID" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="PlatformID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -252,6 +330,7 @@
           <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Platform" EntityType="Self.Platform" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hall" EntityType="Self.Hall" Schema="Hall" store:Type="Tables" />
           <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="Hotel" store:Type="Tables" />
           <EntitySet Name="HotelCategory" EntityType="Self.HotelCategory" Schema="Hotel" store:Type="Tables" />
           <EntitySet Name="Room" EntityType="Self.Room" Schema="Hotel" store:Type="Tables" />
@@ -260,6 +339,11 @@
           <EntitySet Name="NonStandardType" EntityType="Self.NonStandardType" Schema="NonStandard" store:Type="Tables" />
           <EntitySet Name="Classification" EntityType="Self.Classification" Schema="Restaurant" store:Type="Tables" />
           <EntitySet Name="Kitchen" EntityType="Self.Kitchen" Schema="Restaurant" store:Type="Tables" />
+          <EntitySet Name="Restaurant" EntityType="Self.Restaurant" Schema="Restaurant" store:Type="Tables" />
+          <AssociationSet Name="FK_Hall_Platform" Association="Self.FK_Hall_Platform">
+            <End Role="Platform" EntitySet="Platform" />
+            <End Role="Hall" EntitySet="Hall" />
+          </AssociationSet>
           <AssociationSet Name="FK_Hotel_HotelCategory" Association="Self.FK_Hotel_HotelCategory">
             <End Role="HotelCategory" EntitySet="HotelCategory" />
             <End Role="Hotel" EntitySet="Hotel" />
@@ -279,6 +363,18 @@
           <AssociationSet Name="FK_Platform_Location" Association="Self.FK_Platform_Location">
             <End Role="Location" EntitySet="Location" />
             <End Role="Platform" EntitySet="Platform" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_Classification" Association="Self.FK_Restaurant_Classification">
+            <End Role="Classification" EntitySet="Classification" />
+            <End Role="Restaurant" EntitySet="Restaurant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_Kitchen" Association="Self.FK_Restaurant_Kitchen">
+            <End Role="Kitchen" EntitySet="Kitchen" />
+            <End Role="Restaurant" EntitySet="Restaurant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_Platform" Association="Self.FK_Restaurant_Platform">
+            <End Role="Platform" EntitySet="Platform" />
+            <End Role="Restaurant" EntitySet="Restaurant" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_Category" Association="Self.FK_Room_Category">
             <End Role="RoomCategory" EntitySet="RoomCategory" />
@@ -333,6 +429,7 @@
           <EntitySet Name="Locations" EntityType="EventeamModel.Location" />
           <EntitySet Name="Platforms" EntityType="EventeamModel.Platform" />
           <EntitySet Name="sysdiagrams" EntityType="EventeamModel.sysdiagram" />
+          <EntitySet Name="Halls" EntityType="EventeamModel.Hall" />
           <EntitySet Name="Hotels" EntityType="EventeamModel.Hotel" />
           <EntitySet Name="HotelCategories" EntityType="EventeamModel.HotelCategory" />
           <EntitySet Name="Rooms" EntityType="EventeamModel.Room" />
@@ -341,6 +438,7 @@
           <EntitySet Name="NonStandardTypes" EntityType="EventeamModel.NonStandardType" />
           <EntitySet Name="Classifications" EntityType="EventeamModel.Classification" />
           <EntitySet Name="Kitchens" EntityType="EventeamModel.Kitchen" />
+          <EntitySet Name="Restaurants" EntityType="EventeamModel.Restaurant" />
           <AssociationSet Name="FK_Platform_City" Association="EventeamModel.FK_Platform_City">
             <End Role="City" EntitySet="Cities" />
             <End Role="Platform" EntitySet="Platforms" />
@@ -353,9 +451,17 @@
             <End Role="Location" EntitySet="Locations" />
             <End Role="Platform" EntitySet="Platforms" />
           </AssociationSet>
+          <AssociationSet Name="FK_Hall_Platform" Association="EventeamModel.FK_Hall_Platform">
+            <End Role="Platform" EntitySet="Platforms" />
+            <End Role="Hall" EntitySet="Halls" />
+          </AssociationSet>
           <AssociationSet Name="FK_Hotel_Platform" Association="EventeamModel.FK_Hotel_Platform">
             <End Role="Platform" EntitySet="Platforms" />
             <End Role="Hotel" EntitySet="Hotels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_Platform" Association="EventeamModel.FK_Restaurant_Platform">
+            <End Role="Platform" EntitySet="Platforms" />
+            <End Role="Restaurant" EntitySet="Restaurants" />
           </AssociationSet>
           <AssociationSet Name="FK_Hotel_HotelCategory" Association="EventeamModel.FK_Hotel_HotelCategory">
             <End Role="HotelCategory" EntitySet="HotelCategories" />
@@ -372,6 +478,14 @@
           <AssociationSet Name="FK_Room_RoomType" Association="EventeamModel.FK_Room_RoomType">
             <End Role="RoomType" EntitySet="RoomTypes" />
             <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_Classification" Association="EventeamModel.FK_Restaurant_Classification">
+            <End Role="Classification" EntitySet="Classifications" />
+            <End Role="Restaurant" EntitySet="Restaurants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_Kitchen" Association="EventeamModel.FK_Restaurant_Kitchen">
+            <End Role="Kitchen" EntitySet="Kitchens" />
+            <End Role="Restaurant" EntitySet="Restaurants" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -424,7 +538,9 @@
           <NavigationProperty Name="City" Relationship="EventeamModel.FK_Platform_City" FromRole="Platform" ToRole="City" />
           <NavigationProperty Name="Level" Relationship="EventeamModel.FK_Platform_Level" FromRole="Platform" ToRole="Level" />
           <NavigationProperty Name="Location" Relationship="EventeamModel.FK_Platform_Location" FromRole="Platform" ToRole="Location" />
+          <NavigationProperty Name="Halls" Relationship="EventeamModel.FK_Hall_Platform" FromRole="Platform" ToRole="Hall" />
           <NavigationProperty Name="Hotels" Relationship="EventeamModel.FK_Hotel_Platform" FromRole="Platform" ToRole="Hotel" />
+          <NavigationProperty Name="Restaurants" Relationship="EventeamModel.FK_Restaurant_Platform" FromRole="Platform" ToRole="Restaurant" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -435,6 +551,23 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Hall">
+          <Key>
+            <PropertyRef Name="HallID" />
+          </Key>
+          <Property Name="HallID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlatformID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Square" Type="Int32" />
+          <Property Name="Theater" Type="Int32" />
+          <Property Name="Class" Type="Int32" />
+          <Property Name="PPlanting" Type="Int32" />
+          <Property Name="MeetingRoom" Type="Int32" />
+          <Property Name="Banquet" Type="Int32" />
+          <Property Name="Buffet" Type="Int32" />
+          <Property Name="Equipment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Platform" Relationship="EventeamModel.FK_Hall_Platform" FromRole="Hall" ToRole="Platform" />
         </EntityType>
         <EntityType Name="Hotel">
           <Key>
@@ -507,13 +640,32 @@
           </Key>
           <Property Name="ClassificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Restaurants" Relationship="EventeamModel.FK_Restaurant_Classification" FromRole="Classification" ToRole="Restaurant" />
         </EntityType>
         <EntityType Name="Kitchen">
           <Key>
-            <PropertyRef Name="ClassificationID" />
+            <PropertyRef Name="KitchenID" />
           </Key>
-          <Property Name="ClassificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KitchenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Restaurants" Relationship="EventeamModel.FK_Restaurant_Kitchen" FromRole="Kitchen" ToRole="Restaurant" />
+        </EntityType>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="RestaurantID" />
+          </Key>
+          <Property Name="RestaurantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlatformID" Type="Int32" Nullable="false" />
+          <Property Name="ClassificationID" Type="Int32" />
+          <Property Name="KitchenID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Banquet" Type="Int32" />
+          <Property Name="Buffet" Type="Int32" />
+          <Property Name="Square" Type="Int32" />
+          <Property Name="Seating" Type="Int32" />
+          <NavigationProperty Name="Platform" Relationship="EventeamModel.FK_Restaurant_Platform" FromRole="Restaurant" ToRole="Platform" />
+          <NavigationProperty Name="Classification" Relationship="EventeamModel.FK_Restaurant_Classification" FromRole="Restaurant" ToRole="Classification" />
+          <NavigationProperty Name="Kitchen" Relationship="EventeamModel.FK_Restaurant_Kitchen" FromRole="Restaurant" ToRole="Kitchen" />
         </EntityType>
         <Association Name="FK_Platform_City">
           <End Type="EventeamModel.City" Role="City" Multiplicity="1" />
@@ -551,6 +703,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Hall_Platform">
+          <End Type="EventeamModel.Platform" Role="Platform" Multiplicity="1" />
+          <End Type="EventeamModel.Hall" Role="Hall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformID" />
+            </Principal>
+            <Dependent Role="Hall">
+              <PropertyRef Name="PlatformID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Hotel_Platform">
           <End Type="EventeamModel.Platform" Role="Platform" Multiplicity="1" />
           <End Type="EventeamModel.Hotel" Role="Hotel" Multiplicity="*" />
@@ -559,6 +723,18 @@
               <PropertyRef Name="PlatformID" />
             </Principal>
             <Dependent Role="Hotel">
+              <PropertyRef Name="PlatformID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Platform">
+          <End Type="EventeamModel.Platform" Role="Platform" Multiplicity="1" />
+          <End Type="EventeamModel.Restaurant" Role="Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformID" />
+            </Principal>
+            <Dependent Role="Restaurant">
               <PropertyRef Name="PlatformID" />
             </Dependent>
           </ReferentialConstraint>
@@ -608,6 +784,30 @@
             </Principal>
             <Dependent Role="Room">
               <PropertyRef Name="RoomTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Classification">
+          <End Type="EventeamModel.Classification" Role="Classification" Multiplicity="0..1" />
+          <End Type="EventeamModel.Restaurant" Role="Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classification">
+              <PropertyRef Name="ClassificationID" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="ClassificationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Kitchen">
+          <End Type="EventeamModel.Kitchen" Role="Kitchen" Multiplicity="1" />
+          <End Type="EventeamModel.Restaurant" Role="Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kitchen">
+              <PropertyRef Name="KitchenID" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="KitchenID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -690,6 +890,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Halls">
+            <EntityTypeMapping TypeName="EventeamModel.Hall">
+              <MappingFragment StoreEntitySet="Hall">
+                <ScalarProperty Name="Equipment" ColumnName="Equipment" />
+                <ScalarProperty Name="Buffet" ColumnName="Buffet" />
+                <ScalarProperty Name="Banquet" ColumnName="Banquet" />
+                <ScalarProperty Name="MeetingRoom" ColumnName="MeetingRoom" />
+                <ScalarProperty Name="PPlanting" ColumnName="PPlanting" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Theater" ColumnName="Theater" />
+                <ScalarProperty Name="Square" ColumnName="Square" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PlatformID" ColumnName="PlatformID" />
+                <ScalarProperty Name="HallID" ColumnName="HallID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Hotels">
             <EntityTypeMapping TypeName="EventeamModel.Hotel">
               <MappingFragment StoreEntitySet="Hotel">
@@ -764,7 +981,22 @@
             <EntityTypeMapping TypeName="EventeamModel.Kitchen">
               <MappingFragment StoreEntitySet="Kitchen">
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="KitchenID" ColumnName="KitchenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restaurants">
+            <EntityTypeMapping TypeName="EventeamModel.Restaurant">
+              <MappingFragment StoreEntitySet="Restaurant">
+                <ScalarProperty Name="Seating" ColumnName="Seating" />
+                <ScalarProperty Name="Square" ColumnName="Square" />
+                <ScalarProperty Name="Buffet" ColumnName="Buffet" />
+                <ScalarProperty Name="Banquet" ColumnName="Banquet" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="KitchenID" ColumnName="KitchenID" />
                 <ScalarProperty Name="ClassificationID" ColumnName="ClassificationID" />
+                <ScalarProperty Name="PlatformID" ColumnName="PlatformID" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -12,16 +12,20 @@ namespace Eventeam
     using System;
     using System.Collections.Generic;
     
-    public partial class Kitchen
+    public partial class Restaurant
     {
-        public Kitchen()
-        {
-            this.Restaurants = new HashSet<Restaurant>();
-        }
-    
+        public int RestaurantID { get; set; }
+        public int PlatformID { get; set; }
+        public Nullable<int> ClassificationID { get; set; }
         public int KitchenID { get; set; }
         public string Name { get; set; }
+        public Nullable<int> Banquet { get; set; }
+        public Nullable<int> Buffet { get; set; }
+        public Nullable<int> Square { get; set; }
+        public Nullable<int> Seating { get; set; }
     
-        public virtual ICollection<Restaurant> Restaurants { get; set; }
+        public virtual Platform Platform { get; set; }
+        public virtual Classification Classification { get; set; }
+        public virtual Kitchen Kitchen { get; set; }
     }
 }
