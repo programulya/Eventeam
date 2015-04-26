@@ -42,6 +42,8 @@ namespace Eventeam
         public virtual DbSet<Classification> Classifications { get; set; }
         public virtual DbSet<Kitchen> Kitchens { get; set; }
         public virtual DbSet<Restaurant> Restaurants { get; set; }
+        public virtual DbSet<Format> Formats { get; set; }
+        public virtual DbSet<Portfolio> Portfolios { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

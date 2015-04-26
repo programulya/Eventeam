@@ -10,6 +10,7 @@ namespace Eventeam.Controllers
 {
     public class HotelsController : ApiController
     {
+        // TODO return HttpResponseMessage
         // GET api/hotels
         public JsonResult<List<Hotel>> Get()
         {
@@ -29,7 +30,7 @@ namespace Eventeam.Controllers
         }
 
         // GET api/hotels/1
-        public JsonResult<Hotel> Get(int id)
+        public JsonResult<Hotel> GetById(int id)
         {
             using (var db = new EventeamEntities())
             {

@@ -136,6 +136,8 @@
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\FormatsController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Eventeam.Context.cs">
       <AutoGen>True</AutoGen>
@@ -151,6 +153,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Eventeam.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Format.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -177,6 +182,9 @@
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
     <Compile Include="Platform.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Portfolio.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -19,11 +19,11 @@ namespace Eventeam.Tests.Controllers
 
             // Act
             var result = controller.Get();
-            var hotels = result.Content;
+            var content = result.Content;
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.IsNotNull(hotels);
+            Assert.IsNotNull(content);
         }
 
         [TestMethod]
@@ -33,12 +33,12 @@ namespace Eventeam.Tests.Controllers
             var controller = new HotelsController();
 
             // Act
-            var result = controller.Get(2);
-            var hotel = result.Content;
+            var result = controller.GetById(2);
+            var content = result.Content;
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.IsNotNull(hotel);
+            Assert.IsNotNull(content);
         }
 
         /*[TestMethod]
