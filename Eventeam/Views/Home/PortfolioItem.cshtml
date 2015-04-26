@@ -6,13 +6,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <h3>Portfolio Item</h3>
+                    <h3>Портфолио</h3>
                 </div>
                 <div class="col-sm-8">
                     <ol class="breadcrumb pull-right hidden-xs">
                         <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                         <li><a href="@Url.Action("Portfolio", "Home")">Portfolio</a></li>
-                        <li class="active">Portfolio Item</li>
+                        <li class="active">Портфолио</li>
                     </ol>
                 </div>
             </div>
@@ -34,16 +34,16 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="~/images/general-1.jpg" class="img-responsive" alt="...">
+                                <img src="~/images/portfolio/kanefronfest_001-.jpg" class="img-responsive" alt="...">
                             </div>
                             <div class="item">
-                                <img src="~/images/general-2.jpg" class="img-responsive" alt="...">
+                                <img src="~/images/portfolio/kanefronfest_002-.jpg" class="img-responsive" alt="...">
                             </div>
                             <div class="item">
-                                <img src="~/images/general-3.jpg" class="img-responsive" alt="...">
+                                <img src="~/images/portfolio/kanefronfest_003-.jpg" class="img-responsive" alt="...">
                             </div>
                             <div class="item">
-                                <img src="~/images/general-4.jpg" class="img-responsive" alt="...">
+                                <img src="~/images/portfolio/kanefronfest_004-.jpg" class="img-responsive" alt="...">
                             </div>
                         </div>
                         <!-- Controls -->
@@ -57,23 +57,45 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <h3 class="headline second-child"><span>Pellentesque elementum dolor</span></h3>
-                <p>Integer sodales, lectus et elementum volutpat, ipsum purus tristique dolor, non scelerisque diam sem id neque. Etiam sit amet eros magna. Mauris purus nunc, venenatis vitae erat ac, sagittis consectetur dolor.</p>
+                <h3 class="headline second-child"><span>Канефронфест-2014</span></h3>
+                <div role="tabpanel">
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#task" id="task-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Задача</a></li>
+                        <li role="presentation" class=""><a href="#profile" role="tab" id="implementation-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Реализация</a></li>
+                        <li role="presentation" class=""><a href="#result" role="tab" id="result-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Результат</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="task" aria-labelledby="task-tab">
+                            <p>Для врачей, экспертов в области урологии, нефрологии и терапии, был запланирован ряд мероприятий на осень: конференции, воркшопы, гала-ужины, численностью 100-120 чел., в разных регионах Украины. В программу этих мероприятий Заказчик хотел включить развлекательную часть, целью которой было сделать акцент на немецком происхождении препаратов компании, поскольку Германия априори ассоциируется с качеством.</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="implementation-tab">
+                            <p>Мы уже делали для этой компании мероприятия с акцентом на немецком качестве. Проводили параллель между немецким качеством автомобилей, бытовой техники и т.д., и качеством препаратов данной компании. Раскрывали состав препарата, рассматривали сферы применения растительных компонентов, которые входят в его состав, и проводили мастер-класс немецкой кухни, поскольку кулинария — также одна из сфер применения этих растений. Казалось бы, что еще можно придумать… Разработано было три концепции: «Ужин чемпионов», «Формула» и «Канефронфест». Выбрана была концепция №3. Согласно книге рекордов Гиннеса, самый масштабный в мире праздник — Октоберфест, который проводится в Германии. Мы решили сделать аналог — фестиваль «Канефронфест». С порога, гостей погружали в атмосферу праздника — одевали шляпы/подтяжки/галстуки, угощали пивом и сосисками и пивом, приветствовали на фестивале «Канефронфест». Гостей ждали аттракционы, развлекательная программа, фотозона с баварскими девушками на фоне немецких пейзажей. Мастер-класс по традиционному баварскому танцу Schuhplattler (Шухплаттлер), который считается копией брачного поведения тетерева. У нас даже были пряники свои особенные, как на Октоберфесте, с брендингом «Канефронфест». Атмосферу дополнял декор — немецкие флаги и флажки на столах, шпажки с флажками Германии, логотипом компании и фестиваля (для фестиваля был разработан свой логотип), бочки, повозки, сено, бокалы и прочие концептуальные детали.</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="result" aria-labelledby="result-tab">
+                            <p>Первый «Канефронфест» прошел в Трускавце, в ресторане «Ellesar». Настолько успешно, что о нем говорили не только урологи, но и гинекологи, которые слышали восторженные отзывы от своих коллег на работе. Второй — в Харькове, в Kharkov Palace Hotel 5*. В Харькове, кроме развлекательной части, была конференция с приглашенным спикерами, экспертами в области урологии, с Германии и Украины. Профессор из Германии плакал от умиления, поскольку возле замка Нойшванштайн, который был изображен у нас на баннере, жил и ходил в школу, а «Октоберфест» — его любимый праздник. Третий — на курорте «Вита Парк Аквадар», в Черкасской области. Канефронфест, как мы и предполагали, стал официальным праздником и доброй традицией, которую решено поддерживать каждой осенью теперь.</p>
+                        </div>
+                    </div>
+                </div>
+                <p></p>
                 <br />
-                <h4 class="headline"><span>File Info</span></h4>
+                <h4 class="headline"><span>О проекте</span></h4>
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td>Category<td>
-                            <td>Modernism</td>
+                            <td>Формат<td>
+                            <td>Фестиваль</td>
                         </tr>
                         <tr>
-                            <td>File Size<td>
-                            <td>1Mb</td>
+                            <td>Заказчик<td>
+                            <td>Фармацевтическая компания</td>
                         </tr>
                         <tr>
-                            <td>License<td>
-                            <td>All Rights Reserved</td>
+                            <td>Участники<td>
+                            <td>Врачи (урологи, нефрологи, терапевты)</td>
+                        </tr>
+                        <tr>
+                            <td>Локация<td>
+                            <td>Украина (Трускавец, Харьков, Черкасская обл.)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -86,10 +108,10 @@
             <div class="col-sm-3">
                 <div class="portfolio-item">
                     <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/general-1.jpg" alt="...">
+                        <img class="img-responsive" src="~/images/portfolio/kanefronfest_001--400x250.jpg" alt="...">
                         <div class="mask">
                             <p>
-                                <a href="~/images/general-1.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
+                                <a href="~/images/portfolio/kanefronfest_001-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
                                 <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
                             </p>
                         </div>
@@ -99,10 +121,10 @@
             <div class="col-sm-3">
                 <div class="portfolio-item">
                     <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/general-2.jpg" alt="...">
+                        <img class="img-responsive" src="~/images/portfolio/kanefronfest_002--400x250.jpg" alt="...">
                         <div class="mask">
                             <p>
-                                <a href="~/images/general-2.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
+                                <a href="~/images/portfolio/kanefronfest_002-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
                                 <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
                             </p>
                         </div>
@@ -112,10 +134,10 @@
             <div class="col-sm-3">
                 <div class="portfolio-item">
                     <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/general-3.jpg" alt="...">
+                        <img class="img-responsive" src="~/images/portfolio/kanefronfest_003--400x250.jpg" alt="...">
                         <div class="mask">
                             <p>
-                                <a href="~/images/general-3.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
+                                <a href="~/images/portfolio/kanefronfest_003-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
                                 <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
                             </p>
                         </div>
@@ -125,10 +147,10 @@
             <div class="col-sm-3 isotope-item">
                 <div class="portfolio-item">
                     <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/general-4.jpg" alt="...">
+                        <img class="img-responsive" src="~/images/portfolio/kanefronfest_004--400x250.jpg" alt="...">
                         <div class="mask">
                             <p>
-                                <a href="~/images/general-2.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
+                                <a href="~/images/portfolio/kanefronfest_004-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
                                 <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
                             </p>
                         </div>
