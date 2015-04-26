@@ -16,7 +16,7 @@ namespace Eventeam
     {
         public Hotel()
         {
-            this.Rooms1 = new HashSet<Room>();
+            this.Rooms = new HashSet<Room>();
         }
     
         public int HotelID { get; set; }
@@ -24,7 +24,7 @@ namespace Eventeam
         public Nullable<int> HotelCategoryID { get; set; }
         public string Name { get; set; }
         public string Site { get; set; }
-        public int Rooms { get; set; }
+        public int RoomCount { get; set; }
         public int Capacity { get; set; }
         public string Entertainment { get; set; }
         public string Rehabilitation { get; set; }
@@ -33,7 +33,7 @@ namespace Eventeam
         public string Other { get; set; }
     
         public virtual Platform Platform { get; set; }
-        public virtual ICollection<Room> Rooms1 { get; set; }
         public virtual HotelCategory HotelCategory { get; set; }
+        public virtual ICollection<Room> Rooms { get; set; }
     }
 }

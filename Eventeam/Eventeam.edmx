@@ -58,7 +58,7 @@
           <Property Name="HotelCategoryID" Type="int" />
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Site" Type="nvarchar" MaxLength="200" />
-          <Property Name="Rooms" Type="int" Nullable="false" />
+          <Property Name="RoomCount" Type="int" Nullable="false" />
           <Property Name="Capacity" Type="int" Nullable="false" />
           <Property Name="Entertainment" Type="nvarchar(max)" />
           <Property Name="Rehabilitation" Type="nvarchar(max)" />
@@ -357,6 +357,10 @@
             <End Role="Platform" EntitySet="Platforms" />
             <End Role="Hotel" EntitySet="Hotels" />
           </AssociationSet>
+          <AssociationSet Name="FK_Hotel_HotelCategory" Association="EventeamModel.FK_Hotel_HotelCategory">
+            <End Role="HotelCategory" EntitySet="HotelCategories" />
+            <End Role="Hotel" EntitySet="Hotels" />
+          </AssociationSet>
           <AssociationSet Name="FK_Room_Hotel" Association="EventeamModel.FK_Room_Hotel">
             <End Role="Hotel" EntitySet="Hotels" />
             <End Role="Room" EntitySet="Rooms" />
@@ -369,11 +373,7 @@
             <End Role="RoomType" EntitySet="RoomTypes" />
             <End Role="Room" EntitySet="Rooms" />
           </AssociationSet>
-          <AssociationSet Name="FK_Hotel_HotelCategory" Association="EventeamModel.FK_Hotel_HotelCategory">
-            <End Role="HotelCategory" EntitySet="HotelCategories" />
-            <End Role="Hotel" EntitySet="Hotels" />
-          </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -445,7 +445,7 @@
           <Property Name="HotelCategoryID" Type="Int32" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Site" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Rooms" Type="Int32" Nullable="false" />
+          <Property Name="RoomCount" Type="Int32" Nullable="false" />
           <Property Name="Capacity" Type="Int32" Nullable="false" />
           <Property Name="Entertainment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Rehabilitation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -453,8 +453,8 @@
           <Property Name="Internet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Other" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Platform" Relationship="EventeamModel.FK_Hotel_Platform" FromRole="Hotel" ToRole="Platform" />
-          <NavigationProperty Name="Rooms1" Relationship="EventeamModel.FK_Room_Hotel" FromRole="Hotel" ToRole="Room" />
           <NavigationProperty Name="HotelCategory" Relationship="EventeamModel.FK_Hotel_HotelCategory" FromRole="Hotel" ToRole="HotelCategory" />
+          <NavigationProperty Name="Rooms" Relationship="EventeamModel.FK_Room_Hotel" FromRole="Hotel" ToRole="Room" />
         </EntityType>
         <EntityType Name="HotelCategory">
           <Key>
@@ -563,6 +563,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Hotel_HotelCategory">
+          <End Type="EventeamModel.HotelCategory" Role="HotelCategory" Multiplicity="0..1" />
+          <End Type="EventeamModel.Hotel" Role="Hotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelCategory">
+              <PropertyRef Name="HotelCategoryID" />
+            </Principal>
+            <Dependent Role="Hotel">
+              <PropertyRef Name="HotelCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Room_Hotel">
           <End Type="EventeamModel.Hotel" Role="Hotel" Multiplicity="1" />
           <End Type="EventeamModel.Room" Role="Room" Multiplicity="*" />
@@ -599,19 +611,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Hotel_HotelCategory">
-          <End Type="EventeamModel.HotelCategory" Role="HotelCategory" Multiplicity="0..1" />
-          <End Type="EventeamModel.Hotel" Role="Hotel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HotelCategory">
-              <PropertyRef Name="HotelCategoryID" />
-            </Principal>
-            <Dependent Role="Hotel">
-              <PropertyRef Name="HotelCategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -699,7 +699,7 @@
                 <ScalarProperty Name="Rehabilitation" ColumnName="Rehabilitation" />
                 <ScalarProperty Name="Entertainment" ColumnName="Entertainment" />
                 <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-                <ScalarProperty Name="Rooms" ColumnName="Rooms" />
+                <ScalarProperty Name="RoomCount" ColumnName="RoomCount" />
                 <ScalarProperty Name="Site" ColumnName="Site" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="HotelCategoryID" ColumnName="HotelCategoryID" />

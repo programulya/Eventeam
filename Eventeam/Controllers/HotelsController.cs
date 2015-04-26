@@ -4,30 +4,49 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Results;
+using Newtonsoft.Json;
 
 namespace Eventeam.Controllers
 {
     public class HotelsController : ApiController
     {
-        // GET api/values
+        // GET api/hotels
         public JsonResult<List<Hotel>> Get()
         {
             using (var db = new EventeamEntities())
             {
                 var hotels = db.Hotels.ToList();
 
-                return Json(hotels);
+                var content = hotels.Select(h => new Hotel
+                {
+                    Name = h.Name,
+                    Capacity = h.Capacity,
+                    Entertainment = h.Entertainment
+                }).ToList();
+
+                return Json(content);
             }
         }
 
-        // GET api/values/5
+        // GET api/hotels/1
         public JsonResult<Hotel> Get(int id)
         {
             using (var db = new EventeamEntities())
             {
+                var content = new Hotel();
                 var hotel = db.Hotels.FirstOrDefault(h => h.HotelID == id);
 
-                return Json(hotel);
+                if (hotel != null)
+                {
+                    content = new Hotel
+                    {
+                        Name = hotel.Name,
+                        Capacity = hotel.Capacity,
+                        Entertainment = hotel.Entertainment
+                    };
+                }
+
+                return Json(content);
             }
         }
 
