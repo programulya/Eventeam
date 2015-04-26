@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Web.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Eventeam.Controllers;
+using Newtonsoft.Json;
 
 namespace Eventeam.Tests.Controllers
 {
@@ -17,14 +19,11 @@ namespace Eventeam.Tests.Controllers
 
             // Act
             var result = controller.Get();
+            var hotels = result.Content;
 
             // Assert
             Assert.IsNotNull(result);
-            var list = result;
-            var hotels = list as IList<Hotel> ?? list.ToList();
-            Assert.AreEqual(2, hotels.Count());
-            Assert.AreEqual("value1", hotels.ElementAt(0));
-            Assert.AreEqual("value2", hotels.ElementAt(1));
+            Assert.IsNotNull(hotels);
         }
 
         [TestMethod]
@@ -34,13 +33,15 @@ namespace Eventeam.Tests.Controllers
             var controller = new HotelsController();
 
             // Act
-            var result = controller.Get(5);
+            var result = controller.Get(2);
+            var hotel = result.Content;
 
             // Assert
-            Assert.AreEqual("value", result);
+            Assert.IsNotNull(result);
+            Assert.IsNotNull(hotel);
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void Post()
         {
             // Arrange
@@ -71,6 +72,6 @@ namespace Eventeam.Tests.Controllers
             // Act
             // Assert
             controller.Delete(5);
-        }
+        }*/
     }
 }
