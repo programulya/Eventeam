@@ -19,22 +19,22 @@
         <EntityTypeShape EntityType="EventeamModel.NonStandardType" Width="1.5" PointX="10.75" PointY="3.75" />
         <EntityTypeShape EntityType="EventeamModel.Classification" Width="1.5" PointX="3" PointY="2.5" />
         <EntityTypeShape EntityType="EventeamModel.Kitchen" Width="1.5" PointX="3" PointY="10.875" />
-        <EntityTypeShape EntityType="EventeamModel.Restaurant" Width="1.5" PointX="5.25" PointY="5.75" />
         <AssociationConnector Association="EventeamModel.FK_Platform_City" />
         <AssociationConnector Association="EventeamModel.FK_Platform_Level" />
         <AssociationConnector Association="EventeamModel.FK_Platform_Location" />
         <AssociationConnector Association="EventeamModel.FK_Hall_Platform" />
         <AssociationConnector Association="EventeamModel.FK_Hotel_Platform" />
-        <AssociationConnector Association="EventeamModel.FK_Restaurant_Platform" />
         <AssociationConnector Association="EventeamModel.FK_Hotel_HotelCategory" />
         <AssociationConnector Association="EventeamModel.FK_Room_Hotel" />
         <AssociationConnector Association="EventeamModel.FK_Room_Category" />
         <AssociationConnector Association="EventeamModel.FK_Room_RoomType" />
-        <AssociationConnector Association="EventeamModel.FK_Restaurant_Classification" />
-        <AssociationConnector Association="EventeamModel.FK_Restaurant_Kitchen" />
         <EntityTypeShape EntityType="EventeamModel.Format" Width="1.5" PointX="10.375" PointY="10.625" />
         <EntityTypeShape EntityType="EventeamModel.Portfolio" Width="1.5" PointX="12.625" PointY="10" />
         <AssociationConnector Association="EventeamModel.FK_Portfolio_Format" />
+        <EntityTypeShape EntityType="EventeamModel.Restaurant" Width="1.5" PointX="5.25" PointY="5.875" />
+        <AssociationConnector Association="EventeamModel.FK_Restaurant_Platform" />
+        <AssociationConnector Association="EventeamModel.FK_Restaurant_Classification" />
+        <AssociationConnector Association="EventeamModel.FK_Restaurant_Kitchen" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

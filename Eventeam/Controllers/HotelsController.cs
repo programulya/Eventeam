@@ -25,6 +25,7 @@ namespace Eventeam.Controllers
                 {
                     h.Name,
                     h.Capacity,
+                    h.Platform.Address,
                     h.Entertainment
                 }).ToList();
 

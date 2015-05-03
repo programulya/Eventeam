@@ -11,19 +11,20 @@ using Newtonsoft.Json;
 
 namespace Eventeam.Controllers
 {
-    public class FormatsController : ApiController
+    public class RestaurantsController : ApiController
     {
-        // GET api/formats
+        // GET api/restaurants
         public HttpResponseMessage GetAll()
         {
             using (var db = new EventeamEntities())
             {
-                var formats = db.Formats.ToList();
+                var restaurants = db.Restaurants.ToList();
 
-                var content = formats.Select(p => new
+                var content = restaurants.Select(r => new
                 {
-                    p.FormatID,
-                    p.Name
+                    r.Name,
+                    r.Platform.Address,
+                    KitchenName = r.Kitchen.Name
                 }).ToList();
 
                 return Request.CreateResponse(HttpStatusCode.OK, content, JsonMediaTypeFormatter.DefaultMediaType);

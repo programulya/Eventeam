@@ -167,7 +167,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Banquet" Type="int" />
           <Property Name="Buffet" Type="int" />
-          <Property Name="Square" Type="int" />
+          <Property Name="TotalSquare" Type="int" />
           <Property Name="Seating" Type="int" />
         </EntityType>
         <Association Name="FK_Hall_Platform">
@@ -477,7 +477,6 @@
           <EntitySet Name="NonStandardTypes" EntityType="EventeamModel.NonStandardType" />
           <EntitySet Name="Classifications" EntityType="EventeamModel.Classification" />
           <EntitySet Name="Kitchens" EntityType="EventeamModel.Kitchen" />
-          <EntitySet Name="Restaurants" EntityType="EventeamModel.Restaurant" />
           <AssociationSet Name="FK_Platform_City" Association="EventeamModel.FK_Platform_City">
             <End Role="City" EntitySet="Cities" />
             <End Role="Platform" EntitySet="Platforms" />
@@ -498,10 +497,6 @@
             <End Role="Platform" EntitySet="Platforms" />
             <End Role="Hotel" EntitySet="Hotels" />
           </AssociationSet>
-          <AssociationSet Name="FK_Restaurant_Platform" Association="EventeamModel.FK_Restaurant_Platform">
-            <End Role="Platform" EntitySet="Platforms" />
-            <End Role="Restaurant" EntitySet="Restaurants" />
-          </AssociationSet>
           <AssociationSet Name="FK_Hotel_HotelCategory" Association="EventeamModel.FK_Hotel_HotelCategory">
             <End Role="HotelCategory" EntitySet="HotelCategories" />
             <End Role="Hotel" EntitySet="Hotels" />
@@ -518,6 +513,17 @@
             <End Role="RoomType" EntitySet="RoomTypes" />
             <End Role="Room" EntitySet="Rooms" />
           </AssociationSet>
+          <EntitySet Name="Formats" EntityType="EventeamModel.Format" />
+          <EntitySet Name="Portfolios" EntityType="EventeamModel.Portfolio" />
+          <AssociationSet Name="FK_Portfolio_Format" Association="EventeamModel.FK_Portfolio_Format">
+            <End Role="Format" EntitySet="Formats" />
+            <End Role="Portfolio" EntitySet="Portfolios" />
+          </AssociationSet>
+          <EntitySet Name="Restaurants" EntityType="EventeamModel.Restaurant" />
+          <AssociationSet Name="FK_Restaurant_Platform" Association="EventeamModel.FK_Restaurant_Platform">
+            <End Role="Platform" EntitySet="Platforms" />
+            <End Role="Restaurant" EntitySet="Restaurants" />
+          </AssociationSet>
           <AssociationSet Name="FK_Restaurant_Classification" Association="EventeamModel.FK_Restaurant_Classification">
             <End Role="Classification" EntitySet="Classifications" />
             <End Role="Restaurant" EntitySet="Restaurants" />
@@ -525,12 +531,6 @@
           <AssociationSet Name="FK_Restaurant_Kitchen" Association="EventeamModel.FK_Restaurant_Kitchen">
             <End Role="Kitchen" EntitySet="Kitchens" />
             <End Role="Restaurant" EntitySet="Restaurants" />
-          </AssociationSet>
-          <EntitySet Name="Formats" EntityType="EventeamModel.Format" />
-          <EntitySet Name="Portfolios" EntityType="EventeamModel.Portfolio" />
-          <AssociationSet Name="FK_Portfolio_Format" Association="EventeamModel.FK_Portfolio_Format">
-            <End Role="Format" EntitySet="Formats" />
-            <End Role="Portfolio" EntitySet="Portfolios" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -695,23 +695,6 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Restaurants" Relationship="EventeamModel.FK_Restaurant_Kitchen" FromRole="Kitchen" ToRole="Restaurant" />
         </EntityType>
-        <EntityType Name="Restaurant">
-          <Key>
-            <PropertyRef Name="RestaurantID" />
-          </Key>
-          <Property Name="RestaurantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PlatformID" Type="Int32" Nullable="false" />
-          <Property Name="ClassificationID" Type="Int32" />
-          <Property Name="KitchenID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Banquet" Type="Int32" />
-          <Property Name="Buffet" Type="Int32" />
-          <Property Name="Square" Type="Int32" />
-          <Property Name="Seating" Type="Int32" />
-          <NavigationProperty Name="Platform" Relationship="EventeamModel.FK_Restaurant_Platform" FromRole="Restaurant" ToRole="Platform" />
-          <NavigationProperty Name="Classification" Relationship="EventeamModel.FK_Restaurant_Classification" FromRole="Restaurant" ToRole="Classification" />
-          <NavigationProperty Name="Kitchen" Relationship="EventeamModel.FK_Restaurant_Kitchen" FromRole="Restaurant" ToRole="Kitchen" />
-        </EntityType>
         <Association Name="FK_Platform_City">
           <End Type="EventeamModel.City" Role="City" Multiplicity="1" />
           <End Type="EventeamModel.Platform" Role="Platform" Multiplicity="*" />
@@ -772,18 +755,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Restaurant_Platform">
-          <End Type="EventeamModel.Platform" Role="Platform" Multiplicity="1" />
-          <End Type="EventeamModel.Restaurant" Role="Restaurant" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Platform">
-              <PropertyRef Name="PlatformID" />
-            </Principal>
-            <Dependent Role="Restaurant">
-              <PropertyRef Name="PlatformID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Hotel_HotelCategory">
           <End Type="EventeamModel.HotelCategory" Role="HotelCategory" Multiplicity="0..1" />
           <End Type="EventeamModel.Hotel" Role="Hotel" Multiplicity="*" />
@@ -832,30 +803,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Restaurant_Classification">
-          <End Type="EventeamModel.Classification" Role="Classification" Multiplicity="0..1" />
-          <End Type="EventeamModel.Restaurant" Role="Restaurant" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Classification">
-              <PropertyRef Name="ClassificationID" />
-            </Principal>
-            <Dependent Role="Restaurant">
-              <PropertyRef Name="ClassificationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Restaurant_Kitchen">
-          <End Type="EventeamModel.Kitchen" Role="Kitchen" Multiplicity="1" />
-          <End Type="EventeamModel.Restaurant" Role="Restaurant" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Kitchen">
-              <PropertyRef Name="KitchenID" />
-            </Principal>
-            <Dependent Role="Restaurant">
-              <PropertyRef Name="KitchenID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Format">
           <Key>
             <PropertyRef Name="FormatID" />
@@ -888,6 +835,59 @@
             </Principal>
             <Dependent Role="Portfolio">
               <PropertyRef Name="FormatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="RestaurantID" />
+          </Key>
+          <Property Name="RestaurantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlatformID" Type="Int32" Nullable="false" />
+          <Property Name="ClassificationID" Type="Int32" />
+          <Property Name="KitchenID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Banquet" Type="Int32" />
+          <Property Name="Buffet" Type="Int32" />
+          <Property Name="TotalSquare" Type="Int32" />
+          <Property Name="Seating" Type="Int32" />
+          <NavigationProperty Name="Platform" Relationship="EventeamModel.FK_Restaurant_Platform" FromRole="Restaurant" ToRole="Platform" />
+          <NavigationProperty Name="Classification" Relationship="EventeamModel.FK_Restaurant_Classification" FromRole="Restaurant" ToRole="Classification" />
+          <NavigationProperty Name="Kitchen" Relationship="EventeamModel.FK_Restaurant_Kitchen" FromRole="Restaurant" ToRole="Kitchen" />
+        </EntityType>
+        <Association Name="FK_Restaurant_Platform">
+          <End Type="EventeamModel.Platform" Role="Platform" Multiplicity="1" />
+          <End Type="EventeamModel.Restaurant" Role="Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformID" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="PlatformID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Classification">
+          <End Type="EventeamModel.Classification" Role="Classification" Multiplicity="0..1" />
+          <End Type="EventeamModel.Restaurant" Role="Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classification">
+              <PropertyRef Name="ClassificationID" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="ClassificationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Kitchen">
+          <End Type="EventeamModel.Kitchen" Role="Kitchen" Multiplicity="1" />
+          <End Type="EventeamModel.Restaurant" Role="Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kitchen">
+              <PropertyRef Name="KitchenID" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="KitchenID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1065,21 +1065,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Restaurants">
-            <EntityTypeMapping TypeName="EventeamModel.Restaurant">
-              <MappingFragment StoreEntitySet="Restaurant">
-                <ScalarProperty Name="Seating" ColumnName="Seating" />
-                <ScalarProperty Name="Square" ColumnName="Square" />
-                <ScalarProperty Name="Buffet" ColumnName="Buffet" />
-                <ScalarProperty Name="Banquet" ColumnName="Banquet" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="KitchenID" ColumnName="KitchenID" />
-                <ScalarProperty Name="ClassificationID" ColumnName="ClassificationID" />
-                <ScalarProperty Name="PlatformID" ColumnName="PlatformID" />
-                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Formats">
             <EntityTypeMapping TypeName="EventeamModel.Format">
               <MappingFragment StoreEntitySet="Format">
@@ -1100,6 +1085,21 @@
                 <ScalarProperty Name="FormatID" ColumnName="FormatID" />
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
                 <ScalarProperty Name="PortfolioID" ColumnName="PortfolioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restaurants">
+            <EntityTypeMapping TypeName="EventeamModel.Restaurant">
+              <MappingFragment StoreEntitySet="Restaurant">
+                <ScalarProperty Name="Seating" ColumnName="Seating" />
+                <ScalarProperty Name="TotalSquare" ColumnName="TotalSquare" />
+                <ScalarProperty Name="Buffet" ColumnName="Buffet" />
+                <ScalarProperty Name="Banquet" ColumnName="Banquet" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="KitchenID" ColumnName="KitchenID" />
+                <ScalarProperty Name="ClassificationID" ColumnName="ClassificationID" />
+                <ScalarProperty Name="PlatformID" ColumnName="PlatformID" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

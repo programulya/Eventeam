@@ -24,7 +24,7 @@ namespace Eventeam.Controllers
                 {
                     p.PortfolioID,
                     p.ProjectName
-                });
+                }).ToList();
 
                 return Request.CreateResponse(HttpStatusCode.OK, content, JsonMediaTypeFormatter.DefaultMediaType);
             }
