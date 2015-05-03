@@ -56,7 +56,7 @@
           <Property Name="HallID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PlatformID" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="Square" Type="int" />
+          <Property Name="TotalSquare" Type="int" />
           <Property Name="Theater" Type="int" />
           <Property Name="Class" Type="int" />
           <Property Name="PPlanting" Type="int" />
@@ -468,7 +468,6 @@
           <EntitySet Name="Locations" EntityType="EventeamModel.Location" />
           <EntitySet Name="Platforms" EntityType="EventeamModel.Platform" />
           <EntitySet Name="sysdiagrams" EntityType="EventeamModel.sysdiagram" />
-          <EntitySet Name="Halls" EntityType="EventeamModel.Hall" />
           <EntitySet Name="Hotels" EntityType="EventeamModel.Hotel" />
           <EntitySet Name="HotelCategories" EntityType="EventeamModel.HotelCategory" />
           <EntitySet Name="Rooms" EntityType="EventeamModel.Room" />
@@ -488,10 +487,6 @@
           <AssociationSet Name="FK_Platform_Location" Association="EventeamModel.FK_Platform_Location">
             <End Role="Location" EntitySet="Locations" />
             <End Role="Platform" EntitySet="Platforms" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Hall_Platform" Association="EventeamModel.FK_Hall_Platform">
-            <End Role="Platform" EntitySet="Platforms" />
-            <End Role="Hall" EntitySet="Halls" />
           </AssociationSet>
           <AssociationSet Name="FK_Hotel_Platform" Association="EventeamModel.FK_Hotel_Platform">
             <End Role="Platform" EntitySet="Platforms" />
@@ -531,6 +526,11 @@
           <AssociationSet Name="FK_Restaurant_Kitchen" Association="EventeamModel.FK_Restaurant_Kitchen">
             <End Role="Kitchen" EntitySet="Kitchens" />
             <End Role="Restaurant" EntitySet="Restaurants" />
+          </AssociationSet>
+          <EntitySet Name="Halls" EntityType="EventeamModel.Hall" />
+          <AssociationSet Name="FK_Hall_Platform" Association="EventeamModel.FK_Hall_Platform">
+            <End Role="Platform" EntitySet="Platforms" />
+            <End Role="Hall" EntitySet="Halls" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -583,9 +583,9 @@
           <NavigationProperty Name="City" Relationship="EventeamModel.FK_Platform_City" FromRole="Platform" ToRole="City" />
           <NavigationProperty Name="Level" Relationship="EventeamModel.FK_Platform_Level" FromRole="Platform" ToRole="Level" />
           <NavigationProperty Name="Location" Relationship="EventeamModel.FK_Platform_Location" FromRole="Platform" ToRole="Location" />
-          <NavigationProperty Name="Halls" Relationship="EventeamModel.FK_Hall_Platform" FromRole="Platform" ToRole="Hall" />
           <NavigationProperty Name="Hotels" Relationship="EventeamModel.FK_Hotel_Platform" FromRole="Platform" ToRole="Hotel" />
           <NavigationProperty Name="Restaurants" Relationship="EventeamModel.FK_Restaurant_Platform" FromRole="Platform" ToRole="Restaurant" />
+          <NavigationProperty Name="Halls" Relationship="EventeamModel.FK_Hall_Platform" FromRole="Platform" ToRole="Hall" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -596,23 +596,6 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Hall">
-          <Key>
-            <PropertyRef Name="HallID" />
-          </Key>
-          <Property Name="HallID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PlatformID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Square" Type="Int32" />
-          <Property Name="Theater" Type="Int32" />
-          <Property Name="Class" Type="Int32" />
-          <Property Name="PPlanting" Type="Int32" />
-          <Property Name="MeetingRoom" Type="Int32" />
-          <Property Name="Banquet" Type="Int32" />
-          <Property Name="Buffet" Type="Int32" />
-          <Property Name="Equipment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Platform" Relationship="EventeamModel.FK_Hall_Platform" FromRole="Hall" ToRole="Platform" />
         </EntityType>
         <EntityType Name="Hotel">
           <Key>
@@ -728,18 +711,6 @@
             </Principal>
             <Dependent Role="Platform">
               <PropertyRef Name="LocationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Hall_Platform">
-          <End Type="EventeamModel.Platform" Role="Platform" Multiplicity="1" />
-          <End Type="EventeamModel.Hall" Role="Hall" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Platform">
-              <PropertyRef Name="PlatformID" />
-            </Principal>
-            <Dependent Role="Hall">
-              <PropertyRef Name="PlatformID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -891,6 +862,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Hall">
+          <Key>
+            <PropertyRef Name="HallID" />
+          </Key>
+          <Property Name="HallID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlatformID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TotalSquare" Type="Int32" />
+          <Property Name="Theater" Type="Int32" />
+          <Property Name="Class" Type="Int32" />
+          <Property Name="PPlanting" Type="Int32" />
+          <Property Name="MeetingRoom" Type="Int32" />
+          <Property Name="Banquet" Type="Int32" />
+          <Property Name="Buffet" Type="Int32" />
+          <Property Name="Equipment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Platform" Relationship="EventeamModel.FK_Hall_Platform" FromRole="Hall" ToRole="Platform" />
+        </EntityType>
+        <Association Name="FK_Hall_Platform">
+          <End Type="EventeamModel.Platform" Role="Platform" Multiplicity="1" />
+          <End Type="EventeamModel.Hall" Role="Hall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformID" />
+            </Principal>
+            <Dependent Role="Hall">
+              <PropertyRef Name="PlatformID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -967,23 +967,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Halls">
-            <EntityTypeMapping TypeName="EventeamModel.Hall">
-              <MappingFragment StoreEntitySet="Hall">
-                <ScalarProperty Name="Equipment" ColumnName="Equipment" />
-                <ScalarProperty Name="Buffet" ColumnName="Buffet" />
-                <ScalarProperty Name="Banquet" ColumnName="Banquet" />
-                <ScalarProperty Name="MeetingRoom" ColumnName="MeetingRoom" />
-                <ScalarProperty Name="PPlanting" ColumnName="PPlanting" />
-                <ScalarProperty Name="Class" ColumnName="Class" />
-                <ScalarProperty Name="Theater" ColumnName="Theater" />
-                <ScalarProperty Name="Square" ColumnName="Square" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="PlatformID" ColumnName="PlatformID" />
-                <ScalarProperty Name="HallID" ColumnName="HallID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1100,6 +1083,23 @@
                 <ScalarProperty Name="ClassificationID" ColumnName="ClassificationID" />
                 <ScalarProperty Name="PlatformID" ColumnName="PlatformID" />
                 <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Halls">
+            <EntityTypeMapping TypeName="EventeamModel.Hall">
+              <MappingFragment StoreEntitySet="Hall">
+                <ScalarProperty Name="Equipment" ColumnName="Equipment" />
+                <ScalarProperty Name="Buffet" ColumnName="Buffet" />
+                <ScalarProperty Name="Banquet" ColumnName="Banquet" />
+                <ScalarProperty Name="MeetingRoom" ColumnName="MeetingRoom" />
+                <ScalarProperty Name="PPlanting" ColumnName="PPlanting" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Theater" ColumnName="Theater" />
+                <ScalarProperty Name="TotalSquare" ColumnName="TotalSquare" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PlatformID" ColumnName="PlatformID" />
+                <ScalarProperty Name="HallID" ColumnName="HallID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="EventeamModel.Location" Width="1.5" PointX="0.75" PointY="6.625" />
         <EntityTypeShape EntityType="EventeamModel.Platform" Width="1.5" PointX="3" PointY="5.625" />
         <EntityTypeShape EntityType="EventeamModel.sysdiagram" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="EventeamModel.Hall" Width="1.5" PointX="5.25" PointY="14.5" />
         <EntityTypeShape EntityType="EventeamModel.Hotel" Width="1.5" PointX="8.25" PointY="5.5" />
         <EntityTypeShape EntityType="EventeamModel.HotelCategory" Width="1.5" PointX="6" PointY="2.625" />
         <EntityTypeShape EntityType="EventeamModel.Room" Width="1.5" PointX="10.5" PointY="6.125" />
@@ -22,7 +21,6 @@
         <AssociationConnector Association="EventeamModel.FK_Platform_City" />
         <AssociationConnector Association="EventeamModel.FK_Platform_Level" />
         <AssociationConnector Association="EventeamModel.FK_Platform_Location" />
-        <AssociationConnector Association="EventeamModel.FK_Hall_Platform" />
         <AssociationConnector Association="EventeamModel.FK_Hotel_Platform" />
         <AssociationConnector Association="EventeamModel.FK_Hotel_HotelCategory" />
         <AssociationConnector Association="EventeamModel.FK_Room_Hotel" />
@@ -35,6 +33,8 @@
         <AssociationConnector Association="EventeamModel.FK_Restaurant_Platform" />
         <AssociationConnector Association="EventeamModel.FK_Restaurant_Classification" />
         <AssociationConnector Association="EventeamModel.FK_Restaurant_Kitchen" />
+        <EntityTypeShape EntityType="EventeamModel.Hall" Width="1.5" PointX="5.25" PointY="10.875" />
+        <AssociationConnector Association="EventeamModel.FK_Hall_Platform" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
