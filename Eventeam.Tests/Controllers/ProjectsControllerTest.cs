@@ -17,8 +17,10 @@ namespace Eventeam.Tests.Controllers
     [TestClass]
     public class ProjectsControllerTest
     {
+        #region GetAll
+
         [TestMethod]
-        public void Get_should_return_projects()
+        public void GetAll_should_return_projects()
         {
             // Arrange
             var controller = new ProjectsController
@@ -29,7 +31,7 @@ namespace Eventeam.Tests.Controllers
             controller.Request.SetConfiguration(new HttpConfiguration());
 
             // Act
-            var result = controller.GetById(1);
+            var result = controller.GetAll();
             var content = result.Content;
 
             // Assert
@@ -38,13 +40,17 @@ namespace Eventeam.Tests.Controllers
             Assert.IsNotNull(content);
         }
 
+        #endregion
+
+        #region GetById
+
         [TestMethod]
         public void GetById_should_return_project_by_id()
         {
             // Arrange
             var controller = new ProjectsController
             {
-                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/api/projects")
+                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/api/projects/1")
             };
 
             controller.Request.SetConfiguration(new HttpConfiguration());
@@ -65,7 +71,7 @@ namespace Eventeam.Tests.Controllers
             // Arrange
             var controller = new ProjectsController
             {
-                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/api/projects")
+                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/api/projects/0")
             };
 
             controller.Request.SetConfiguration(new HttpConfiguration());
@@ -79,5 +85,53 @@ namespace Eventeam.Tests.Controllers
             Assert.AreEqual(result.StatusCode, HttpStatusCode.NotFound);
             Assert.IsNull(content);
         }
+
+        #endregion
+
+        #region GetByFormatId
+
+        [TestMethod]
+        public void GetByFormatId_should_return_projects_by_format_id()
+        {
+            // Arrange
+            var controller = new ProjectsController
+            {
+                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/api/projects?formatId=1")
+            };
+
+            controller.Request.SetConfiguration(new HttpConfiguration());
+
+            // Act
+            var result = controller.GetByFormatId(1);
+            var content = result.Content;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.IsNotNull(content);
+        }
+
+        [TestMethod]
+        public void GetByFormatId_should_return_not_found_project_by_format_id()
+        {
+            // Arrange
+            var controller = new ProjectsController
+            {
+                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/api/projects?formatId=0")
+            };
+
+            controller.Request.SetConfiguration(new HttpConfiguration());
+
+            // Act
+            var result = controller.GetByFormatId(0);
+            var content = result.Content;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result.StatusCode, HttpStatusCode.NotFound);
+            Assert.IsNull(content);
+        }
+
+        #endregion
     }
 }

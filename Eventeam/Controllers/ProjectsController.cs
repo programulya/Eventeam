@@ -14,7 +14,7 @@ namespace Eventeam.Controllers
     public class ProjectsController : ApiController
     {
         // GET api/projects
-        public HttpResponseMessage Get()
+        public HttpResponseMessage GetAll()
         {
             using (var db = new EventeamEntities())
             {

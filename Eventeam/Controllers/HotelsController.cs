@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Results;
 using Newtonsoft.Json;
@@ -10,44 +14,44 @@ namespace Eventeam.Controllers
 {
     public class HotelsController : ApiController
     {
-        // TODO return HttpResponseMessage
         // GET api/hotels
-        public JsonResult<List<Hotel>> Get()
+        public HttpResponseMessage GetAll()
         {
             using (var db = new EventeamEntities())
             {
                 var hotels = db.Hotels.ToList();
 
-                var content = hotels.Select(h => new Hotel
+                var content = hotels.Select(h => new
                 {
-                    Name = h.Name,
-                    Capacity = h.Capacity,
-                    Entertainment = h.Entertainment
+                    h.Name,
+                    h.Capacity,
+                    h.Entertainment
                 }).ToList();
 
-                return Json(content);
+                return Request.CreateResponse(HttpStatusCode.OK, content, JsonMediaTypeFormatter.DefaultMediaType);
             }
         }
 
         // GET api/hotels/1
-        public JsonResult<Hotel> GetById(int id)
+        public HttpResponseMessage GetById(int id)
         {
             using (var db = new EventeamEntities())
             {
-                var content = new Hotel();
                 var hotel = db.Hotels.FirstOrDefault(h => h.HotelID == id);
 
                 if (hotel != null)
                 {
-                    content = new Hotel
+                    var content = new
                     {
-                        Name = hotel.Name,
-                        Capacity = hotel.Capacity,
-                        Entertainment = hotel.Entertainment
+                        hotel.Name,
+                        hotel.Capacity,
+                        hotel.Entertainment
                     };
+
+                    return Request.CreateResponse(HttpStatusCode.OK, content, JsonMediaTypeFormatter.DefaultMediaType);
                 }
 
-                return Json(content);
+                return Request.CreateResponse(HttpStatusCode.NotFound);
             }
         }
 

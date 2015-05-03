@@ -14,7 +14,7 @@ namespace Eventeam.Controllers
     public class FormatsController : ApiController
     {
         // GET api/formats
-        public HttpResponseMessage Get()
+        public HttpResponseMessage GetAll()
         {
             using (var db = new EventeamEntities())
             {
