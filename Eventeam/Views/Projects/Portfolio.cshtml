@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <h3>Portfolio</h3>
+                    <h3>Портфолио</h3>
                 </div>
                 <div class="col-sm-8">
                     <ol class="breadcrumb pull-right hidden-xs">
@@ -24,15 +24,15 @@
                 <!-- Categories -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Choose Style
+                        Формат
                     </div>
                     <div class="panel-body">
                         <ul id="filters">
-                            <li><a href="#" data-filter="*">All</a></li>
-                            <li><a href="#" data-filter=".modernism">Modernism</a></li>
-                            <li><a href="#" data-filter=".impressionism">Impressionism</a></li>
-                            <li><a href="#" data-filter=".photorealism">Photorealism</a></li>
-                            <li><a href="#" data-filter=".surrealism">Surrealism</a></li>
+                            <li><a href="#" data-filter="*">Все</a></li>
+                            <li><a href="#" data-filter=".modernism">Конференция</a></li>
+                            <li><a href="#" data-filter=".impressionism">Выездное событие</a></li>
+                            <li><a href="#" data-filter=".photorealism">Корпоративный праздник</a></li>
+                            <li><a href="#" data-filter=".surrealism">Детский праздник</a></li>
                         </ul>
                     </div>
                 </div>
@@ -42,11 +42,12 @@
                     <div class="col-sm-6 col-md-6 col-lg-4 isotope-item modernism">
                         <div class="portfolio-item">
                             <div class="portfolio-thumbnail">
-                                <img class="img-responsive" src="~/images/general-1.jpg" alt="...">
+                                @*TODO Click on zoom in*@
+                                <img class="img-responsive" src="~/images/portfolio/kanefronfest_001-.jpg" alt="Канефронфест-2014">
                                 <div class="mask">
                                     <p>
-                                        <a href="~/images/general-1.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                        <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                        <a href="~/images/portfolio/kanefronfest_001--400x250.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
+                                        <a href="@Url.Action("PortfolioItem", "Projects", new {id = 1})"><i class="fa fa-info-circle fa-2x"></i></a>
                                     </p>
                                 </div>
                             </div>
@@ -59,7 +60,7 @@
                                 <div class="mask">
                                     <p>
                                         <a href="~/images/general-2.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                        <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                        <a href="@Url.Action("PortfolioItem", "Projects", new {id = 2})"><i class="fa fa-info-circle fa-2x"></i></a>
                                     </p>
                                 </div>
                             </div>
@@ -72,7 +73,7 @@
                                 <div class="mask">
                                     <p>
                                         <a href="~/images/general-3.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                        <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                        <a href="@Url.Action("PortfolioItem", "Projects", new {id = 3})"><i class="fa fa-info-circle fa-2x"></i></a>
                                     </p>
                                 </div>
                             </div>
@@ -85,7 +86,7 @@
                                 <div class="mask">
                                     <p>
                                         <a href="~/images/general-2.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                        <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                        <a href="@Url.Action("PortfolioItem", "Projects", new {id = 4})"><i class="fa fa-info-circle fa-2x"></i></a>
                                     </p>
                                 </div>
                             </div>
@@ -98,7 +99,7 @@
                                 <div class="mask">
                                     <p>
                                         <a href="~/images/general-1.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                        <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                        <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
                                     </p>
                                 </div>
                             </div>
@@ -111,7 +112,7 @@
                                 <div class="mask">
                                     <p>
                                         <a href="~/images/general-2.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                        <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                        <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
                                     </p>
                                 </div>
                             </div>
@@ -124,7 +125,7 @@
                                 <div class="mask">
                                     <p>
                                         <a href="~/images/general-3.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                        <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                        <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
                                     </p>
                                 </div>
                             </div>
@@ -137,7 +138,7 @@
                                 <div class="mask">
                                     <p>
                                         <a href="~/images/general-2.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                        <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                        <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
                                     </p>
                                 </div>
                             </div>
@@ -150,7 +151,7 @@
                                 <div class="mask">
                                     <p>
                                         <a href="~/images/general-3.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                        <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                        <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
                                     </p>
                                 </div>
                             </div>

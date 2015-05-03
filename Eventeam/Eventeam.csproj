@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -179,6 +178,7 @@
     <Compile Include="Location.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProjectViewModel.cs" />
     <Compile Include="NonStandardType.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
@@ -439,8 +439,7 @@
     <None Include="Views\Home\HelpItem.cshtml" />
     <None Include="Views\Home\IndexFull.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
-    <None Include="Views\Home\PortfolioItem.cshtml" />
-    <None Include="Views\Home\Portfolio.cshtml" />
+    <None Include="Views\Projects\Portfolio.cshtml" />
     <None Include="Views\Home\Pricing.cshtml" />
     <None Include="Views\Home\PricingJoint.cshtml" />
     <None Include="Views\Home\PricingTable.cshtml" />
@@ -471,6 +470,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Projects\PortfolioItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

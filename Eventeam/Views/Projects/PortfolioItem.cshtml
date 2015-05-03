@@ -1,4 +1,6 @@
-﻿<!-- Wrapper -->
+﻿@model Eventeam.Models.ProjectViewModel
+
+<!-- Wrapper -->
 <div class="wrapper">
 
     <!-- Topic Header -->
@@ -11,7 +13,7 @@
                 <div class="col-sm-8">
                     <ol class="breadcrumb pull-right hidden-xs">
                         <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-                        <li><a href="@Url.Action("Portfolio", "Home")">Portfolio</a></li>
+                        <li><a href="@Url.Action("Portfolio", "Projects")">Portfolio</a></li>
                         <li class="active">Портфолио</li>
                     </ol>
                 </div>
@@ -57,7 +59,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <h3 class="headline second-child"><span>Канефронфест-2014</span></h3>
+                <h3 class="headline second-child"><span>@Model.ProjectName</span></h3>
                 <div role="tabpanel">
                     <ul id="myTab" class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#task" id="task-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Задача</a></li>
@@ -66,13 +68,13 @@
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="task" aria-labelledby="task-tab">
-                            <p>Для врачей, экспертов в области урологии, нефрологии и терапии, был запланирован ряд мероприятий на осень: конференции, воркшопы, гала-ужины, численностью 100-120 чел., в разных регионах Украины. В программу этих мероприятий Заказчик хотел включить развлекательную часть, целью которой было сделать акцент на немецком происхождении препаратов компании, поскольку Германия априори ассоциируется с качеством.</p>
+                            <p>@Html.Raw(@Model.Task)</p>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="implementation-tab">
-                            <p>Мы уже делали для этой компании мероприятия с акцентом на немецком качестве. Проводили параллель между немецким качеством автомобилей, бытовой техники и т.д., и качеством препаратов данной компании. Раскрывали состав препарата, рассматривали сферы применения растительных компонентов, которые входят в его состав, и проводили мастер-класс немецкой кухни, поскольку кулинария — также одна из сфер применения этих растений. Казалось бы, что еще можно придумать… Разработано было три концепции: «Ужин чемпионов», «Формула» и «Канефронфест». Выбрана была концепция №3. Согласно книге рекордов Гиннеса, самый масштабный в мире праздник — Октоберфест, который проводится в Германии. Мы решили сделать аналог — фестиваль «Канефронфест». С порога, гостей погружали в атмосферу праздника — одевали шляпы/подтяжки/галстуки, угощали пивом и сосисками и пивом, приветствовали на фестивале «Канефронфест». Гостей ждали аттракционы, развлекательная программа, фотозона с баварскими девушками на фоне немецких пейзажей. Мастер-класс по традиционному баварскому танцу Schuhplattler (Шухплаттлер), который считается копией брачного поведения тетерева. У нас даже были пряники свои особенные, как на Октоберфесте, с брендингом «Канефронфест». Атмосферу дополнял декор — немецкие флаги и флажки на столах, шпажки с флажками Германии, логотипом компании и фестиваля (для фестиваля был разработан свой логотип), бочки, повозки, сено, бокалы и прочие концептуальные детали.</p>
+                            <p>@Html.Raw(@Model.Implementation)</p>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="result" aria-labelledby="result-tab">
-                            <p>Первый «Канефронфест» прошел в Трускавце, в ресторане «Ellesar». Настолько успешно, что о нем говорили не только урологи, но и гинекологи, которые слышали восторженные отзывы от своих коллег на работе. Второй — в Харькове, в Kharkov Palace Hotel 5*. В Харькове, кроме развлекательной части, была конференция с приглашенным спикерами, экспертами в области урологии, с Германии и Украины. Профессор из Германии плакал от умиления, поскольку возле замка Нойшванштайн, который был изображен у нас на баннере, жил и ходил в школу, а «Октоберфест» — его любимый праздник. Третий — на курорте «Вита Парк Аквадар», в Черкасской области. Канефронфест, как мы и предполагали, стал официальным праздником и доброй традицией, которую решено поддерживать каждой осенью теперь.</p>
+                            <p>@Html.Raw(@Model.Result)</p>
                         </div>
                     </div>
                 </div>
@@ -82,20 +84,24 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td>Формат<td>
-                            <td>Фестиваль</td>
+                            <td>Формат
+                            <td>
+                            <td>@Model.FormatName</td>
                         </tr>
                         <tr>
-                            <td>Заказчик<td>
-                            <td>Фармацевтическая компания</td>
+                            <td>Заказчик
+                            <td>
+                            <td>@Model.Сustomer</td>
                         </tr>
                         <tr>
-                            <td>Участники<td>
-                            <td>Врачи (урологи, нефрологи, терапевты)</td>
+                            <td>Участники
+                            <td>
+                            <td>@Model.Participants</td>
                         </tr>
                         <tr>
-                            <td>Локация<td>
-                            <td>Украина (Трускавец, Харьков, Черкасская обл.)</td>
+                            <td>Локация
+                            <td>
+                            <td>@Model.Location</td>
                         </tr>
                     </tbody>
                 </table>
@@ -138,7 +144,7 @@
                         <div class="mask">
                             <p>
                                 <a href="~/images/portfolio/kanefronfest_003-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
                             </p>
                         </div>
                     </div>
@@ -151,7 +157,7 @@
                         <div class="mask">
                             <p>
                                 <a href="~/images/portfolio/kanefronfest_004-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                <a href="@Url.Action("PortfolioItem", "Home")"><i class="fa fa-info-circle fa-2x"></i></a>
+                                <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
                             </p>
                         </div>
                     </div>

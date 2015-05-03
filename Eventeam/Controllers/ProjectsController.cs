@@ -7,31 +7,20 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.Results;
+using System.Web.Mvc;
+using Eventeam.Models;
 using Newtonsoft.Json;
 
 namespace Eventeam.Controllers
 {
-    public class ProjectsController : ApiController
+    public class ProjectsController : Controller
     {
-        // GET api/projects
-        public HttpResponseMessage GetAll()
+        public ActionResult Portfolio()
         {
-            using (var db = new EventeamEntities())
-            {
-                var portfolios = db.Portfolios.ToList();
-
-                var content = portfolios.Select(p => new
-                {
-                    p.PortfolioID,
-                    p.ProjectName
-                }).ToList();
-
-                return Request.CreateResponse(HttpStatusCode.OK, content, JsonMediaTypeFormatter.DefaultMediaType);
-            }
+            return View();
         }
 
-        // GET api/projects/1
-        public HttpResponseMessage GetById(int id)
+        public ActionResult PortfolioItem(int id)
         {
             using (var db = new EventeamEntities())
             {
@@ -39,50 +28,22 @@ namespace Eventeam.Controllers
 
                 if (portfolio != null)
                 {
-                    var content = new
+                    var content = new ProjectViewModel
                     {
-                        portfolio.ProjectName,
+                        ProjectName = portfolio.ProjectName,
                         FormatName = portfolio.Format.Name,
-                        portfolio.Сustomer,
-                        portfolio.Participants,
-                        portfolio.Location,
-                        portfolio.Task,
-                        portfolio.Implementation,
-                        portfolio.Result
+                        Сustomer = portfolio.Сustomer,
+                        Participants = portfolio.Participants,
+                        Location = portfolio.Location,
+                        Task = portfolio.Task,
+                        Implementation = portfolio.Implementation,
+                        Result = portfolio.Result
                     };
 
-                    return Request.CreateResponse(HttpStatusCode.OK, content, JsonMediaTypeFormatter.DefaultMediaType);
+                    return View(content);
                 }
 
-                return Request.CreateResponse(HttpStatusCode.NotFound);
-            }
-        }
-
-        // GET api/projects/1
-        public HttpResponseMessage GetByFormatId(int formatId)
-        {
-            using (var db = new EventeamEntities())
-            {
-                var portfolios = db.Portfolios.Where(p => p.Format.FormatID == formatId);
-
-                if (portfolios.Count() != 0)
-                {
-                    var content = portfolios.Select(p => new
-                    {
-                        p.ProjectName,
-                        FormatName = p.Format.Name,
-                        p.Сustomer,
-                        p.Participants,
-                        p.Location,
-                        p.Task,
-                        p.Implementation,
-                        p.Result
-                    }).ToList();
-
-                    return Request.CreateResponse(HttpStatusCode.OK, content, JsonMediaTypeFormatter.DefaultMediaType);
-                }
-
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return HttpNotFound();
             }
         }
     }

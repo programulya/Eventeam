@@ -66,7 +66,7 @@ namespace Eventeam.Tests.Controllers
         public void GetById_should_return_not_found_hotel_by_id()
         {
             // Arrange
-            var controller = new ProjectsController
+            var controller = new HotelsController
             {
                 Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/api/hotels/0")
             };
