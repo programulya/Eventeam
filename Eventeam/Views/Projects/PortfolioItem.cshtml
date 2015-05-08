@@ -35,19 +35,19 @@
                         </ol>
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="~/images/portfolio/kanefronfest_001-.jpg" class="img-responsive" alt="...">
-                            </div>
-                            <div class="item">
-                                <img src="~/images/portfolio/kanefronfest_002-.jpg" class="img-responsive" alt="...">
-                            </div>
-                            <div class="item">
-                                <img src="~/images/portfolio/kanefronfest_003-.jpg" class="img-responsive" alt="...">
-                            </div>
-                            <div class="item">
-                                <img src="~/images/portfolio/kanefronfest_004-.jpg" class="img-responsive" alt="...">
-                            </div>
+                            @for (var i = 0; i < Model.MainPhotoList.Count; ++i)
+                            {
+                                var p = @Model.MainPhotoList[i];
+                                var item = i == 0 ? "item active" : "item";
+
+                                <div class="@item">
+                                    <img src=@Url.Content(p.Link) class="img-responsive" alt="@p.Alt">
+                                </div>
+                            }
                         </div>
+                        
+                        @Model.GalleryPhotoList.FirstOrDefault().Link;
+
                         <!-- Controls -->
                         <a class="carousel-arrow carousel-arrow-prev" href="#portfolio-slideshow" data-slide="prev">
                             <i class="fa fa-angle-left"></i>

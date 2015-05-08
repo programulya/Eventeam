@@ -149,7 +149,6 @@
           <Property Name="PortfolioPhotoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PortfolioID" Type="int" Nullable="false" />
           <Property Name="Link" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="IsMainPhoto" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Classification">
           <Key>
@@ -930,7 +929,6 @@
           <Property Name="PortfolioPhotoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PortfolioID" Type="Int32" Nullable="false" />
           <Property Name="Link" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IsMainPhoto" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Portfolio" Relationship="EventeamModel.FK_PortfolioPhoto_Portfolio" FromRole="PortfolioPhoto" ToRole="Portfolio" />
         </EntityType>
         <Association Name="FK_PortfolioPhoto_Portfolio">
@@ -1160,7 +1158,6 @@
           <EntitySetMapping Name="PortfolioPhotoes">
             <EntityTypeMapping TypeName="EventeamModel.PortfolioPhoto">
               <MappingFragment StoreEntitySet="PortfolioPhoto">
-                <ScalarProperty Name="IsMainPhoto" ColumnName="IsMainPhoto" />
                 <ScalarProperty Name="Link" ColumnName="Link" />
                 <ScalarProperty Name="PortfolioID" ColumnName="PortfolioID" />
                 <ScalarProperty Name="PortfolioPhotoID" ColumnName="PortfolioPhotoID" />

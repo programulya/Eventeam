@@ -15,6 +15,8 @@ namespace Eventeam.Controllers
 {
     public class ProjectsController : Controller
     {
+        const string Path = "~/images/portfolio/";
+
         public ActionResult Portfolio()
         {
             return View();
@@ -39,6 +41,29 @@ namespace Eventeam.Controllers
                         Implementation = portfolio.Implementation,
                         Result = portfolio.Result
                     };
+
+                    content.MainPhotoList = new List<ProjectPhotoViewModel>();
+                    content.GalleryPhotoList = new List<ProjectPhotoViewModel>();
+
+                    foreach (var p in portfolio.PortfolioPhotoes)
+                    {
+                        if (p.Link.EndsWith("-.jpg"))
+                        {
+                            content.MainPhotoList.Add(new ProjectPhotoViewModel
+                            {
+                                Link = Path + p.Link,
+                                Alt = content.ProjectName
+                            });
+                        }
+                        else if (p.Link.EndsWith("--400x250.jpg"))
+                        {
+                            content.GalleryPhotoList.Add(new ProjectPhotoViewModel
+                            {
+                                Link = Path + p.Link,
+                                Alt = content.ProjectName
+                            });
+                        }
+                    }
 
                     return View(content);
                 }

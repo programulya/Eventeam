@@ -17,7 +17,6 @@ namespace Eventeam
         public int PortfolioPhotoID { get; set; }
         public int PortfolioID { get; set; }
         public string Link { get; set; }
-        public bool IsMainPhoto { get; set; }
     
         public virtual Portfolio Portfolio { get; set; }
     }
