@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d36d111fc5d140f388062c11b429b77a" Name="Diagram1" ZoomLevel="100">
+      <Diagram DiagramId="d36d111fc5d140f388062c11b429b77a" Name="Diagram1" ZoomLevel="47">
         <EntityTypeShape EntityType="EventeamModel.City" Width="1.5" PointX="0.75" PointY="9.875" />
         <EntityTypeShape EntityType="EventeamModel.Level" Width="1.5" PointX="0.75" PointY="3.5" />
         <EntityTypeShape EntityType="EventeamModel.Location" Width="1.5" PointX="0.75" PointY="6.625" />
@@ -35,6 +35,8 @@
         <AssociationConnector Association="EventeamModel.FK_Restaurant_Kitchen" />
         <EntityTypeShape EntityType="EventeamModel.Hall" Width="1.5" PointX="5.25" PointY="10.875" />
         <AssociationConnector Association="EventeamModel.FK_Hall_Platform" />
+        <EntityTypeShape EntityType="EventeamModel.PortfolioPhoto" Width="1.5" PointX="14.875" PointY="10.625" />
+        <AssociationConnector Association="EventeamModel.FK_PortfolioPhoto_Portfolio" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

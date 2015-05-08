@@ -14,6 +14,11 @@ namespace Eventeam
     
     public partial class Portfolio
     {
+        public Portfolio()
+        {
+            this.PortfolioPhotoes = new HashSet<PortfolioPhoto>();
+        }
+    
         public int PortfolioID { get; set; }
         public string ProjectName { get; set; }
         public int FormatID { get; set; }
@@ -25,5 +30,6 @@ namespace Eventeam
         public string Result { get; set; }
     
         public virtual Format Format { get; set; }
+        public virtual ICollection<PortfolioPhoto> PortfolioPhotoes { get; set; }
     }
 }
