@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,7 +16,7 @@ namespace Eventeam.Controllers
 {
     public class ProjectsController : Controller
     {
-        const string Path = "~/images/portfolio/";
+        const string ImagesPortfolioPath = "~/images/portfolio/";
 
         public ActionResult Portfolio()
         {
@@ -30,6 +31,9 @@ namespace Eventeam.Controllers
 
                 if (portfolio != null)
                 {
+                    var directories = Directory.GetDirectories(Server.MapPath(ImagesPortfolioPath)).ToList();
+                    var directory = directories.FirstOrDefault(d => d.EndsWith(portfolio.ShortName));
+
                     var content = new ProjectViewModel
                     {
                         ProjectName = portfolio.ProjectName,
@@ -39,29 +43,37 @@ namespace Eventeam.Controllers
                         Location = portfolio.Location,
                         Task = portfolio.Task,
                         Implementation = portfolio.Implementation,
-                        Result = portfolio.Result
+                        Result = portfolio.Result,
+                        MainPhotoList = new List<ProjectPhotoViewModel>(),
+                        GalleryPhotoList = new List<ProjectPhotoViewModel>()
                     };
-
-                    content.MainPhotoList = new List<ProjectPhotoViewModel>();
-                    content.GalleryPhotoList = new List<ProjectPhotoViewModel>();
-
-                    foreach (var p in portfolio.PortfolioPhotoes)
+                    
+                    if (directory != null)
                     {
-                        if (p.Link.EndsWith("-.jpg"))
+                        var photos = Directory.GetFiles(directory).ToList();
+
+                        if (photos.Count != 0)
                         {
-                            content.MainPhotoList.Add(new ProjectPhotoViewModel
+                            foreach (var p in photos)
                             {
-                                Link = Path + p.Link,
-                                Alt = content.ProjectName
-                            });
-                        }
-                        else if (p.Link.EndsWith("--400x250.jpg"))
-                        {
-                            content.GalleryPhotoList.Add(new ProjectPhotoViewModel
-                            {
-                                Link = Path + p.Link,
-                                Alt = content.ProjectName
-                            });
+                                if (p.EndsWith("-.jpg"))
+                                {
+                                    content.MainPhotoList.Add(new ProjectPhotoViewModel
+                                    {
+                                        Link = ImagesPortfolioPath + portfolio.ShortName + "/" + Path.GetFileName(p),
+                                        Alt = content.ProjectName
+                                    });
+                                }
+                                else if (p.EndsWith("--400x250.jpg"))
+                                {
+                                    content.GalleryPhotoList.Add(new ProjectPhotoViewModel
+                                    {
+
+                                        Link = ImagesPortfolioPath + portfolio.ShortName + "/" + Path.GetFileName(p),
+                                        Alt = content.ProjectName
+                                    });
+                                }
+                            }
                         }
                     }
 
