@@ -223,6 +223,7 @@
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\lightbox.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Content\style.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\font-awesome\css\font-awesome.css" />
@@ -287,6 +288,15 @@
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_003-.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_004--400x250.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_004-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_001-.jpg" />
+    <Content Include="images\portfolio\kanefronfest_001--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest_001-.jpg" />
+    <Content Include="images\portfolio\kanefronfest_002--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest_002-.jpg" />
+    <Content Include="images\portfolio\kanefronfest_003--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest_003-.jpg" />
+    <Content Include="images\portfolio\kanefronfest_004--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest_004-.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\screenshot.png" />
     <Content Include="images\showcase.png" />

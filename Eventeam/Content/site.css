@@ -1,0 +1,11 @@
+﻿.footer-block {
+    margin-right: 20px;
+}
+
+.pagination-sm > li > a {
+    padding: 3px 7px;
+}
+
+div.footer-block > ul.pagination {
+    margin: 0;
+}
