@@ -27,16 +27,14 @@
         <AssociationConnector Association="EventeamModel.FK_Room_Category" />
         <AssociationConnector Association="EventeamModel.FK_Room_RoomType" />
         <EntityTypeShape EntityType="EventeamModel.Format" Width="1.5" PointX="10.375" PointY="10.625" />
-        <EntityTypeShape EntityType="EventeamModel.Portfolio" Width="1.5" PointX="12.625" PointY="10" />
-        <AssociationConnector Association="EventeamModel.FK_Portfolio_Format" />
         <EntityTypeShape EntityType="EventeamModel.Restaurant" Width="1.5" PointX="5.25" PointY="5.875" />
         <AssociationConnector Association="EventeamModel.FK_Restaurant_Platform" />
         <AssociationConnector Association="EventeamModel.FK_Restaurant_Classification" />
         <AssociationConnector Association="EventeamModel.FK_Restaurant_Kitchen" />
         <EntityTypeShape EntityType="EventeamModel.Hall" Width="1.5" PointX="5.25" PointY="10.875" />
         <AssociationConnector Association="EventeamModel.FK_Hall_Platform" />
-        <EntityTypeShape EntityType="EventeamModel.PortfolioPhoto" Width="1.5" PointX="14.875" PointY="10.625" />
-        <AssociationConnector Association="EventeamModel.FK_PortfolioPhoto_Portfolio" />
+        <EntityTypeShape EntityType="EventeamModel.Portfolio" Width="1.5" PointX="12.625" PointY="9.875" />
+        <AssociationConnector Association="EventeamModel.FK_Portfolio_Format" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

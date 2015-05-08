@@ -133,6 +133,7 @@
             <PropertyRef Name="PortfolioID" />
           </Key>
           <Property Name="PortfolioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="ProjectName" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="FormatID" Type="int" Nullable="false" />
           <Property Name="Сustomer" Type="nvarchar" MaxLength="200" Nullable="false" />
@@ -141,14 +142,6 @@
           <Property Name="Task" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Implementation" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Result" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PortfolioPhoto">
-          <Key>
-            <PropertyRef Name="PortfolioPhotoID" />
-          </Key>
-          <Property Name="PortfolioPhotoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PortfolioID" Type="int" Nullable="false" />
-          <Property Name="Link" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Classification">
           <Key>
@@ -259,18 +252,6 @@
             </Principal>
             <Dependent Role="Portfolio">
               <PropertyRef Name="FormatID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PortfolioPhoto_Portfolio">
-          <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="1" />
-          <End Role="PortfolioPhoto" Type="Self.PortfolioPhoto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Portfolio">
-              <PropertyRef Name="PortfolioID" />
-            </Principal>
-            <Dependent Role="PortfolioPhoto">
-              <PropertyRef Name="PortfolioID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -392,7 +373,6 @@
           <EntitySet Name="NonStandardType" EntityType="Self.NonStandardType" Schema="NonStandard" store:Type="Tables" />
           <EntitySet Name="Format" EntityType="Self.Format" Schema="Portfolio" store:Type="Tables" />
           <EntitySet Name="Portfolio" EntityType="Self.Portfolio" Schema="Portfolio" store:Type="Tables" />
-          <EntitySet Name="PortfolioPhoto" EntityType="Self.PortfolioPhoto" Schema="Portfolio" store:Type="Tables" />
           <EntitySet Name="Classification" EntityType="Self.Classification" Schema="Restaurant" store:Type="Tables" />
           <EntitySet Name="Kitchen" EntityType="Self.Kitchen" Schema="Restaurant" store:Type="Tables" />
           <EntitySet Name="Restaurant" EntityType="Self.Restaurant" Schema="Restaurant" store:Type="Tables" />
@@ -423,10 +403,6 @@
           <AssociationSet Name="FK_Portfolio_Format" Association="Self.FK_Portfolio_Format">
             <End Role="Format" EntitySet="Format" />
             <End Role="Portfolio" EntitySet="Portfolio" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PortfolioPhoto_Portfolio" Association="Self.FK_PortfolioPhoto_Portfolio">
-            <End Role="Portfolio" EntitySet="Portfolio" />
-            <End Role="PortfolioPhoto" EntitySet="PortfolioPhoto" />
           </AssociationSet>
           <AssociationSet Name="FK_Restaurant_Classification" Association="Self.FK_Restaurant_Classification">
             <End Role="Classification" EntitySet="Classification" />
@@ -534,11 +510,6 @@
             <End Role="Room" EntitySet="Rooms" />
           </AssociationSet>
           <EntitySet Name="Formats" EntityType="EventeamModel.Format" />
-          <EntitySet Name="Portfolios" EntityType="EventeamModel.Portfolio" />
-          <AssociationSet Name="FK_Portfolio_Format" Association="EventeamModel.FK_Portfolio_Format">
-            <End Role="Format" EntitySet="Formats" />
-            <End Role="Portfolio" EntitySet="Portfolios" />
-          </AssociationSet>
           <EntitySet Name="Restaurants" EntityType="EventeamModel.Restaurant" />
           <AssociationSet Name="FK_Restaurant_Platform" Association="EventeamModel.FK_Restaurant_Platform">
             <End Role="Platform" EntitySet="Platforms" />
@@ -557,10 +528,10 @@
             <End Role="Platform" EntitySet="Platforms" />
             <End Role="Hall" EntitySet="Halls" />
           </AssociationSet>
-          <EntitySet Name="PortfolioPhotoes" EntityType="EventeamModel.PortfolioPhoto" />
-          <AssociationSet Name="FK_PortfolioPhoto_Portfolio" Association="EventeamModel.FK_PortfolioPhoto_Portfolio">
+          <EntitySet Name="Portfolios" EntityType="EventeamModel.Portfolio" />
+          <AssociationSet Name="FK_Portfolio_Format" Association="EventeamModel.FK_Portfolio_Format">
+            <End Role="Format" EntitySet="Formats" />
             <End Role="Portfolio" EntitySet="Portfolios" />
-            <End Role="PortfolioPhoto" EntitySet="PortfolioPhotoes" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -812,34 +783,6 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Portfolios" Relationship="EventeamModel.FK_Portfolio_Format" FromRole="Format" ToRole="Portfolio" />
         </EntityType>
-        <EntityType Name="Portfolio">
-          <Key>
-            <PropertyRef Name="PortfolioID" />
-          </Key>
-          <Property Name="PortfolioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="FormatID" Type="Int32" Nullable="false" />
-          <Property Name="Сustomer" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Participants" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Location" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Task" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Implementation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Result" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Format" Relationship="EventeamModel.FK_Portfolio_Format" FromRole="Portfolio" ToRole="Format" />
-          <NavigationProperty Name="PortfolioPhotoes" Relationship="EventeamModel.FK_PortfolioPhoto_Portfolio" FromRole="Portfolio" ToRole="PortfolioPhoto" />
-        </EntityType>
-        <Association Name="FK_Portfolio_Format">
-          <End Type="EventeamModel.Format" Role="Format" Multiplicity="1" />
-          <End Type="EventeamModel.Portfolio" Role="Portfolio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Format">
-              <PropertyRef Name="FormatID" />
-            </Principal>
-            <Dependent Role="Portfolio">
-              <PropertyRef Name="FormatID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Restaurant">
           <Key>
             <PropertyRef Name="RestaurantID" />
@@ -922,24 +865,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="PortfolioPhoto">
+        <EntityType Name="Portfolio">
           <Key>
-            <PropertyRef Name="PortfolioPhotoID" />
+            <PropertyRef Name="PortfolioID" />
           </Key>
-          <Property Name="PortfolioPhotoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PortfolioID" Type="Int32" Nullable="false" />
-          <Property Name="Link" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Portfolio" Relationship="EventeamModel.FK_PortfolioPhoto_Portfolio" FromRole="PortfolioPhoto" ToRole="Portfolio" />
+          <Property Name="PortfolioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShortName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FormatID" Type="Int32" Nullable="false" />
+          <Property Name="Сustomer" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Participants" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Task" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Implementation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Result" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Format" Relationship="EventeamModel.FK_Portfolio_Format" FromRole="Portfolio" ToRole="Format" />
         </EntityType>
-        <Association Name="FK_PortfolioPhoto_Portfolio">
-          <End Type="EventeamModel.Portfolio" Role="Portfolio" Multiplicity="1" />
-          <End Type="EventeamModel.PortfolioPhoto" Role="PortfolioPhoto" Multiplicity="*" />
+        <Association Name="FK_Portfolio_Format">
+          <End Type="EventeamModel.Format" Role="Format" Multiplicity="1" />
+          <End Type="EventeamModel.Portfolio" Role="Portfolio" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Portfolio">
-              <PropertyRef Name="PortfolioID" />
+            <Principal Role="Format">
+              <PropertyRef Name="FormatID" />
             </Principal>
-            <Dependent Role="PortfolioPhoto">
-              <PropertyRef Name="PortfolioID" />
+            <Dependent Role="Portfolio">
+              <PropertyRef Name="FormatID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1108,21 +1058,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Portfolios">
-            <EntityTypeMapping TypeName="EventeamModel.Portfolio">
-              <MappingFragment StoreEntitySet="Portfolio">
-                <ScalarProperty Name="Result" ColumnName="Result" />
-                <ScalarProperty Name="Implementation" ColumnName="Implementation" />
-                <ScalarProperty Name="Task" ColumnName="Task" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Participants" ColumnName="Participants" />
-                <ScalarProperty Name="Сustomer" ColumnName="Сustomer" />
-                <ScalarProperty Name="FormatID" ColumnName="FormatID" />
-                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
-                <ScalarProperty Name="PortfolioID" ColumnName="PortfolioID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Restaurants">
             <EntityTypeMapping TypeName="EventeamModel.Restaurant">
               <MappingFragment StoreEntitySet="Restaurant">
@@ -1155,12 +1090,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PortfolioPhotoes">
-            <EntityTypeMapping TypeName="EventeamModel.PortfolioPhoto">
-              <MappingFragment StoreEntitySet="PortfolioPhoto">
-                <ScalarProperty Name="Link" ColumnName="Link" />
+          <EntitySetMapping Name="Portfolios">
+            <EntityTypeMapping TypeName="EventeamModel.Portfolio">
+              <MappingFragment StoreEntitySet="Portfolio">
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Implementation" ColumnName="Implementation" />
+                <ScalarProperty Name="Task" ColumnName="Task" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Participants" ColumnName="Participants" />
+                <ScalarProperty Name="Сustomer" ColumnName="Сustomer" />
+                <ScalarProperty Name="FormatID" ColumnName="FormatID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
                 <ScalarProperty Name="PortfolioID" ColumnName="PortfolioID" />
-                <ScalarProperty Name="PortfolioPhotoID" ColumnName="PortfolioPhotoID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
