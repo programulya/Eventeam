@@ -31,6 +31,7 @@ namespace Eventeam
         public string Parking { get; set; }
         public string Internet { get; set; }
         public string Other { get; set; }
+        public string ShortName { get; set; }
     
         public virtual Platform Platform { get; set; }
         public virtual HotelCategory HotelCategory { get; set; }

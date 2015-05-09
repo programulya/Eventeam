@@ -1,4 +1,5 @@
-﻿@model Eventeam.Models.ProjectViewModel
+﻿@using Eventeam.Models
+@model Eventeam.Models.ProjectViewModel
 
 <!-- Wrapper -->
 <div class="wrapper">
@@ -45,8 +46,6 @@
                                 </div>
                             }
                         </div>
-                        
-                        @Model.GalleryPhotoList.FirstOrDefault().Link;
 
                         <!-- Controls -->
                         <a class="carousel-arrow carousel-arrow-prev" href="#portfolio-slideshow" data-slide="prev">
@@ -103,171 +102,28 @@
                 </table>
             </div>
         </div> <!-- / .row -->
-        @*<div class="row">
-        <div class="col-sm-12">
-            <h3 class="headline"><span>Latest Items</span></h3>
-        </div>
-        <div class="col-sm-3">
-            <div class="portfolio-item">
-                <div class="portfolio-thumbnail">
-                    <img class="img-responsive" src="~/images/portfolio/kanefronfest_001--400x250.jpg" alt="...">
-                    <div class="mask">
-                        <p>
-                            <a href="~/images/portfolio/kanefronfest_001-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                            <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div> <!-- / .portfolio-item -->
-        </div>
-        <div class="col-sm-3">
-            <div class="portfolio-item">
-                <div class="portfolio-thumbnail">
-                    <img class="img-responsive" src="~/images/portfolio/kanefronfest_002--400x250.jpg" alt="...">
-                    <div class="mask">
-                        <p>
-                            <a href="~/images/portfolio/kanefronfest_002-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                            <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div> <!-- / .portfolio-item -->
-        </div>
-        <div class="col-sm-3">
-            <div class="portfolio-item">
-                <div class="portfolio-thumbnail">
-                    <img class="img-responsive" src="~/images/portfolio/kanefronfest_003--400x250.jpg" alt="...">
-                    <div class="mask">
-                        <p>
-                            <a href="~/images/portfolio/kanefronfest_003-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                            <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div> <!-- / .portfolio-item -->
-        </div>
-        <div class="col-sm-3 isotope-item">
-            <div class="portfolio-item">
-                <div class="portfolio-thumbnail">
-                    <img class="img-responsive" src="~/images/portfolio/kanefronfest_004--400x250.jpg" alt="...">
-                    <div class="mask">
-                        <p>
-                            <a href="~/images/portfolio/kanefronfest_004-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                            <a href="@Url.Action("PortfolioItem", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div> <!-- / .portfolio-item -->
-        </div>
-    </div> <!-- / .row -->*@
         <div class="row">
             <div class="col-sm-12">
-                <h3 class="headline"><span>Latest Items</span></h3>
+                <h3 class="headline"><span>Фото</span></h3>
             </div>
-            <div class="col-sm-3">
-                <div class="portfolio-item">
-                    <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/portfolio/kanefronfest-2014/kanefronfest_001--400x250.jpg" alt="...">
-                        <div class="mask">
-                            <p>
-                                <a href="~/images/portfolio/kanefronfest-2014/kanefronfest_001-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                <a href="@Url.Action("Portfolio", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                            </p>
+        
+            @foreach (var p in Model.GalleryPhotoList)
+            {
+                <div class="col-sm-3">
+                    <div class="portfolio-item">
+                        <div class="portfolio-thumbnail">
+                            <img class="img-responsive" src=@Url.Content(p.LinkResponsive) alt="@p.Alt">
+                            <div class="mask">
+                                <p>
+                                    <a href=@Url.Content(p.Link) data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
+                                    <!--<a href="@Url.Action("Portfolio", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>-->
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </div> <!-- / .portfolio-item -->
-            </div>
-            <div class="col-sm-3">
-                <div class="portfolio-item">
-                    <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/portfolio/kanefronfest-2014/kanefronfest_002--400x250.jpg" alt="...">
-                        <div class="mask">
-                            <p>
-                                <a href="~/images/portfolio/kanefronfest-2014/kanefronfest_002-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                <a href="@Url.Action("Portfolio", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div> <!-- / .portfolio-item -->
-            </div>
-            <div class="col-sm-3">
-                <div class="portfolio-item">
-                    <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/portfolio/kanefronfest-2014/kanefronfest_003--400x250.jpg" alt="...">
-                        <div class="mask">
-                            <p>
-                                <a href="~/images/portfolio/kanefronfest-2014/kanefronfest_003-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                <a href="@Url.Action("Portfolio", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div> <!-- / .portfolio-item -->
-            </div>
-            <div class="col-sm-3 isotope-item">
-                <div class="portfolio-item">
-                    <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/portfolio/kanefronfest-2014/kanefronfest_004--400x250.jpg" alt="...">
-                        <div class="mask">
-                            <p>
-                                <a href="~/images/portfolio/kanefronfest-2014/kanefronfest_004-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                <a href="@Url.Action("Portfolio", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div> <!-- / .portfolio-item -->
-            </div>
-            <div class="col-sm-3">
-                <div class="portfolio-item">
-                    <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/portfolio/kanefronfest-2014/kanefronfest_001--400x250.jpg" alt="...">
-                        <div class="mask">
-                            <p>
-                                <a href="~/images/portfolio/kanefronfest-2014/kanefronfest_001-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                <a href="@Url.Action("Portfolio", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div> <!-- / .portfolio-item -->
-            </div>
-            <div class="col-sm-3">
-                <div class="portfolio-item">
-                    <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/portfolio/kanefronfest-2014/kanefronfest_002--400x250.jpg" alt="...">
-                        <div class="mask">
-                            <p>
-                                <a href="~/images/portfolio/kanefronfest-2014/kanefronfest_002-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                <a href="@Url.Action("Portfolio", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div> <!-- / .portfolio-item -->
-            </div>
-            <div class="col-sm-3">
-                <div class="portfolio-item">
-                    <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/portfolio/kanefronfest-2014/kanefronfest_003--400x250.jpg" alt="...">
-                        <div class="mask">
-                            <p>
-                                <a href="~/images/portfolio/kanefronfest-2014/kanefronfest_003-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                <a href="@Url.Action("Portfolio", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div> <!-- / .portfolio-item -->
-            </div>
-            <div class="col-sm-3 isotope-item">
-                <div class="portfolio-item">
-                    <div class="portfolio-thumbnail">
-                        <img class="img-responsive" src="~/images/portfolio/kanefronfest-2014/kanefronfest_004--400x250.jpg" alt="...">
-                        <div class="mask">
-                            <p>
-                                <a href="~/images/portfolio/kanefronfest-2014/kanefronfest_004-.jpg" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                <a href="@Url.Action("Portfolio", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div> <!-- / .portfolio-item -->
-            </div>
+                    </div> <!-- / .portfolio-item -->
+                </div>
+            }
+
             <div class="col-sm-12 footer-block">
                 <hr/>
                 <ul class="pull-right pagination pagination-sm">
