@@ -309,6 +309,7 @@
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\isotope.pkgd.js" />
     <Content Include="Scripts\isotope.pkgd.min.js" />
+    <Content Include="Scripts\jquery.bootpaq.min.js" />
     <Content Include="Scripts\jquery.countdown.js" />
     <Content Include="Scripts\jquery.countdown.min.js" />
     <Content Include="Scripts\jquery.plugin.js" />

@@ -17,3 +17,4 @@
 /// <reference path="ui-elements.js" />
 /// <reference path="bootstrap/bootstrap.js" />
 /// <reference path="bootstrap/npm.js" />
+/// <reference path="jquery.bootpaq.js" />

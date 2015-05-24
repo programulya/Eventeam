@@ -63,3 +63,9 @@ $('.service-item').hover (function() {
   $(this).children("i").toggleClass("fa-rotate-90");
   return false;
 });
+
+$('#page-selection').bootpag({
+    total: 10
+}).on("page", function(event, /* page number here */ num){
+    $("#content").html("Insert content"); // some ajax content loading...
+});
