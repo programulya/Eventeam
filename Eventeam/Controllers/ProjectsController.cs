@@ -10,14 +10,14 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using System.Web.Mvc;
 using Eventeam.Models;
+using Eventeam.Services;
 using Newtonsoft.Json;
 
 namespace Eventeam.Controllers
 {
     public class ProjectsController : Controller
     {
-        const string ImagesPortfolioPath = "~/images/portfolio/";
-        const string ImgFile = "-.jpg";
+        private readonly ImagesService _imagesService = new ImagesService();
 
         public ActionResult Portfolio()
         {
@@ -32,9 +32,6 @@ namespace Eventeam.Controllers
 
                 if (portfolio != null)
                 {
-                    var directories = Directory.GetDirectories(Server.MapPath(ImagesPortfolioPath)).ToList();
-                    var directory = directories.FirstOrDefault(d => d.EndsWith(portfolio.ShortName));
-
                     var content = new ProjectViewModel
                     {
                         ProjectName = portfolio.ProjectName,
@@ -45,43 +42,27 @@ namespace Eventeam.Controllers
                         Task = portfolio.Task,
                         Implementation = portfolio.Implementation,
                         Result = portfolio.Result,
-                        MainPhotoList = new List<ProjectPhotoViewModel>(),
-                        GalleryPhotoList = new List<ProjectPhotoViewModel>()
+                        MainPhotoList = new List<ImageViewModel>(),
+                        GalleryPhotoList = new List<ImageViewModel>()
                     };
-                    
-                    if (directory != null)
+
+                    var portfolioPhotos = _imagesService.GetPortfolioPhotos(portfolio.FolderName, portfolio.ProjectName);
+
+                    if (portfolioPhotos.Count != 0)
                     {
-                        var photos = Directory.GetFiles(directory).ToList();
-
-                        if (photos.Count != 0)
+                        foreach (var p in portfolioPhotos)
                         {
-                            foreach (var p in photos)
+                            content.MainPhotoList.Add(new ImageViewModel
                             {
-                                if (p.EndsWith(ImgFile))
-                                {
-                                    var name = Path.GetFileName(p);
-                                    var link = ImagesPortfolioPath + portfolio.ShortName + "/" + name;
-                                    var linkResponsive = ImagesPortfolioPath + portfolio.ShortName + "/" + name.Substring(0, name.Length - ImgFile.Length) + "--400x250.jpg";
-                                    var alt = content.ProjectName;
+                                Link = p.Link,
+                                Alt = p.Alt
+                            });
 
-                                    content.MainPhotoList.Add(new ProjectPhotoViewModel
-                                    {
-                                        Link = link,
-                                        Alt = alt
-                                    });
-
-                                    content.GalleryPhotoList.Add(new ProjectPhotoViewModel
-                                    {
-                                        Link = link,
-                                        LinkResponsive = linkResponsive,
-                                        Alt = content.ProjectName
-                                    });
-                                }
-                            }
+                            content.GalleryPhotoList.Add(p);
                         }
-                    }
 
-                    return View(content);
+                        return View(content);
+                    }
                 }
 
                 return HttpNotFound();

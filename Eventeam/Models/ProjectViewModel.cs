@@ -12,7 +12,7 @@ namespace Eventeam.Models
         public string Task { get; set; }
         public string Implementation { get; set; }
         public string Result { get; set; }
-        public List<ProjectPhotoViewModel> MainPhotoList { get; set; }
-        public List<ProjectPhotoViewModel> GalleryPhotoList { get; set; }
+        public List<ImageViewModel> MainPhotoList { get; set; }
+        public List<ImageViewModel> GalleryPhotoList { get; set; }
     }
 }

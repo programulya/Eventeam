@@ -17,6 +17,7 @@ namespace Eventeam
         public int HallID { get; set; }
         public int PlatformID { get; set; }
         public string Name { get; set; }
+        public string FolderName { get; set; }
         public Nullable<int> TotalSquare { get; set; }
         public Nullable<int> Theater { get; set; }
         public Nullable<int> Class { get; set; }
@@ -25,7 +26,6 @@ namespace Eventeam
         public Nullable<int> Banquet { get; set; }
         public Nullable<int> Buffet { get; set; }
         public string Equipment { get; set; }
-        public string ShortName { get; set; }
     
         public virtual Platform Platform { get; set; }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Eventeam.Models
 {
-    public class ProjectPhotoViewModel
+    public class ImageViewModel
     {
         public string Link { get; set; }
         public string LinkResponsive { get; set; }
