@@ -25,6 +25,7 @@ namespace Eventeam
         public Nullable<int> Banquet { get; set; }
         public Nullable<int> Buffet { get; set; }
         public string Equipment { get; set; }
+        public string ShortName { get; set; }
     
         public virtual Platform Platform { get; set; }
     }

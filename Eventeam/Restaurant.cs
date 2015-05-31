@@ -23,6 +23,7 @@ namespace Eventeam
         public Nullable<int> Buffet { get; set; }
         public Nullable<int> TotalSquare { get; set; }
         public Nullable<int> Seating { get; set; }
+        public string ShortName { get; set; }
     
         public virtual Platform Platform { get; set; }
         public virtual Classification Classification { get; set; }
