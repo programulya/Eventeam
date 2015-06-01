@@ -114,16 +114,6 @@ namespace Eventeam.Controllers
             return View();
         }
 
-        public ActionResult Shop()
-        {
-            return View();
-        }
-
-        public ActionResult ShopItem()
-        {
-            return View();
-        }
-
         public ActionResult ShoppingCart()
         {
             return View();

@@ -137,6 +137,7 @@
     <Compile Include="Contracts\IImagesService.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FormatsController.cs" />
+    <Compile Include="Controllers\PlatformsController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
@@ -269,9 +270,9 @@
     <Content Include="images\item-2.png" />
     <Content Include="images\item-3.png" />
     <Content Include="images\loading.gif" />
+    <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_main-.jpg" />
     <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_001-.jpg" />
     <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_002-.jpg" />
-    <Content Include="images\platforms\kazatskiyStan\kazatskiyStan-main-.jpg" />
     <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_003-.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\macbook.png" />
@@ -908,6 +909,7 @@
     <Content Include="Scripts\jquery.plugin.min.js" />
     <Content Include="Scripts\lightbox.js" />
     <Content Include="Scripts\lightbox.min.js" />
+    <Content Include="Scripts\platforms.js" />
     <Content Include="Scripts\portfolio.js" />
     <Content Include="Scripts\pricing-table.js" />
     <Content Include="Scripts\scrolltopcontrol.js" />
@@ -1051,8 +1053,8 @@
     <None Include="Views\Home\ResponsiveVideo.cshtml" />
     <None Include="Views\Home\SearchResults.cshtml" />
     <None Include="Views\Home\Services.cshtml" />
-    <None Include="Views\Home\ShopItem.cshtml" />
-    <None Include="Views\Home\Shop.cshtml" />
+    <None Include="Views\Platforms\PlatformItem.cshtml" />
+    <None Include="Views\Platforms\Platforms.cshtml" />
     <None Include="Views\Home\ShoppingCart.cshtml" />
     <None Include="Views\Home\SignIn.cshtml" />
     <None Include="Views\Home\SignUp.cshtml" />

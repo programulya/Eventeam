@@ -40,10 +40,6 @@ $(document).ready(function () {
         lastItemIndex: itemsOnPage - 1
     }
 
-    var prepareLink = function (rawStringLink) {
-        return rawStringLink.replace(/~/, getContextPath());
-    }
-
     var getGalleryContent = function (options) {
         var galleryContent = '';
         for (var i = options.firstItemIndex, size = options.lastItemIndex; i <= size; i++) {

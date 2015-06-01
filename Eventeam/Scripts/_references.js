@@ -18,3 +18,4 @@
 /// <reference path="bootstrap/bootstrap.js" />
 /// <reference path="bootstrap/npm.js" />
 /// <reference path="jquery.bootpaq.js" />
+/// <reference path="platforms.js" />
