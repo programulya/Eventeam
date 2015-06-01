@@ -113,7 +113,12 @@
             </div>
         </div> <!-- / .row -->
     </div> <!-- / .container -->
+</div> <!-- / .wrapper -->
+
+@section scripts
+{
+    <script src="~/Scripts/portfolio.js"></script>
     <script type="text/javascript">
         var model = JSON.parse('@Html.Raw(Json.Encode(Model))');
     </script>
-</div> <!-- / .wrapper -->
+}

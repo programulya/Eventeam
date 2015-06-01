@@ -13,7 +13,7 @@ namespace Eventeam.Services
         private const string ImagesPortfolioPath = "~/images/portfolio/";
         private const string ImagesPlatformsPath = "~/images/platforms/";
         private const string ImageFile = "-.jpg";
-        private const string ImageMain = "-main-.jpg";
+        private const string ImageMain = "_main-.jpg";
 
         public IList<ImageViewModel> GetPortfolioPhotos(string folderName, string name)
         {

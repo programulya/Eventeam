@@ -35,8 +35,6 @@ namespace Eventeam.Controllers
                     content.Add(new HotelViewModel
                     {
                         HotelID = hotel.HotelID,
-                        PlatformID = hotel.PlatformID,
-                        HotelCategoryName = hotel.HotelCategory.Name,
                         Name = hotel.Name,
                         Site = hotel.Site,
                         RoomCount = hotel.RoomCount,
@@ -46,13 +44,16 @@ namespace Eventeam.Controllers
                         Parking = hotel.Parking,
                         Internet = hotel.Internet,
                         Other = hotel.Other,
-                        FolderName = hotel.FolderName,
                         MainPhoto = mainPhoto,
-                        PlatformPhotos = platformPhotos
+                        PlatformPhotos = platformPhotos,
+                        HotelCategoryName = hotel.HotelCategory.Name,
+                        PlatformCityName = hotel.Platform.City.Name,
+                        PlatformAddress = hotel.Platform.Address
                     });
                 }
 
-                return Request.CreateResponse(HttpStatusCode.OK, content.ToList(), JsonMediaTypeFormatter.DefaultMediaType);
+                return Request.CreateResponse(HttpStatusCode.OK, content.ToList(),
+                    JsonMediaTypeFormatter.DefaultMediaType);
             }
         }
 
