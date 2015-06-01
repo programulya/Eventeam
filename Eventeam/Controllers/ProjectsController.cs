@@ -47,21 +47,6 @@ namespace Eventeam.Controllers
                     };
 
                     var portfolioPhotos = _imagesService.GetPortfolioPhotos(portfolio.FolderName, portfolio.ProjectName);
-<<<<<<< HEAD
-
-                    if (portfolioPhotos.Count != 0)
-                    {
-                        foreach (var p in portfolioPhotos)
-                        {
-                            content.MainPhotoList.Add(new ImageViewModel
-                            {
-                                Link = p.Link,
-                                Alt = p.Alt
-                            });
-
-                            content.GalleryPhotoList.Add(p);
-                        }
-=======
 
                     foreach (var p in portfolioPhotos)
                     {
@@ -73,10 +58,8 @@ namespace Eventeam.Controllers
 
                         content.GalleryPhotoList.Add(p);
                     }
->>>>>>> 111c5d47581eec99c64032d8db508701ee576373
 
-                        return View(content);
-                    }
+                    return View(content);
                 }
 
                 return HttpNotFound();
