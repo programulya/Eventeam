@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\locations\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -135,6 +134,7 @@
     <Compile Include="Classification.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
+    <Compile Include="Contracts\IImagesService.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FormatsController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
@@ -179,7 +179,8 @@
     <Compile Include="Location.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProjectPhotoViewModel.cs" />
+    <Compile Include="Models\HotelViewModel.cs" />
+    <Compile Include="Models\ImageViewModel.cs" />
     <Compile Include="Models\ProjectViewModel.cs" />
     <Compile Include="NonStandardType.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
@@ -203,6 +204,7 @@
     <Compile Include="RoomType.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\ImagesService.cs" />
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
@@ -267,6 +269,10 @@
     <Content Include="images\item-2.png" />
     <Content Include="images\item-3.png" />
     <Content Include="images\loading.gif" />
+    <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_001-.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_002-.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\kazatskiyStan-main-.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_003-.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\macbook.png" />
     <Content Include="images\main-slider\slider_1-Corporate-Events--1024x683.jpg" />
@@ -469,13 +475,13 @@
     <Content Include="images\photo-5.jpg" />
     <Content Include="images\photo-6.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_001--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_001-.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_002--400x250.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_002-.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_003--400x250.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_003-.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_004--400x250.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_004-.jpg" />
-    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_001-.jpg" />
     <Content Include="images\prev.png" />
     <Content Include="images\screenshot.png" />
     <Content Include="images\showcase.png" />

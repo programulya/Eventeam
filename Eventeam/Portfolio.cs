@@ -15,7 +15,7 @@ namespace Eventeam
     public partial class Portfolio
     {
         public int PortfolioID { get; set; }
-        public string ShortName { get; set; }
+        public string FolderName { get; set; }
         public string ProjectName { get; set; }
         public int FormatID { get; set; }
         public string Сustomer { get; set; }

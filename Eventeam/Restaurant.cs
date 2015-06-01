@@ -19,14 +19,14 @@ namespace Eventeam
         public Nullable<int> ClassificationID { get; set; }
         public int KitchenID { get; set; }
         public string Name { get; set; }
+        public string FolderName { get; set; }
         public Nullable<int> Banquet { get; set; }
         public Nullable<int> Buffet { get; set; }
         public Nullable<int> TotalSquare { get; set; }
         public Nullable<int> Seating { get; set; }
-        public string ShortName { get; set; }
     
-        public virtual Platform Platform { get; set; }
         public virtual Classification Classification { get; set; }
         public virtual Kitchen Kitchen { get; set; }
+        public virtual Platform Platform { get; set; }
     }
 }

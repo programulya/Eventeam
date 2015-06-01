@@ -21,8 +21,8 @@ namespace Eventeam
         public int RoomTypeID { get; set; }
         public int Quantity { get; set; }
     
-        public virtual Hotel Hotel { get; set; }
         public virtual RoomCategory RoomCategory { get; set; }
         public virtual RoomType RoomType { get; set; }
+        public virtual Hotel Hotel { get; set; }
     }
 }

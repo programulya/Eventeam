@@ -23,6 +23,7 @@ namespace Eventeam
         public int PlatformID { get; set; }
         public Nullable<int> HotelCategoryID { get; set; }
         public string Name { get; set; }
+        public string FolderName { get; set; }
         public string Site { get; set; }
         public int RoomCount { get; set; }
         public int Capacity { get; set; }
@@ -31,10 +32,9 @@ namespace Eventeam
         public string Parking { get; set; }
         public string Internet { get; set; }
         public string Other { get; set; }
-        public string ShortName { get; set; }
     
-        public virtual Platform Platform { get; set; }
         public virtual HotelCategory HotelCategory { get; set; }
         public virtual ICollection<Room> Rooms { get; set; }
+        public virtual Platform Platform { get; set; }
     }
 }

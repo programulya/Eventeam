@@ -8,28 +8,51 @@ using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Results;
+using Eventeam.Models;
+using Eventeam.Services;
 using Newtonsoft.Json;
 
 namespace Eventeam.Controllers
 {
     public class HotelsController : ApiController
     {
+        private readonly ImagesService _imagesService = new ImagesService();
+
         // GET api/hotels
         public HttpResponseMessage GetAll()
         {
             using (var db = new EventeamEntities())
             {
                 var hotels = db.Hotels.ToList();
+                var content = new List<HotelViewModel>();
 
-                var content = hotels.Select(h => new
+                foreach (var hotel in hotels)
                 {
-                    h.Name,
-                    h.Capacity,
-                    h.Platform.Address,
-                    h.Entertainment
-                }).ToList();
+                    var photos = _imagesService.GetPlatformPhotos(hotel.FolderName, hotel.Name);
+                    var mainPhoto = _imagesService.FilterPlatformMainPhoto(photos);
+                    var platformPhotos = _imagesService.FilterPlatformPhotos(photos);
 
-                return Request.CreateResponse(HttpStatusCode.OK, content, JsonMediaTypeFormatter.DefaultMediaType);
+                    content.Add(new HotelViewModel
+                    {
+                        HotelID = hotel.HotelID,
+                        PlatformID = hotel.PlatformID,
+                        HotelCategoryName = hotel.HotelCategory.Name,
+                        Name = hotel.Name,
+                        Site = hotel.Site,
+                        RoomCount = hotel.RoomCount,
+                        Capacity = hotel.Capacity,
+                        Entertainment = hotel.Entertainment,
+                        Rehabilitation = hotel.Rehabilitation,
+                        Parking = hotel.Parking,
+                        Internet = hotel.Internet,
+                        Other = hotel.Other,
+                        FolderName = hotel.FolderName,
+                        MainPhoto = mainPhoto,
+                        PlatformPhotos = platformPhotos
+                    });
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, content.ToList(), JsonMediaTypeFormatter.DefaultMediaType);
             }
         }
 
