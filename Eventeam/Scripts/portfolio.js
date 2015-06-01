@@ -52,7 +52,7 @@ $(document).ready(function () {
                     '<div class="portfolio-thumbnail">' +
                     '<img class="img-responsive" src="' + prepareLink(galleryList[i].LinkResponsive) + '" alt="' + galleryList[i].Alt + '">' +
                     '<div class="mask">' +
-                    '<p>' +
+                    '<p class="zoom-in">' +
                     '<a href="' + prepareLink(galleryList[i].Link) + '" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>' +
                     '</p>' +
                     '</div>' +
