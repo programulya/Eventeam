@@ -8,11 +8,12 @@ using Eventeam.Models;
 
 namespace Eventeam.Services
 {
-    public class ImagesService: IImagesService
+    public class ImagesService : IImagesService
     {
         private const string ImagesPortfolioPath = "~/images/portfolio/";
         private const string ImagesPlatformsPath = "~/images/platforms/";
-        private const string ImgFile = "-.jpg";
+        private const string ImageFile = "-.jpg";
+        private const string ImageMain = "-main-.jpg";
 
         public IList<ImageViewModel> GetPortfolioPhotos(string folderName, string name)
         {
@@ -33,24 +34,21 @@ namespace Eventeam.Services
             {
                 var photos = Directory.GetFiles(directory).ToList();
 
-                if (photos.Count != 0)
+                foreach (var p in photos)
                 {
-                    foreach (var p in photos)
+                    if (p.EndsWith(ImageFile))
                     {
-                        if (p.EndsWith(ImgFile))
-                        {
-                            var fileName = Path.GetFileName(p);
-                            var link = ImagesPortfolioPath + folderName + "/" + fileName;
-                            var linkResponsive = ImagesPortfolioPath + folderName + "/" +
-                                                 name.Substring(0, name.Length - ImgFile.Length) + "--400x250.jpg";
+                        var fileName = Path.GetFileName(p);
+                        var link = ImagesPortfolioPath + folderName + "/" + fileName;
+                        var linkResponsive = ImagesPortfolioPath + folderName + "/" +
+                                             name.Substring(0, name.Length - ImageFile.Length) + "--400x250.jpg";
 
-                            photoList.Add(new ImageViewModel
-                            {
-                                Link = link,
-                                LinkResponsive = linkResponsive,
-                                Alt = name
-                            });
-                        }
+                        photoList.Add(new ImageViewModel
+                        {
+                            Link = link,
+                            LinkResponsive = linkResponsive,
+                            Alt = name
+                        });
                     }
                 }
             }
@@ -71,29 +69,24 @@ namespace Eventeam.Services
             }
 
             var directory = GetDirectory(ImagesPlatformsPath, folderName);
-
             var photoList = new List<ImageViewModel>();
 
             if (directory != null)
             {
                 var photos = Directory.GetFiles(directory).ToList();
 
-                // TODO check
-                if (photos.Count != 0)
+                foreach (var p in photos)
                 {
-                    foreach (var p in photos)
+                    if (p.EndsWith(ImageFile))
                     {
-                        if (p.EndsWith(ImgFile))
+                        var fileName = Path.GetFileName(p);
+                        var link = ImagesPlatformsPath + folderName + "/" + fileName;
+
+                        photoList.Add(new ImageViewModel
                         {
-                            var fileName = Path.GetFileName(p);
-                            var link = ImagesPlatformsPath + folderName + "/" + fileName;
-                           
-                            photoList.Add(new ImageViewModel
-                            {
-                                Link = link,
-                                Alt = name
-                            });
-                        }
+                            Link = link,
+                            Alt = name
+                        });
                     }
                 }
             }
@@ -108,8 +101,7 @@ namespace Eventeam.Services
                 throw new ArgumentNullException("photos");
             }
 
-            // TODO
-            var mainPhoto = photos.FirstOrDefault(p => p.Link.EndsWith("-main-.jpg"));
+            var mainPhoto = photos.FirstOrDefault(p => p.Link.EndsWith(ImageMain));
 
             return mainPhoto;
         }
@@ -121,7 +113,7 @@ namespace Eventeam.Services
                 throw new ArgumentNullException("photos");
             }
 
-            var platformPhotos = photos.Where(p => !p.Link.EndsWith("-main-.jpg"));
+            var platformPhotos = photos.Where(p => !p.Link.EndsWith(ImageMain));
 
             return platformPhotos.ToList();
         }
