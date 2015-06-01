@@ -9,3 +9,7 @@
 div.footer-block > ul.pagination {
     margin: 0;
 }
+
+div.mask > p.zoom-in {
+    margin-left: -14px !important;
+}
