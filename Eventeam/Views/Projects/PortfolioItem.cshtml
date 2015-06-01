@@ -106,39 +106,15 @@
             <div class="col-sm-12">
                 <h3 class="headline"><span>Фото</span></h3>
             </div>
-        
-            @foreach (var p in Model.GalleryPhotoList)
-            {
-                <div class="col-sm-3">
-                    <div class="portfolio-item">
-                        <div class="portfolio-thumbnail">
-                            <img class="img-responsive" src=@Url.Content(p.LinkResponsive) alt="@p.Alt">
-                            <div class="mask">
-                                <p>
-                                    <a href=@Url.Content(p.Link) data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>
-                                    <!--<a href="@Url.Action("Portfolio", "Projects")"><i class="fa fa-info-circle fa-2x"></i></a>-->
-                                </p>
-                            </div>
-                        </div>
-                    </div> <!-- / .portfolio-item -->
-                </div>
-            }
-
+            <div id="photo-gallery"></div>
             <div class="col-sm-12 footer-block">
                 <hr/>
-                <div id="content">Dynamic Content goes here</div>
-                <div id="page-selection"></div>
-                <ul class="pull-right pagination pagination-sm">
-                    <li><a href="#">«</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
-                </ul>
+                <div id="page-selection" class="pull-right pagination pagination-sm"></div>
             </div>
         </div> <!-- / .row -->
     </div> <!-- / .container -->
+    <script type="text/javascript">
+        var model = JSON.parse('@Html.Raw(Json.Encode(Model))');
 
+    </script>
 </div> <!-- / .wrapper -->

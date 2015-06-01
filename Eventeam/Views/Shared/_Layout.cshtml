@@ -250,7 +250,11 @@
         <script src="~/Scripts/custom.js"></script>
         <script src="~/Scripts/index.js"></script>
         <script src="~/Scripts/portfolio.js"></script>
-
+        <script>
+            window.getContextPath = function() {
+                return window.location.origin;
+            }
+        </script>
         @RenderSection("scripts", false)
     </body>
 </html>

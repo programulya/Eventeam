@@ -31,3 +31,49 @@ $('#filters a').on('click', function() {
   $container.isotope({ filter: filterValue });
   return false;
 });
+
+$(document).ready(function () {
+    var galleryList = model.GalleryPhotoList;
+    var itemsOnPage = 4;
+    var defaultOptions = {
+        firstItemIndex: 0,
+        lastItemIndex: itemsOnPage - 1
+    }
+
+    var prepareLink = function (rawStringLink) {
+        return rawStringLink.replace(/~/, getContextPath());
+    }
+
+    var getGalleryContent = function (options) {
+        var galleryContent = '';
+        for (var i = options.firstItemIndex, size = options.lastItemIndex; i < size; i++) {
+            var porfolioItem = '<div class="col-sm-3">' +
+                '<div class="portfolio-item">' +
+                    '<div class="portfolio-thumbnail">' +
+                    '<img class="img-responsive" src="' + prepareLink(galleryList[i].LinkResponsive) + '" alt="' + galleryList[i].Alt + '">' +
+                    '<div class="mask">' +
+                    '<p>' +
+                    '<a href="' + prepareLink(galleryList[i].Link) + '" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>' +
+                    '</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+            galleryContent += porfolioItem;
+        }
+        return galleryContent;
+    }
+    $('#photo-gallery').html(getGalleryContent(defaultOptions));
+
+    $('#page-selection').bootpag({
+        total: Math.ceil(galleryList.length / itemsOnPage)
+    }).on("page", function (event, num) {
+        var lastItem = itemsOnPage * num - 1;
+        var modifiedOptions = {
+            lastItemIndex: lastItem,
+            firstItemIndex: lastItem - (itemsOnPage - 1)
+        };
+        var options = $.extend({}, defaultOptions, modifiedOptions);
+        $("#photo-gallery").html(getGalleryContent(options));
+    });
+});
