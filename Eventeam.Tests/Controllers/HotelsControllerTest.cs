@@ -22,7 +22,7 @@ namespace Eventeam.Tests.Controllers
             // Arrange
             var controller = new HotelsController
             {
-                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/api/hotels")
+                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:7000/api/hotels")
             };
 
             controller.Request.SetConfiguration(new HttpConfiguration());
@@ -47,7 +47,7 @@ namespace Eventeam.Tests.Controllers
             // Arrange
             var controller = new HotelsController
             {
-                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/api/hotels/2")
+                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:7000/api/hotels/2")
             };
 
             controller.Request.SetConfiguration(new HttpConfiguration());
@@ -68,7 +68,7 @@ namespace Eventeam.Tests.Controllers
             // Arrange
             var controller = new HotelsController
             {
-                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/api/hotels/0")
+                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:7000/api/hotels/0")
             };
 
             controller.Request.SetConfiguration(new HttpConfiguration());
