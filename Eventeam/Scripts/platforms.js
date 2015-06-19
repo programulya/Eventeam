@@ -9,7 +9,7 @@
     function getHotels() {
         var request = $.ajax({
             url: getContextPath() + '/api/hotels',
-            type: "GET",
+            type: 'GET',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8'
         });

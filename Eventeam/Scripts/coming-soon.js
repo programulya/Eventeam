@@ -10,9 +10,9 @@ Last change:    18/02/2015
 
 /* ===== Coming Soon Countdown ===== */
 
-$(function () {
-  var austDay = new Date();
-  austDay = new Date(austDay.getFullYear() + 1, 1 - 1, 26);
-  $('#countdown').countdown({until: austDay});
-  $('#year').text(austDay.getFullYear());
+$(function() {
+    var austDay = new Date();
+    austDay = new Date(austDay.getFullYear() + 1, 1 - 1, 26);
+    $('#countdown').countdown({ until: austDay });
+    $('#year').text(austDay.getFullYear());
 });

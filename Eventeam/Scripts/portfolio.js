@@ -19,20 +19,20 @@ Last change:    18/02/2015
  */
 
 // init Isotope
-var $container = $('#isotope-container').imagesLoaded( function() {
-  $container.isotope({
-    itemSelector: '.isotope-item',
-    layoutMode: 'fitRows'
-  });
+var $container = $('#isotope-container').imagesLoaded(function() {
+    $container.isotope({
+        itemSelector: '.isotope-item',
+        layoutMode: 'fitRows'
+    });
 });
 // filter items on button click
 $('#filters a').on('click', function() {
-  var filterValue = $(this).attr('data-filter');
-  $container.isotope({ filter: filterValue });
-  return false;
+    var filterValue = $(this).attr('data-filter');
+    $container.isotope({ filter: filterValue });
+    return false;
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
     var galleryList = model.GalleryPhotoList;
     var itemsOnPage = 8;
     var defaultOptions = {
@@ -40,21 +40,21 @@ $(document).ready(function () {
         lastItemIndex: itemsOnPage - 1
     }
 
-    var getGalleryContent = function (options) {
+    var getGalleryContent = function(options) {
         var galleryContent = '';
         for (var i = options.firstItemIndex, size = options.lastItemIndex; i <= size; i++) {
             var porfolioItem = '<div class="col-sm-3">' +
                 '<div class="portfolio-item">' +
-                    '<div class="portfolio-thumbnail">' +
-                    '<img class="img-responsive" src="' + prepareLink(galleryList[i].LinkResponsive) + '" alt="' + galleryList[i].Alt + '">' +
-                    '<div class="mask">' +
-                    '<p class="zoom-in">' +
-                    '<a href="' + prepareLink(galleryList[i].Link) + '" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>' +
-                    '</p>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
+                '<div class="portfolio-thumbnail">' +
+                '<img class="img-responsive" src="' + prepareLink(galleryList[i].LinkResponsive) + '" alt="' + galleryList[i].Alt + '">' +
+                '<div class="mask">' +
+                '<p class="zoom-in">' +
+                '<a href="' + prepareLink(galleryList[i].Link) + '" data-lightbox="template_showcase"><i class="fa fa-search-plus fa-2x"></i></a>' +
+                '</p>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
             galleryContent += porfolioItem;
         }
         return galleryContent;
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     $('#page-selection').bootpag({
         total: Math.ceil(galleryList.length / itemsOnPage)
-    }).on("page", function (event, num) {
+    }).on('page', function(event, num) {
         var lastItemIndex = itemsOnPage * num - 1;
         var modifiedOptions;
 
@@ -80,8 +80,8 @@ $(document).ready(function () {
                 firstItemIndex: lastItemIndex - (itemsOnPage - 1)
             };
         }
-       
+
         var options = $.extend({}, defaultOptions, modifiedOptions);
-        $("#photo-gallery").html(getGalleryContent(options));
+        $('#photo-gallery').html(getGalleryContent(options));
     });
 });

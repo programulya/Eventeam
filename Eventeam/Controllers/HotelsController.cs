@@ -34,7 +34,7 @@ namespace Eventeam.Controllers
 
                     content.Add(new HotelViewModel
                     {
-                        HotelID = hotel.HotelID,
+                        HotelId = hotel.HotelID,
                         Name = hotel.Name,
                         Site = hotel.Site,
                         RoomCount = hotel.RoomCount,

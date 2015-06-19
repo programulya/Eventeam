@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Spatial;
+﻿using System.Collections.Generic;
 
 namespace Eventeam.Models
 {
     public class HotelViewModel
     {
-        public int HotelID { get; set; }
+        public int HotelId { get; set; }
         public string Name { get; set; }
         public string Site { get; set; }
         public int RoomCount { get; set; }

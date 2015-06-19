@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Helpers;
 using System.Web.Http;
+using System.Web.Http.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Eventeam.Controllers;
 using Newtonsoft.Json;
@@ -24,6 +27,10 @@ namespace Eventeam.Tests.Controllers
             {
                 Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:7000/api/hotels")
             };
+
+            HttpContext.Current = new HttpContext(
+                new HttpRequest("", "http://localhost:7000/api/hotels", ""),
+                new HttpResponse(new StringWriter()));
 
             controller.Request.SetConfiguration(new HttpConfiguration());
 

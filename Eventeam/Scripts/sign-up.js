@@ -10,22 +10,22 @@ Last change:    18/02/2015
 
 /* ===== Sign Up popovers ===== */
 
-$(function(){
-  $('#name').popover();
+$(function() {
+    $('#name').popover();
 });
 
-$(function(){
-  $('#username').popover();
+$(function() {
+    $('#username').popover();
 });
 
-$(function(){
-  $('#email').popover();
+$(function() {
+    $('#email').popover();
 });
 
-$(function(){
-  $('#password').popover();
+$(function() {
+    $('#password').popover();
 });
 
-$(function(){
-  $('#repeat-password').popover();
+$(function() {
+    $('#repeat-password').popover();
 });

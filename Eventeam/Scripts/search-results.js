@@ -9,6 +9,6 @@ Last change:    18/02/2015
 -------------------------------------------------------------------*/
 
 $('.b-search-results-info__sort-by > li').on('click', function() {
-  $('.b-search-results-info__sort-by > li').removeClass('active');
-  $(this).addClass('active');
+    $('.b-search-results-info__sort-by > li').removeClass('active');
+    $(this).addClass('active');
 });
