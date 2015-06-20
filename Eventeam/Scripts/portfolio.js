@@ -35,9 +35,12 @@ $('#filters a').on('click', function() {
 $(document).ready(function() {
     var galleryList = model.GalleryPhotoList;
     var itemsOnPage = 8;
+    var lastItemIndex = galleryList.length - 1 < itemsOnPage
+        ? galleryList.length - 1
+        : itemsOnPage - 1;
     var defaultOptions = {
         firstItemIndex: 0,
-        lastItemIndex: itemsOnPage - 1
+        lastItemIndex: lastItemIndex
     }
 
     var getGalleryContent = function(options) {
