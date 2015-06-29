@@ -32,9 +32,20 @@ img.cover-fullscreen {
     width: 800px;
 }
 
+.home-slider ul > li {
+    text-align: center !important;
+}
+
 .legend-text {
+    background: none !important;
+    box-shadow: none !important;
+    display: inline-block;
     font-size: 3em;
     font-weight: 400;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    -webkit-box-shadow: none !important;
 }
 
 .legend-white {
@@ -45,8 +56,4 @@ img.cover-fullscreen {
 .legend-black {
     color: #000;
     text-shadow: 2px 2px 4px #000;
-}
-
-ul.lead > li {
-    text-align: center;
 }
