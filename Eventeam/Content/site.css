@@ -15,5 +15,45 @@ div.mask > p.zoom-in {
 }
 
 div.col-full-12 {
-    background-image: url(../images/main-slider/slider_1-Corporate-Events--1080x675.jpg)
+    height: 500px;
+    overflow: hidden;
+}
+
+div.cover-content {
+    padding-top: 175px;
+}
+
+img.cover-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: 800px;
+}
+
+.home-slider ul > li {
+    text-align: center !important;
+}
+
+.legend-text {
+    background: none !important;
+    box-shadow: none !important;
+    display: inline-block;
+    font-size: 3em;
+    font-weight: 400;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    -webkit-box-shadow: none !important;
+}
+
+.legend-white {
+    color: #fff;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.legend-black {
+    color: #000;
+    text-shadow: 2px 2px 4px #000;
 }
