@@ -7656,12 +7656,13 @@ body {
 .responsive-showcase {
   padding: 50px 0;
   background: #f6f6f6;
-  background-image: -webkit-linear-gradient(#f6f6f6, white 150px, white);
+  background: url(../images/coming-soon.jpg) no-repeat center center;
+  /*background-image: -webkit-linear-gradient(#f6f6f6, white 150px, white);
   background-image: -o-linear-gradient(#f6f6f6, white 150px, white);
   background-image: linear-gradient(#f6f6f6, white 150px, white);
   background-repeat: no-repeat;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff6f6f6', endColorstr='#ffffffff', GradientType=0);
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #ddd;*/
 }
 @media (min-width: 768px) {
   .responsive-showcase {
@@ -8073,6 +8074,37 @@ body {
   padding: 10px;
   z-index: -1;
 }
+/* ===== Counters =====*/
+.counters {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.counter {
+    font-size: 7em;
+}
+
+.counter-countries {
+    color: orange;
+}
+
+.counter-cities {
+    color: palevioletred;
+}
+
+.counter-concepts {
+    color: lightskyblue;
+}
+
+.counter-projects {
+    color: violet;
+}
+
+.counter-name {
+    font-size: 1.2em;
+    color: white;
+}
+
 /* ===== Services ===== */
 .services {
   margin: 30px 0;
