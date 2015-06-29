@@ -41,101 +41,30 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img src="~/images/logo.png" alt="..."></a>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img src="~/images/common/logo-eventeam-white.png" alt="Eventeam"></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <a class="btn btn-theme-primary navbar-btn navbar-right hidden-sm hidden-xs">Sign In</a>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="@Url.Action("Index", "Home")">Home: Default</a></li>
-                                <li><a href="@Url.Action("IndexFull", "Home")">Home: Fullscreen</a></li>
-                            </ul>
+                        <li class="hidden-sm">
+                            <a href="@Url.Action("Index", "Home")">Главная</a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-submenu">
-                                    <a href="javascript:void(0);">About Us</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="@Url.Action("AboutUs", "Home")">About Us: Default</a></li>
-                                        <li><a href="@Url.Action("AboutUsOption1", "Home")">About Us: Option 1</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="@Url.Action("ComingSoon", "Home")">Coming Soon</a></li>
-                                <li class="dropdown-submenu">
-                                    <a href="javascript:void(0);">Contact Us</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="@Url.Action("ContactUs", "Home")">Contact Us: Default</a></li>
-                                        <li><a href="@Url.Action("ContactUsOption1", "Home")">Contact Us: Option 1</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="@Url.Action("HelpCenter", "Home")">Help Center</a></li>
-                                <li><a href="@Url.Action("HelpItem", "Home")">Help Item</a></li>
-                                <li class="dropdown-submenu">
-                                    <a href="javascript:void(0);">Pricing Options</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="@Url.Action("Pricing", "Home")">Pricing: Boxes</a></li>
-                                        <li><a href="@Url.Action("PricingJoint", "Home")">Pricing: Joint Boxes</a></li>
-                                        <li><a href="@Url.Action("PricingTable", "Home")">Pricing: Table</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="@Url.Action("ResponsiveVideo", "Home")">Responsive Video</a></li>
-                                <li><a href="@Url.Action("Services", "Home")">Services</a></li>
-                                <li><a href="@Url.Action("SignIn", "Home")">Sign In</a></li>
-                                <li><a href="@Url.Action("SignUp", "Home")">Sign Up</a></li>
-                                <li><a href="@Url.Action("SearchResults", "Home")">Search Results</a></li>
-                                <li class="dropdown-submenu">
-                                    <a href="javascript:void(0);">Timeline</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="@Url.Action("TimelineCenter", "Home")">Timeline: Center</a></li>
-                                        <li><a href="@Url.Action("TimelineLeft", "Home")">Timeline: Left</a></li>
-                                        <li><a href="@Url.Action("TimelineRight", "Home")">Timeline: Right</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="@Url.Action("ErrorPage", "Home")">404 Error Page</a></li>
-                            </ul>
+                        <li class="hidden-sm">
+                            <a href="@Url.Action("Portfolio", "Projects")">Портфолио</a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="@Url.Action("Portfolio", "Projects")">Portfolio</a></li> 
-                            </ul>
+                        <li class="hidden-sm">
+                        <li><a href="@Url.Action("Platforms", "Platforms")">Площадки</a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                        <!--<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Площадки <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li class="dropdown-submenu">
-                                    <a href="javascript:void(0);">Blog</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="@Url.Action("BlogSidebarRight", "Home")">Sidebar Right</a></li>
-                                        <li><a href="@Url.Action("BlogSidebarLeft", "Home")">Sidebar Left</a></li>
-                                        <li><a href="@Url.Action("BlogSidebarNo", "Home")">Without Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a href="javascript:void(0);">Blog Post</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="@Url.Action("BlogPostSidebarRight", "Home")">Sidebar Right</a></li>
-                                        <li><a href="@Url.Action("BlogPostSidebarLeft", "Home")">Sidebar Left</a></li>
-                                        <li><a href="@Url.Action("BlogPostSidebarNo", "Home")">Without Sidebar</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="@Url.Action("Platforms", "Platforms")">Shop</a></li>
+                                <li><a href="@Url.Action("Platforms", "Platforms")">Площадки</a></li>
                                 <li><a href="@Url.Action("PlatformItem", "Platforms")">Shop Item</a></li>
                                 <li><a href="@Url.Action("ShoppingCart", "Home")">Shopping Cart</a></li>
                                 <li><a href="@Url.Action("UserProfile", "Home")">User Profile</a></li>
                             </ul>
-                        </li>
-                        <li class="hidden-sm">
-                            <a href="@Url.Action("UiElements", "Home")">UI Elements</a>
-                        </li>
+                        </li>-->
+
                         <!-- Navbar Search -->
                         <li class="hidden-xs hidden-sm" id="navbar-search">
                             <a href="#">

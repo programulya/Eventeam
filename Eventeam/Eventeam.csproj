@@ -270,6 +270,7 @@
     <Content Include="images\item-2.png" />
     <Content Include="images\item-3.png" />
     <Content Include="images\loading.gif" />
+    <Content Include="images\common\logo-eventeam-white.png" />
     <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_main-.jpg" />
     <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_001-.jpg" />
     <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_002-.jpg" />
@@ -887,9 +888,18 @@
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_003-.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_004--400x250.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_004-.jpg" />
+    <Content Include="images\capabilities\1-Conferences.png" />
+    <Content Include="images\capabilities\2-MICE.png" />
+    <Content Include="images\capabilities\3-Teambuildings.png" />
+    <Content Include="images\capabilities\4-Events.png" />
+    <Content Include="images\capabilities\5-Children.png" />
+    <Content Include="images\capabilities\6-Weddings.png" />
+    <Content Include="images\capabilities\7-Catering.png" />
+    <Content Include="images\capabilities\8-Production.png" />
     <Content Include="images\prev.png" />
     <Content Include="images\screenshot.png" />
     <Content Include="images\showcase.png" />
+    <Content Include="images\common\stripe-gray-dark-double.png" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap\npm.js" />
