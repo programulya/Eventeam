@@ -251,7 +251,7 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="services">
-                            <div class="service-item">
+                            <div class="service-item slideInLeft delay-2">
                                 <div class="service-desc">
                                     <img src="~/images/capabilities/1-Conferences.png" alt="Конференции" />
                                     <h4>Конференции</h4>
@@ -262,7 +262,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="services">
-                            <div class="service-item">
+                            <div class="service-item slideInLeft delay-3">
                                 <div class="service-desc">
                                     <img src="~/images/capabilities/2-MICE.png" alt="MICE" />
                                     <h4>MICE</h4>
@@ -284,7 +284,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="services">
-                            <div class="service-item">
+                            <div class="service-item animated slideInRight delay-4">
                                 <div class="service-desc">
                                     <img src="~/images/capabilities/4-Events.png" alt="События" />
                                     <h4>События</h4>
@@ -297,7 +297,7 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="services">
-                            <div class="service-item">
+                            <div class="service-item animated fadeInUpBig delay-5">
                                 <div class="service-desc">
                                     <img src="~/images/capabilities/5-Children.png" alt="Детские" />
                                     <h4>Детские</h4>
@@ -331,7 +331,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="services">
-                            <div class="service-item">
+                            <div class="service-item service-item animated fadeInUpBig delay-6">
                                 <div class="service-desc">
                                     <img src="~/images/capabilities/8-Production.png" alt="Продакшн" />
                                     <h4>Продакшн</h4>
@@ -349,24 +349,22 @@
     <div class="responsive-showcase">
         <div class="container">
             <div class="responsive-design">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h2 class="headline-lg headline-lg_left first-child">Fully Responsive Design</h2>
-                        <p class="lead text-muted">
-                            Pellentesque magna turpis, porttitor non leo ac, imperdiet sollicitudin neque. Sed id condimentum quam. Ut dui velit, suscipit et libero vulputate, feugiat vestibulum velit. Integer auctor, orci sit amet tincidunt posuere.
-                        </p>
-                        <ul class="list-inline hidden-xs">
-                            <li><i class="fa fa-mobile text-theme-secondary inactive" data-device="#iphone"></i></li>
-                            <li><i class="fa fa-tablet text-theme-secondary inactive" data-device="#ipad"></i></li>
-                            <li><i class="fa fa-laptop text-theme-secondary" data-device="#macbook"></i></li>
-                            <li><i class="fa fa-desktop text-theme-secondary inactive" data-device="#imac"></i></li>
-                        </ul>
+                <div class="row counters">
+                    <div class="col-sm-3">
+                        <div id="countries" class="counter counter-countries">7</div>
+                        <div class="counter-name">Стран</div>
                     </div>
-                    <div class="col-sm-6 hidden-xs">
-                        <img class="img-responsive show" src="~/images/macbook.png" alt="..." id="macbook">
-                        <img class="img-responsive hidden" src="~/images/imac.png" alt="..." id="imac">
-                        <img class="img-responsive hidden" src="~/images/ipad.png" alt="..." id="ipad">
-                        <img class="img-responsive hidden" src="~/images/iphone.png" alt="..." id="iphone">
+                    <div class="col-sm-3">
+                        <div id="cities" class="counter counter-cities">28</div>
+                        <div class="counter-name">Городов</div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div id="concepts" class="counter counter-concepts">267</div>
+                        <div class="counter-name">Концепций</div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div id="projects" class="counter counter-projects">365</div>
+                        <div class="counter-name">Проектов</div>
                     </div>
                 </div> <!-- / .row -->
             </div> <!-- / .template-thumbnails -->
@@ -475,3 +473,8 @@
         </div> <!-- / .row -->
     </div> <!-- / .container -->
 </div> <!-- / .wrapper -->
+
+@section scripts {
+    <script src="~/Scripts/jQuerySimpleCounter.js"></script>
+    <script src="~/Scripts/home.js"></script>
+}
