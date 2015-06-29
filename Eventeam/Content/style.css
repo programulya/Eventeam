@@ -4145,7 +4145,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  padding: 22.5px 15px;
+  padding: 3.5px 15px;
   font-size: 18px;
   line-height: 20px;
   height: 65px;
@@ -4364,8 +4364,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: white;
-  border-color: #e4e4e4;
+  background-color: #000000;
+  /*border-color: #e4e4e4;*/
 }
 .navbar-default .navbar-brand {
   color: #999999;
@@ -6873,7 +6873,7 @@ Last change:    18/02/2015
   font-size: 22px;
 }
 .navbar-brand > img {
-  height: 28px;
+  height: 56px;
   width: auto;
 }
 /*** Navbar Links ***/
@@ -7649,6 +7649,8 @@ body {
 .main-services {
   border-top: 1px solid #ddd;
   padding: 50px 0;
+  background: url(../images/common/stripe-gray-dark-double.png) repeat-x center center fixed;
+  color: white;
 }
 /* ===== Responsive Showcase ===== */
 .responsive-showcase {
@@ -8074,6 +8076,7 @@ body {
 /* ===== Services ===== */
 .services {
   margin: 30px 0;
+  text-align: center;
 }
 .service-item > i {
   height: 30px;
@@ -8094,9 +8097,10 @@ body {
   overflow: hidden;
 }
 .service-desc > h4 {
-  margin-top: 0;
+  margin-top: 10px;
   font-weight: 500;
 }
+
 /* ===== Sign In & Sign Up ===== */
 .sign-form {
   border: 15px solid #f6f6f6;
