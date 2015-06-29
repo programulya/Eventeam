@@ -57,3 +57,7 @@ img.cover-fullscreen {
     color: #000;
     text-shadow: 2px 2px 4px #000;
 }
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #EF5C65;
+}
