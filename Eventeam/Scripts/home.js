@@ -25,6 +25,8 @@
             });
 
             isLoaded = true;
+        } else {
+            $(document).off("scroll");
         }
     });
 })();

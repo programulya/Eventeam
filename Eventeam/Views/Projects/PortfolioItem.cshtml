@@ -24,7 +24,34 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
+                <h4 class="headline"><span>О проекте</span></h4>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Формат
+                            <td>
+                            <td>@Model.FormatName</td>
+                        </tr>
+                        <tr>
+                            <td>Заказчик
+                            <td>
+                            <td>@Model.Сustomer</td>
+                        </tr>
+                        <tr>
+                            <td>Участники
+                            <td>
+                            <td>@Model.Participants</td>
+                        </tr>
+                        <tr>
+                            <td>Локация
+                            <td>
+                            <td>@Model.Location</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-8">
                 <div class="portfolio-slideshow">
                     <!-- Image Carousel -->
                     <div id="portfolio-slideshow" class="carousel slide" data-ride="carousel">
@@ -56,8 +83,9 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6">
+
+               
+                <br/>
                 <h3 class="headline second-child"><span>@Model.ProjectName</span></h3>
                 <div role="tabpanel">
                     <ul id="myTab" class="nav nav-tabs" role="tablist">
@@ -78,28 +106,6 @@
                     </div>
                 </div>
                 <p></p>
-                <br />
-                <h4 class="headline"><span>О проекте</span></h4>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>Формат<td>
-                            <td>@Model.FormatName</td>
-                        </tr>
-                        <tr>
-                            <td>Заказчик<td>
-                            <td>@Model.Сustomer</td>
-                        </tr>
-                        <tr>
-                            <td>Участники<td>
-                            <td>@Model.Participants</td>
-                        </tr>
-                        <tr>
-                            <td>Локация<td>
-                            <td>@Model.Location</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div> <!-- / .row -->
         <div class="row">
