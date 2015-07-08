@@ -1,9 +1,10 @@
 ﻿var home = (function() {
-    var isLoaded = false;
+    var isCounters = false;
+    var isServices = false;
 
     $(document).on("scroll", function() {
 
-        if ($(this).scrollTop() >= $('#services').position().top && isLoaded === false) {
+        if ($(this).scrollTop() >= $('#services').position().top && isCounters === false) {
             $('#countries').jQuerySimpleCounter({
                 end: 7,
                 duration: 7000
@@ -24,9 +25,20 @@
                 duration: 7000
             });
 
-            isLoaded = true;
-        } else {
-            $(document).off("scroll");
+            isCounters = true;
+        }
+
+        if ($(this).scrollTop() >= $('#homeServices').position().top && isServices === false) {
+            $('#conferences').addClass('animated fadeInDown delay-1');
+            $('#mice').addClass('animated fadeInUp delay-2');
+            $('#teamBuildings').addClass('animated fadeInUp delay-3');
+            $('#events').addClass('animated slideInRight delay-4');
+            $('#children').addClass('animated slideInLeft delay-5');
+            $('#weddings').addClass('animated fadeInDown delay-6');
+            $('#cathering').addClass('animated fadeInDown delay-7');
+            $('#production').addClass('animated slideInRight delay-8');
+
+            isServices = true;
         }
     });
 })();
