@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="images\platforms\admiral\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -257,8 +258,9 @@
     <Content Include="images\general-2.jpg" />
     <Content Include="images\general-3.jpg" />
     <Content Include="images\general-4.jpg" />
-    <Content Include="images\ico\favicon.ico" />
+    <Content Include="images\ico\favicon-paperclip.ico" />
     <Content Include="images\ico\favicon.png" />
+    <Content Include="images\ico\favicon.ico" />
     <Content Include="images\imac.png" />
     <Content Include="images\image-1.png" />
     <Content Include="images\image-2.png" />
