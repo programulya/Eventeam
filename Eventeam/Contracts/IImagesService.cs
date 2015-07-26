@@ -15,16 +15,16 @@ namespace Eventeam.Contracts
         /// <summary>
         /// Get portfolio photos
         /// </summary>
-        /// <param name="folderName">Portfolio folderName</param>
+        /// <param name="folderName">Portfolio folder name</param>
         /// <param name="name">Portfolio name</param>
         /// <returns>Photos</returns>
-        IList<ImageViewModel> GetPortfolioPhotos(string folderName, string name);
+        IEnumerable<ImageViewModel> GetPortfolioPhotos(string folderName, string name);
 
         /// <summary>
         /// Get platform photos
         /// </summary>
-        /// <param name="folderName"></param>
-        /// <param name="name"></param>
+        /// <param name="folderName">Platform folder name</param>
+        /// <param name="name">Platform name</param>
         /// <returns></returns>
         IList<ImageViewModel> GetPlatformPhotos(string folderName, string name);
 
@@ -33,13 +33,13 @@ namespace Eventeam.Contracts
         /// </summary>
         /// <param name="photos">All photos</param>
         /// <returns>Main photo</returns>
-        ImageViewModel FilterPlatformMainPhoto(IList<ImageViewModel> photos);
+        ImageViewModel FilterPlatformMainPhoto(IEnumerable<ImageViewModel> photos);
 
         /// <summary>
         /// Filter platform photos
         /// </summary>
         /// <param name="photos">All photos</param>
         /// <returns>Photos</returns>
-        IList<ImageViewModel> FilterPlatformPhotos(IList<ImageViewModel> photos);
+        IList<ImageViewModel> FilterPlatformPhotos(IEnumerable<ImageViewModel> photos);
     }
 }

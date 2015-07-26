@@ -30,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -136,11 +137,11 @@
     </Compile>
     <Compile Include="Contracts\IImagesService.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\FormatsController.cs" />
+    <Compile Include="Controllers\Api\FormatsController.cs" />
     <Compile Include="Controllers\PlatformsController.cs" />
-    <Compile Include="Controllers\RestaurantsController.cs" />
+    <Compile Include="Controllers\Api\RestaurantsController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
-    <Compile Include="Controllers\HotelsController.cs" />
+    <Compile Include="Controllers\Api\HotelsController.cs" />
     <Compile Include="Eventeam.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1076,7 +1077,7 @@
     <None Include="Views\Home\ResponsiveVideo.cshtml" />
     <None Include="Views\Home\SearchResults.cshtml" />
     <None Include="Views\Home\Services.cshtml" />
-    <None Include="Views\Platforms\PlatformItem.cshtml" />
+    <None Include="Views\Platforms\Hotel.cshtml" />
     <None Include="Views\Platforms\Platforms.cshtml" />
     <None Include="Views\Home\ShoppingCart.cshtml" />
     <None Include="Views\Home\SignIn.cshtml" />

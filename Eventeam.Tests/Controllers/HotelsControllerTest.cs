@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using Eventeam.Controllers.Api;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Eventeam.Controllers;
 using Newtonsoft.Json;

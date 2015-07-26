@@ -28,8 +28,8 @@
         for (var i = 0; i < hotels.length; ++i) {
             var hotel = '<div class="col-sm-4">' +
                 '<div class="shop-product">' +
-                '<a href="' + getContextPath() + '/Platforms/PlatformItem/' + hotels[i].hotelId + '"><img src=' + prepareLink(hotels[i].mainPhoto.link) + ' class="img-responsive" alt=' + hotels[i].mainPhoto.alt + '></a>' +
-                '<a href="' + getContextPath() + '/Platforms/PlatformItem/' + hotels[i].hotelId + '"><h5 class="primary-font">' + hotels[i].name + '</h5></a>' +
+                '<a href="' + getContextPath() + '/Platforms/Hotel/' + hotels[i].hotelId + '"><img src=' + prepareLink(hotels[i].mainPhoto.link) + ' class="img-responsive" alt=' + hotels[i].mainPhoto.alt + '></a>' +
+                '<a href="' + getContextPath() + '/Platforms/Hotel/' + hotels[i].hotelId + '"><h5 class="primary-font">' + hotels[i].hotelName + '</h5></a>' +
                 '<p class="text-muted">' + hotels[i].platformAddress +
                 '</p>' +
                 '<p>' + hotels[i].platformCityName +

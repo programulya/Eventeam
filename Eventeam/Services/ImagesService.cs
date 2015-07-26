@@ -15,7 +15,7 @@ namespace Eventeam.Services
         private const string ImageFile = "-.jpg";
         private const string ImageMain = "_main-.jpg";
 
-        public IList<ImageViewModel> GetPortfolioPhotos(string folderName, string name)
+        public IEnumerable<ImageViewModel> GetPortfolioPhotos(string folderName, string name)
         {
             if (folderName == null)
             {
@@ -94,7 +94,7 @@ namespace Eventeam.Services
             return photoList;
         }
 
-        public ImageViewModel FilterPlatformMainPhoto(IList<ImageViewModel> photos)
+        public ImageViewModel FilterPlatformMainPhoto(IEnumerable<ImageViewModel> photos)
         {
             if (photos == null)
             {
@@ -106,7 +106,7 @@ namespace Eventeam.Services
             return mainPhoto;
         }
 
-        public IList<ImageViewModel> FilterPlatformPhotos(IList<ImageViewModel> photos)
+        public IList<ImageViewModel> FilterPlatformPhotos(IEnumerable<ImageViewModel> photos)
         {
             if (photos == null)
             {
