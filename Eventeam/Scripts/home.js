@@ -4,7 +4,7 @@
 
     $(document).on("scroll", function() {
 
-        if ($(this).scrollTop() >= $('#counters').position().top && isCounters === false) {
+        if ($(this).scrollTop() >= $('#eventeamPlatforms').position().top && isCounters === false) {
             $('#countries').jQuerySimpleCounter({
                 end: 7,
                 duration: 7000
