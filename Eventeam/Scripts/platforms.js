@@ -28,13 +28,13 @@
         for (var i = 0; i < hotels.length; ++i) {
             var hotel = '<div class="col-sm-4">' +
                 '<div class="shop-product">' +
-                '<a href="@Url.Action("ShopItem", "Home")"><img src=' + prepareLink(hotels[i].mainPhoto.link) + ' class="img-responsive" alt=' + hotels[i].mainPhoto.alt + '></a>' +
-                '<a href="@Url.Action("ShopItem", "Home")"><h5 class="primary-font">' + hotels[i].name + '</h5></a>' +
+                '<a href="' + getContextPath() + '/Platforms/PlatformItem/' + hotels[i].hotelId + '"><img src=' + prepareLink(hotels[i].mainPhoto.link) + ' class="img-responsive" alt=' + hotels[i].mainPhoto.alt + '></a>' +
+                '<a href="' + getContextPath() + '/Platforms/PlatformItem/' + hotels[i].hotelId + '"><h5 class="primary-font">' + hotels[i].name + '</h5></a>' +
                 '<p class="text-muted">' + hotels[i].platformAddress +
                 '</p>' +
                 '<p>' + hotels[i].platformCityName +
                 '</p>' +
-                '<a href="#" class="btn btn-sm btn-theme-secondary"><i class="fa fa-shopping-cart"></i> Обзор</a>' +
+                '<a class="btn btn-sm btn-theme-secondary" href="' + getContextPath() + '/Platforms/PlatformItem/' + hotels[i].hotelId + '">' + '<i class="fa fa-shopping-cart"></i> Обзор</a>' +
                 '</div>' +
                 '</div>';
 
