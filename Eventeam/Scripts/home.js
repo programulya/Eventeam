@@ -29,6 +29,7 @@
         }
 
         if ($(this).scrollTop() >= $('#eventeamPlatforms').position().top && isServices === false) {
+            $('#services .services-area').css('visibility', 'visible');
             $('#conferences').addClass('animated fadeInDown delay-1');
             $('#mice').addClass('animated fadeInUp delay-2');
             $('#teamBuildings').addClass('animated fadeInUp delay-3');
