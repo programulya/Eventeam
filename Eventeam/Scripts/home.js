@@ -4,7 +4,7 @@
 
     $(document).on("scroll", function() {
 
-        if ($(this).scrollTop() >= $('#services').position().top && isCounters === false) {
+        if ($(this).scrollTop() >= $('#counters').position().top && isCounters === false) {
             $('#countries').jQuerySimpleCounter({
                 end: 7,
                 duration: 7000
@@ -28,7 +28,7 @@
             isCounters = true;
         }
 
-        if ($(this).scrollTop() >= $('#homeServices').position().top && isServices === false) {
+        if ($(this).scrollTop() >= $('#services').position().top && isServices === false) {
             $('#conferences').addClass('animated fadeInDown delay-1');
             $('#mice').addClass('animated fadeInUp delay-2');
             $('#teamBuildings').addClass('animated fadeInUp delay-3');
