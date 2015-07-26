@@ -34,7 +34,7 @@
                 '</p>' +
                 '<p>' + hotels[i].platformCityName +
                 '</p>' +
-                '<a class="btn btn-sm btn-theme-secondary" href="' + getContextPath() + '/Platforms/PlatformItem/' + hotels[i].hotelId + '">' + '<i class="fa fa-shopping-cart"></i> Обзор</a>' +
+                '<a class="btn btn-sm btn-theme-secondary" href="' + getContextPath() + '/Platforms/Hotel/' + hotels[i].hotelId + '">' + '<i class="fa fa-shopping-cart"></i> Обзор</a>' +
                 '</div>' +
                 '</div>';
 

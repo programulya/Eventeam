@@ -58,14 +58,14 @@
                             @for (var i = 0; i < Model.PlatformLevelName; ++i)
                             {
                                 <li><i class="fa fa-star"></i></li>
-                            }                          
+                            }
                         </ul>
                         <span class="text-muted reviews"></span>
                         <p class="text-muted">
-                            @Model.Other
+                            Nunc in neque nec arcu vulputate ullamcorper. Ut id orci ac arcu consectetur fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis hendrerit enim id arcu lacinia, id commodo ante semper. Sed vel ante nec nisi vestibulum congue. Pellentesque non lacus in tortor rutrum tristique.
                         </p>
                         <p class="text-muted">
-                            @Model.HotelSite
+                            <a href="@Model.HotelSite">@Model.HotelSite</a>
                         </p>
                     </div>
                 </div>
@@ -73,13 +73,37 @@
                 <!-- Item Description -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="headline"><span>Product Details</span></h3>
+                        <h3 class="headline"><span>Описание</span></h3>
                         <p>
-                            Nunc in neque nec arcu vulputate ullamcorper. Ut id orci ac arcu consectetur fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis hendrerit enim id arcu lacinia, id commodo ante semper. Sed vel ante nec nisi vestibulum congue. Pellentesque non lacus in tortor rutrum tristique.
+                            <ul>
+                                <li>Категория: @Model.HotelCategoryName</li>
+                                <li>Количество комнат: @Model.RoomCount</li>
+                                <li>Вместительность: @Model.Capacity</li>
+                                <li>Развлечения: @Model.Entertainment</li>
+                                <li>Оздоровление: @Model.Rehabilitation</li>
+                                <li>Паркинг: @Model.Parking</li>
+                                <li>Internet: @Model.Internet</li>
+                                <li>Дополнительно: @Model.Other</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div> <!-- / .row -->
+                <!-- Item Description -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="headline"><span>Расположение</span></h3>
+                        <p>
+                            <ul>
+                                <li>ГРК: @Model.PlatformName</li>
+                                <li>Город: @Model.PlatformCityName</li>
+                                <li>Расположение: @Model.PlatformLocationName</li>
+                                <li>Адрес: @Model.PlatformAddress</li>
+                            </ul>
                         </p>
                     </div>
                 </div> <!-- / .row -->
             </div>
+
             <div class="col-sm-3">
                 <!-- Search -->
                 <form role="form">
@@ -87,7 +111,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search products...">
+                                    <input type="text" class="form-control" placeholder="Найти">
                                     <span class="input-group-btn">
                                         <button class="btn btn-theme-primary" type="button"><i class="fa fa-search"></i></button>
                                     </span>
@@ -191,6 +215,38 @@
                 </div>
             </div>
         </div> <!-- / .row -->
+        <div>
+            <!-- Google Map -->
+            <div id="canvasHotel" style="width: 100%; height: 400px;"></div>
+        </div> <!-- / .row -->
     </div> <!-- / .container -->
 
 </div> <!-- / .wrapper -->
+
+@section scripts {
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+
+    <script>
+        function initialize() {
+            var canvas = document.getElementById('canvasHotel');
+            var position = new google.maps.LatLng(@Model.PlatformGeography.Latitude, @Model.PlatformGeography.Longitude);
+
+            var mapOptions = {
+                scrollwheel: false,
+                center: position,
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+
+            var map = new google.maps.Map(canvas, mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: '@Model.PlatformAddress'
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+}
