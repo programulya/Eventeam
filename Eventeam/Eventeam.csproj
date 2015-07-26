@@ -1043,6 +1043,15 @@
     <Content Include="less\elements.less" />
     <Content Include="less\global.less" />
     <Content Include="less\style.less" />
+    <Content Include="fonts\SourceSansProBold\SourceSansProBold.eot" />
+    <Content Include="fonts\SourceSansProBold\SourceSansProBold.ttf" />
+    <Content Include="fonts\SourceSansProBold\SourceSansProBold.woff" />
+    <Content Include="fonts\SourceSansProLight\SourceSansProLight.eot" />
+    <Content Include="fonts\SourceSansProLight\SourceSansProLight.ttf" />
+    <Content Include="fonts\SourceSansProLight\SourceSansProLight.woff" />
+    <Content Include="fonts\SourceSansProRegular\SourceSansProRegular.eot" />
+    <Content Include="fonts\SourceSansProRegular\SourceSansProRegular.ttf" />
+    <Content Include="fonts\SourceSansProRegular\SourceSansProRegular.woff" />
     <None Include="Scripts\_references.js" />
     <None Include="Views\Home\AboutUs.cshtml" />
     <None Include="Views\Home\AboutUsOption1.cshtml" />
