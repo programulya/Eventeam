@@ -1053,6 +1053,7 @@
     <Content Include="fonts\SourceSansProRegular\SourceSansProRegular.eot" />
     <Content Include="fonts\SourceSansProRegular\SourceSansProRegular.ttf" />
     <Content Include="fonts\SourceSansProRegular\SourceSansProRegular.woff" />
+    <None Include="Properties\PublishProfiles\eventeam.pubxml" />
     <None Include="Scripts\_references.js" />
     <None Include="Views\Home\AboutUs.cshtml" />
     <None Include="Views\Home\AboutUsOption1.cshtml" />
