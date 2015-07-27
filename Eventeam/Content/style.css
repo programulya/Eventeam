@@ -1378,7 +1378,7 @@ th {
 
 html {
     font-size: 10px;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: #fff;
 }
 
 body {
@@ -1386,7 +1386,7 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333333;
-    background-color: white;
+    background-color: #fff;
 }
 
 input,
@@ -1440,7 +1440,7 @@ img {
 .img-thumbnail {
     padding: 4px;
     line-height: 1.42857143;
-    background-color: white;
+    background-color: #fff;
     border: 1px solid #dddddd;
     border-radius: 4px;
     -webkit-transition: all 0.2s ease-in-out;
@@ -2890,7 +2890,7 @@ th {
 }
 
 .table .table {
-    background-color: white;
+    background-color: #fff;
 }
 
 .table-condensed > thead > tr > th,
@@ -4797,7 +4797,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
     color: #555555;
-    background-color: white;
+    background-color: #fff;
     border: 1px solid #dddddd;
     border-bottom-color: transparent;
     cursor: default;
@@ -4853,7 +4853,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     .nav-tabs.nav-justified > .active > a,
     .nav-tabs.nav-justified > .active > a:hover,
     .nav-tabs.nav-justified > .active > a:focus {
-        border-bottom-color: white;
+        border-bottom-color: #fff;
     }
 }
 
@@ -4938,7 +4938,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     .nav-tabs-justified > .active > a,
     .nav-tabs-justified > .active > a:hover,
     .nav-tabs-justified > .active > a:focus {
-        border-bottom-color: white;
+        border-bottom-color: #fff;
     }
 }
 
@@ -5396,7 +5396,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: white;
+    background-color: #fff;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -8201,7 +8201,7 @@ Last change:    18/02/2015
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff05f68', endColorstr='#ffed3e49', GradientType=0);
     border-color: #e31522;
-    color: white;
+    color: #fff;
 }
 
 .btn-theme-primary:hover,
@@ -8210,7 +8210,7 @@ Last change:    18/02/2015
     border-color: #cc131f;
     background: #ed3e49;
     background-image: none;
-    color: white;
+    color: #fff;
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
@@ -8222,7 +8222,7 @@ Last change:    18/02/2015
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff45b8d8', endColorstr='#ff2babcf', GradientType=0);
     border-color: #2288a5;
-    color: white;
+    color: #fff;
 }
 
 .btn-theme-secondary:hover,
@@ -8231,7 +8231,7 @@ Last change:    18/02/2015
     border-color: #1e7790;
     background: #2babcf;
     background-image: none;
-    color: white;
+    color: #fff;
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
@@ -8459,7 +8459,7 @@ Last change:    18/02/2015
     background-image: linear-gradient(to bottom, #3db5d7 0%, #2babcf 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3db5d7', endColorstr='#ff2babcf', GradientType=0);
-    color: white;
+    color: #fff;
     border: 1px solid transparent;
     border-bottom: 0;
 }
@@ -8479,7 +8479,7 @@ Last change:    18/02/2015
     background-image: linear-gradient(to bottom, #3db5d7 0%, #2babcf 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3db5d7', endColorstr='#ff2babcf', GradientType=0);
-    color: white;
+    color: #fff;
     border: 0;
 }
 
@@ -8588,7 +8588,7 @@ Last change:    18/02/2015
 }
 
 .panel-theme-primary > .panel-heading {
-    color: white;
+    color: #fff;
     background-color: #ef555f;
     border-color: #ef555f;
 }
@@ -8604,7 +8604,7 @@ Last change:    18/02/2015
 .panel-theme-primary > .panel-footer {
     background-color: #ef555f;
     border-top: 1px solid #ef555f;
-    color: white;
+    color: #fff;
 }
 
 .panel-theme-secondary {
@@ -8612,7 +8612,7 @@ Last change:    18/02/2015
 }
 
 .panel-theme-secondary > .panel-heading {
-    color: white;
+    color: #fff;
     background-color: #3db5d7;
     border-color: #3db5d7;
 }
@@ -8628,7 +8628,7 @@ Last change:    18/02/2015
 .panel-theme-secondary > .panel-footer {
     background-color: #3db5d7;
     border-top: 1px solid #3db5d7;
-    color: white;
+    color: #fff;
 }
 
 /*** Accordion ***/
@@ -8658,7 +8658,7 @@ Last change:    18/02/2015
     text-align: center;
     line-height: 20px;
     font-family: FontAwesome;
-    color: white;
+    color: #fff;
 }
 
 .panel-group .panel-heading > .collapsed:after {
@@ -9798,11 +9798,11 @@ body {
 }
 
 .b-pricing-table__check {
-    color: green;
+    color: #008000;
 }
 
 .b-pricing-table__times {
-    color: red;
+    color: #f00;
 }
 
 /*** Bonus ***/
@@ -9849,24 +9849,24 @@ body {
 }
 
 .counter-countries {
-    color: orange;
+    color: #ffa500;
 }
 
 .counter-cities {
-    color: palevioletred;
+    color: #db7093;
 }
 
 .counter-concepts {
-    color: lightskyblue;
+    color: #87cefa;
 }
 
 .counter-projects {
-    color: violet;
+    color: #ee82ee;
 }
 
 .counter-name {
     font-size: 1.2em;
-    color: white;
+    color: #fff;
 }
 
 /* ===== Services ===== */
@@ -9885,7 +9885,7 @@ body {
     display: block;
     margin-right: 15px;
     background: #ed3e49;
-    color: white;
+    color: #fff;
     float: left;
     -webkit-transition: all 300ms;
     -o-transition: all 300ms;
@@ -9965,11 +9965,11 @@ body {
     content: "New";
     font-weight: 400;
     font-size: 10px;
-    color: white;
+    color: #fff;
 }
 
 .shop-product.featured .price .old {
-    color: red;
+    color: #f00;
     text-decoration: line-through;
 }
 
@@ -10376,7 +10376,7 @@ iframe[src="about:blank"] {
     border-radius: 4px;
     background-color: #505050;
     font-weight: 700;
-    color: white;
+    color: #fff;
     z-index: 1;
 }
 
@@ -10710,7 +10710,7 @@ iframe[src="about:blank"] {
 .b-search-results-info__sort-by > li.active > a {
     background: #2babcf;
     border-radius: 3px;
-    color: white;
+    color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -10824,7 +10824,7 @@ iframe[src="about:blank"] {
 }
 
 .rating .up {
-    color: green;
+    color: #008000;
 }
 
 .rating .up:before {
