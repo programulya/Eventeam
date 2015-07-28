@@ -273,6 +273,7 @@
     <Content Include="images\item-3.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\common\logo-eventeam-white.png" />
+    <Content Include="images\party-people.png" />
     <Content Include="images\platforms\admiralClub\admiralClub_main-.jpg" />
     <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_main-.jpg" />
     <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_001-.jpg" />

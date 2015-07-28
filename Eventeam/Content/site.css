@@ -101,3 +101,7 @@ img.cover-fullscreen {
 .navbar-default .navbar-nav > .active > a:focus {
     color: #EAEAEA;
 }
+
+div.browser-showcase {
+    margin: 0 0 -5px 0;
+}
