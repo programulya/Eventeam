@@ -105,3 +105,7 @@ img.cover-fullscreen {
 div.browser-showcase {
     margin: 0 0 -5px 0;
 }
+
+.carousel-inner.narrow {
+    height: 437px;
+}
