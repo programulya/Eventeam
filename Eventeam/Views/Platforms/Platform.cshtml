@@ -30,26 +30,21 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="product-img">
-                            <a href="~/images/macbook.png" data-lightbox="products">
-                                <img src="~/images/macbook.png" class="img-responsive main" alt="...">
+                            <a href="@Url.Content(Model.MainPhoto.Link)" data-lightbox="products">
+                                <img src="@Url.Content(Model.MainPhoto.Link)" class="img-responsive main" alt="@Model.MainPhoto.Alt">
                             </a>
+
                             <div class="row">
-                                <div class="col-xs-4">
-                                    <a href="~/images/macbook.png" data-lightbox="products">
-                                        <img src="~/images/macbook.png" class="img-responsive" alt="...">
-                                    </a>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="~/images/imac.png" data-lightbox="products">
-                                        <img src="~/images/imac.png" class="img-responsive" alt="...">
-                                    </a>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="~/images/ipad.png" data-lightbox="products">
-                                        <img src="~/images/ipad.png" class="img-responsive" alt="...">
-                                    </a>
-                                </div>
+                                @foreach (var p in Model.PlatformPhotos)
+                                {
+                                    <div class="col-xs-4">
+                                        <a href="@Url.Content(p.Link)" data-lightbox="products">
+                                            <img src="@Url.Content(p.Link)" class="img-responsive" alt="@Url.Content(p.Alt)">
+                                        </a>
+                                    </div>
+                                }
                             </div> <!-- / .row -->
+
                         </div>
                     </div>
                     <div class="col-sm-6">
