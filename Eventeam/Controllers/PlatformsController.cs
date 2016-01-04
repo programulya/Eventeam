@@ -21,17 +21,27 @@ namespace Eventeam.Controllers
         {
             using (var db = new EventeamEntities())
             {
-                var hotel = db.Hotels.FirstOrDefault(p => p.HotelID == id);
+                var platform = db.Platforms.FirstOrDefault(p => p.PlatformID == id);
 
-                if (hotel != null)
+                if (platform != null)
                 {
-                    var photos = _imagesService.GetPlatformPhotos(hotel.FolderName, hotel.Name);
+                    var photos = _imagesService.GetPlatformPhotos(platform.FolderName, platform.Name);
                     var mainPhoto = _imagesService.FilterPlatformMainPhoto(photos);
                     var platformPhotos = _imagesService.FilterPlatformPhotos(photos);
 
-                    var content = new HotelViewModel
+                    var content = new PlatformViewModel
                     {
-                        HotelId = hotel.HotelID,
+                        PlatformId = platform.PlatformID,
+                        PlatformName = platform.Name,
+                        PlatformCityName = platform.City.Name,
+                        PlatformLevelName = platform.Level.Name,
+                        PlatformLocationName = platform.Location.Name,
+                        PlatformGeography = platform.Geography,
+                        PlatformAddress = platform.Address,
+                        PlatformSite = platform.Site,
+
+                        Hotels = new List<HotelViewModelNew>(),
+                        /*HotelId = hotel.HotelID,
                         HotelCategoryName = hotel.HotelCategory.Name,
                         HotelName = hotel.Name,
                         HotelSite = hotel.Site,
@@ -41,15 +51,8 @@ namespace Eventeam.Controllers
                         Rehabilitation = hotel.Rehabilitation,
                         Parking = hotel.Parking,
                         Internet = hotel.Internet,
-                        Other = hotel.Other,
+                        Other = hotel.Other,*/
 
-                        PlatformName = hotel.Platform.Name,
-                        PlatformCityName = hotel.Platform.City.Name,
-                        PlatformLevelName = hotel.Platform.Level.Name,
-                        PlatformLocationName = hotel.Platform.Location.Name,
-                        PlatformGeography = hotel.Platform.Geography,
-                        PlatformAddress = hotel.Platform.Address,
-                        PlatformSite = hotel.Platform.Site,
 
                         MainPhoto = mainPhoto,
                         PlatformPhotos = platformPhotos

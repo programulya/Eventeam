@@ -1,5 +1,5 @@
 ﻿@using Eventeam.Models
-@model Eventeam.Models.HotelViewModel
+@model Eventeam.Models.PlatformViewModel
 @{
     ViewBag.Active = "Площадки";
 }
@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <h3>Гостиница</h3>
+                    <h3>Площадка</h3>
                 </div>
                 <div class="col-sm-8">
                     <ol class="breadcrumb pull-right hidden-xs">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <h3 class="headline first-child"><span>@Model.HotelName</span></h3>
+                        <h3 class="headline first-child"><span>@Model.PlatformName</span></h3>
                         <ul class="rating list-inline">
                             @for (var i = 0; i < Model.PlatformLevelName; ++i)
                             {
@@ -65,7 +65,7 @@
                             Nunc in neque nec arcu vulputate ullamcorper. Ut id orci ac arcu consectetur fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis hendrerit enim id arcu lacinia, id commodo ante semper. Sed vel ante nec nisi vestibulum congue. Pellentesque non lacus in tortor rutrum tristique.
                         </p>
                         <p class="text-muted">
-                            <a href="@Model.HotelSite">@Model.HotelSite</a>
+                            <a href="@Model.PlatformSite">@Model.PlatformSite</a>
                         </p>
                     </div>
                 </div>
@@ -73,28 +73,47 @@
                 <!-- Item Description -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="headline"><span>Описание</span></h3>
+                        <h3 class="headline"><span>Гостиницы</span></h3>
                         <p>
                             <ul>
-                                <li>Категория: @Model.HotelCategoryName</li>
+                                @*<li>Категория: @Model.HotelCategoryName</li>
                                 <li>Количество комнат: @Model.RoomCount</li>
                                 <li>Вместительность: @Model.Capacity</li>
                                 <li>Развлечения: @Model.Entertainment</li>
                                 <li>Оздоровление: @Model.Rehabilitation</li>
                                 <li>Паркинг: @Model.Parking</li>
                                 <li>Internet: @Model.Internet</li>
-                                <li>Дополнительно: @Model.Other</li>
+                                <li>Дополнительно: @Model.Other</li>*@
                             </ul>
                         </p>
                     </div>
                 </div> <!-- / .row -->
+
+                <!-- Item Description -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="headline"><span>Рестораны</span></h3>
+                        <p>
+                            <ul>
+                                @*<li>Категория: @Model.HotelCategoryName</li>
+                        <li>Количество комнат: @Model.RoomCount</li>
+                        <li>Вместительность: @Model.Capacity</li>
+                        <li>Развлечения: @Model.Entertainment</li>
+                        <li>Оздоровление: @Model.Rehabilitation</li>
+                        <li>Паркинг: @Model.Parking</li>
+                        <li>Internet: @Model.Internet</li>
+                        <li>Дополнительно: @Model.Other</li>*@
+                            </ul>
+                        </p>
+                    </div>
+                </div> <!-- / .row -->
+
                 <!-- Item Description -->
                 <div class="row">
                     <div class="col-sm-12">
                         <h3 class="headline"><span>Расположение</span></h3>
                         <p>
                             <ul>
-                                <li>ГРК: @Model.PlatformName</li>
                                 <li>Город: @Model.PlatformCityName</li>
                                 <li>Расположение: @Model.PlatformLocationName</li>
                                 <li>Адрес: @Model.PlatformAddress</li>

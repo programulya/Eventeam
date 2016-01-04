@@ -19,12 +19,12 @@ namespace Eventeam.Services
         {
             if (folderName == null)
             {
-                throw new ArgumentNullException("folderName");
+                throw new ArgumentNullException(nameof(folderName));
             }
 
             if (name == null)
             {
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             }
 
             var directory = GetDirectory(ImagesPortfolioPath, folderName);
@@ -60,12 +60,12 @@ namespace Eventeam.Services
         {
             if (folderName == null)
             {
-                throw new ArgumentNullException("folderName");
+                throw new ArgumentNullException(nameof(folderName));
             }
 
             if (name == null)
             {
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             }
 
             var directory = GetDirectory(ImagesPlatformsPath, folderName);
@@ -98,7 +98,7 @@ namespace Eventeam.Services
         {
             if (photos == null)
             {
-                throw new ArgumentNullException("photos");
+                throw new ArgumentNullException(nameof(photos));
             }
 
             var mainPhoto = photos.FirstOrDefault(p => p.Link.EndsWith(ImageMain));
@@ -110,7 +110,7 @@ namespace Eventeam.Services
         {
             if (photos == null)
             {
-                throw new ArgumentNullException("photos");
+                throw new ArgumentNullException(nameof(photos));
             }
 
             var platformPhotos = photos.Where(p => !p.Link.EndsWith(ImageMain));

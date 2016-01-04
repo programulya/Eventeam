@@ -19,20 +19,20 @@ namespace Eventeam.Controllers.Api
         {
             using (var db = new EventeamEntities())
             {
-                var hotels = db.Hotels.ToList();
-                var content = new List<HotelViewModel>();
+                var platforms = db.Platforms.ToList();
+                var content = new List<PlatformViewModel>();
 
-                foreach (var hotel in hotels)
+                foreach (var platform in platforms)
                 {
-                    var photos = _imagesService.GetPlatformPhotos(hotel.FolderName, hotel.Name);
+                    var photos = _imagesService.GetPlatformPhotos(platform.FolderName, platform.Name);
                     var mainPhoto = _imagesService.FilterPlatformMainPhoto(photos);
 
-                    content.Add(new HotelViewModel
+                    content.Add(new PlatformViewModel
                     {
-                        HotelId = hotel.HotelID,
-                        HotelName = hotel.Name,
-                        PlatformCityName = hotel.Platform.City.Name,
-                        PlatformAddress = hotel.Platform.Address,
+                        PlatformId = platform.PlatformID,
+                        PlatformName = platform.Name,
+                        PlatformCityName = platform.City.Name,
+                        PlatformAddress = platform.Address,
                         MainPhoto = mainPhoto
                     });
                 }

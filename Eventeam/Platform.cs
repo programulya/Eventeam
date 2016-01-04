@@ -23,6 +23,7 @@ namespace Eventeam
     
         public int PlatformID { get; set; }
         public string Name { get; set; }
+        public string FolderName { get; set; }
         public int CityID { get; set; }
         public int LevelID { get; set; }
         public int LocationID { get; set; }

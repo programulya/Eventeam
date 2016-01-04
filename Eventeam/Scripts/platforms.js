@@ -3,10 +3,10 @@
 
     /*** PRIVATE ***/
     (function init() {
-        getHotels();
+        getPlatforms();
     })();
 
-    function getHotels() {
+    function getPlatforms() {
         var request = $.ajax({
             url: getContextPath() + '/api/hotels',
             type: 'GET',
@@ -15,7 +15,7 @@
         });
 
         request.done(function(data) {
-            $('#popular').html(renderHotels(data));
+            $('#popular').html(renderPlatforms(data));
         });
 
         request.fail(function(jqXhr, textStatus) {
@@ -23,22 +23,22 @@
         });
     }
 
-    function renderHotels(hotels) {
+    function renderPlatforms(platforms) {
         var content = '';
-        for (var i = 0; i < hotels.length; ++i) {
-            var hotel = '<div class="col-sm-4">' +
+        for (var i = 0; i < platforms.length; ++i) {
+            var platform = '<div class="col-sm-4">' +
                 '<div class="shop-product">' +
-                '<a href="' + getContextPath() + '/Platforms/Hotel/' + hotels[i].hotelId + '"><img src=' + prepareLink(hotels[i].mainPhoto.link) + ' class="img-responsive" alt=' + hotels[i].mainPhoto.alt + '></a>' +
-                '<a href="' + getContextPath() + '/Platforms/Hotel/' + hotels[i].hotelId + '"><h5 class="primary-font">' + hotels[i].hotelName + '</h5></a>' +
-                '<p class="text-muted">' + hotels[i].platformAddress +
+                '<a href="' + getContextPath() + '/Platforms/Hotel/' + platforms[i].platformId + '"><img src=' + prepareLink(platforms[i].mainPhoto.link) + ' class="img-responsive" alt=' + platforms[i].mainPhoto.alt + '></a>' +
+                '<a href="' + getContextPath() + '/Platforms/Hotel/' + platforms[i].platformId + '"><h5 class="primary-font">' + platforms[i].platformName + '</h5></a>' +
+                '<p class="text-muted">' + platforms[i].platformAddress +
                 '</p>' +
-                '<p>' + hotels[i].platformCityName +
+                '<p>' + platforms[i].platformCityName +
                 '</p>' +
-                '<a class="btn btn-sm btn-theme-secondary" href="' + getContextPath() + '/Platforms/Hotel/' + hotels[i].hotelId + '">' + '<i class="fa fa-shopping-cart"></i> Обзор</a>' +
+                '<a class="btn btn-sm btn-theme-secondary" href="' + getContextPath() + '/Platforms/Hotel/' + platforms[i].hotelId + '">' + '<i class="fa fa-shopping-cart"></i> Обзор</a>' +
                 '</div>' +
                 '</div>';
 
-            content += hotel;
+            content += platform;
         }
 
         return content;
@@ -47,6 +47,6 @@
     /*** PUBLIC ***/
 
     return {
-        getHotels: getHotels
+        getPlatforms: getPlatforms
     };
 }());
