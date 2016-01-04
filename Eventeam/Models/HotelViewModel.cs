@@ -9,8 +9,8 @@ namespace Eventeam.Models
     {
         public int HotelId { get; set; }
         public string Name { get; set; }
-        public int HotelCategoryName { get; set; }
-        public string HotelSite { get; set; }
+        public int CategoryName { get; set; }
+        public string Site { get; set; }
         public int RoomCount { get; set; }
         public int Capacity { get; set; }
         public string Entertainment { get; set; }
@@ -18,7 +18,5 @@ namespace Eventeam.Models
         public string Parking { get; set; }
         public string Internet { get; set; }
         public string Other { get; set; }
-        public IList<ImageViewModel> HotelPhotos { get; set; }
-
     }
 }

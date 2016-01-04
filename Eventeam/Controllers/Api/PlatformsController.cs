@@ -30,9 +30,9 @@ namespace Eventeam.Controllers.Api
                     content.Add(new PlatformInfoViewModel
                     {
                         PlatformId = platform.PlatformID,
-                        PlatformName = platform.Name,
-                        PlatformCityName = platform.City.Name,
-                        PlatformAddress = platform.Address,
+                        Name = platform.Name,
+                        CityName = platform.City.Name,
+                        Address = platform.Address,
                         MainPhoto = mainPhoto
                     });
                 }

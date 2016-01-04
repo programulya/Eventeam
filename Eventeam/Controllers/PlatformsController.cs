@@ -32,31 +32,58 @@ namespace Eventeam.Controllers
                     var content = new PlatformViewModel
                     {
                         PlatformId = platform.PlatformID,
-                        PlatformName = platform.Name,
-                        PlatformCityName = platform.City.Name,
-                        PlatformLevelName = platform.Level.Name,
-                        PlatformLocationName = platform.Location.Name,
-                        PlatformGeography = platform.Geography,
-                        PlatformAddress = platform.Address,
-                        PlatformSite = platform.Site,
-
-                        Hotels = new List<HotelViewModel>(),
-                        /*HotelId = hotel.HotelID,
-                        HotelCategoryName = hotel.HotelCategory.Name,
-                        HotelName = hotel.Name,
-                        HotelSite = hotel.Site,
-                        RoomCount = hotel.RoomCount,
-                        Capacity = hotel.Capacity,
-                        Entertainment = hotel.Entertainment,
-                        Rehabilitation = hotel.Rehabilitation,
-                        Parking = hotel.Parking,
-                        Internet = hotel.Internet,
-                        Other = hotel.Other,*/
-
-
+                        Name = platform.Name,
+                        CityName = platform.City.Name,
+                        LevelName = platform.Level.Name,
+                        LocationName = platform.Location.Name,
+                        Geography = platform.Geography,
+                        Address = platform.Address,
+                        Site = platform.Site,
                         MainPhoto = mainPhoto,
-                        PlatformPhotos = platformPhotos
+                        PlatformPhotos = platformPhotos,
                     };
+
+                    var hotel = db.Hotels.FirstOrDefault(h => h.PlatformID == id);
+                    if (hotel != null)
+                    {
+                        content.Hotel = new HotelViewModel
+                        {
+                            HotelId = hotel.HotelID,
+                            CategoryName = hotel.HotelCategory.Name,
+                            Name = hotel.Name,
+                            Site = hotel.Site,
+                            RoomCount = hotel.RoomCount,
+                            Capacity = hotel.Capacity,
+                            Entertainment = hotel.Entertainment,
+                            Rehabilitation = hotel.Rehabilitation,
+                            Parking = hotel.Parking,
+                            Internet = hotel.Internet,
+                            Other = hotel.Other
+                        };
+                    }
+
+                    var restaurants = db.Restaurants.Where(p => p.PlatformID == id);
+                    if (restaurants.Any())
+                    {
+                        content.Restaurants = new List<RestaurantViewModel>();
+
+                        foreach (var rest in restaurants)
+                        {
+                            var c = new RestaurantViewModel
+                            {
+                                RestaurantId = rest.RestaurantID,
+                                Name = rest.Name,
+                                ClassificationName = rest.Classification.Name,
+                                KitchenName = rest.Kitchen.Name,
+                                Banquet = rest.Banquet ?? 0,
+                                Buffet = rest.Buffet ?? 0,
+                                TotalSquare = rest.TotalSquare ?? 0,
+                                Seating = rest.Seating ?? 0
+                            };
+
+                            content.Restaurants.Add(c);
+                        }
+                    }
 
                     return View(content);
                 }

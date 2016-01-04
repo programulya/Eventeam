@@ -182,6 +182,7 @@
     <Compile Include="Location.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RestaurantViewModel.cs" />
     <Compile Include="Models\HotelViewModel.cs" />
     <Compile Include="Models\ImageViewModel.cs" />
     <Compile Include="Models\PlatformInfoViewModel.cs" />
