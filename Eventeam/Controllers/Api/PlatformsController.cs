@@ -10,24 +10,24 @@ using Eventeam.Services;
 
 namespace Eventeam.Controllers.Api
 {
-    public class HotelsController : ApiController
+    public class PlatformsController : ApiController
     {
         private readonly ImagesService _imagesService = new ImagesService();
 
-        // GET api/hotels
+        // GET api/platforms
         public HttpResponseMessage GetAll()
         {
             using (var db = new EventeamEntities())
             {
                 var platforms = db.Platforms.ToList();
-                var content = new List<PlatformViewModel>();
+                var content = new List<PlatformInfoViewModel>();
 
                 foreach (var platform in platforms)
                 {
                     var photos = _imagesService.GetPlatformPhotos(platform.FolderName, platform.Name);
                     var mainPhoto = _imagesService.FilterPlatformMainPhoto(photos);
 
-                    content.Add(new PlatformViewModel
+                    content.Add(new PlatformInfoViewModel
                     {
                         PlatformId = platform.PlatformID,
                         PlatformName = platform.Name,
@@ -42,7 +42,7 @@ namespace Eventeam.Controllers.Api
             }
         }
 
-        // GET api/hotels/1
+        // GET api/platforms/1
         [Obsolete]
         public HttpResponseMessage GetById(int id)
         {

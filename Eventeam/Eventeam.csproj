@@ -142,7 +142,7 @@
     <Compile Include="Controllers\PlatformsController.cs" />
     <Compile Include="Controllers\Api\RestaurantsController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
-    <Compile Include="Controllers\Api\HotelsController.cs" />
+    <Compile Include="Controllers\Api\PlatformsController.cs" />
     <Compile Include="Eventeam.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,8 +183,8 @@
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HotelViewModel.cs" />
-    <Compile Include="Models\HotelViewModelNew.cs" />
     <Compile Include="Models\ImageViewModel.cs" />
+    <Compile Include="Models\PlatformInfoViewModel.cs" />
     <Compile Include="Models\PlatformViewModel.cs" />
     <Compile Include="Models\ProjectViewModel.cs" />
     <Compile Include="NonStandardType.cs">
@@ -1082,7 +1082,7 @@
     <None Include="Views\Home\ResponsiveVideo.cshtml" />
     <None Include="Views\Home\SearchResults.cshtml" />
     <None Include="Views\Home\Services.cshtml" />
-    <None Include="Views\Platforms\Hotel.cshtml" />
+    <None Include="Views\Platforms\Platform.cshtml" />
     <None Include="Views\Platforms\Platforms.cshtml" />
     <None Include="Views\Home\ShoppingCart.cshtml" />
     <None Include="Views\Home\SignIn.cshtml" />

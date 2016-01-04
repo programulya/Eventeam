@@ -8,7 +8,7 @@
 
     function getPlatforms() {
         var request = $.ajax({
-            url: getContextPath() + '/api/hotels',
+            url: getContextPath() + '/api/platforms',
             type: 'GET',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8'
@@ -28,13 +28,13 @@
         for (var i = 0; i < platforms.length; ++i) {
             var platform = '<div class="col-sm-4">' +
                 '<div class="shop-product">' +
-                '<a href="' + getContextPath() + '/Platforms/Hotel/' + platforms[i].platformId + '"><img src=' + prepareLink(platforms[i].mainPhoto.link) + ' class="img-responsive" alt=' + platforms[i].mainPhoto.alt + '></a>' +
-                '<a href="' + getContextPath() + '/Platforms/Hotel/' + platforms[i].platformId + '"><h5 class="primary-font">' + platforms[i].platformName + '</h5></a>' +
+                '<a href="' + getContextPath() + '/Platforms/Platform/' + platforms[i].platformId + '"><img src=' + prepareLink(platforms[i].mainPhoto.link) + ' class="img-responsive" alt=' + platforms[i].mainPhoto.alt + '></a>' +
+                '<a href="' + getContextPath() + '/Platforms/Platform/' + platforms[i].platformId + '"><h5 class="primary-font">' + platforms[i].platformName + '</h5></a>' +
                 '<p class="text-muted">' + platforms[i].platformAddress +
                 '</p>' +
                 '<p>' + platforms[i].platformCityName +
                 '</p>' +
-                '<a class="btn btn-sm btn-theme-secondary" href="' + getContextPath() + '/Platforms/Hotel/' + platforms[i].hotelId + '">' + '<i class="fa fa-shopping-cart"></i> Обзор</a>' +
+                '<a class="btn btn-sm btn-theme-secondary" href="' + getContextPath() + '/Platforms/Platform/' + platforms[i].platformId + '">' + '<i class="fa fa-shopping-cart"></i> Обзор</a>' +
                 '</div>' +
                 '</div>';
 

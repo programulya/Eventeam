@@ -17,7 +17,7 @@ namespace Eventeam.Controllers
             return View();
         }
 
-        public ActionResult Hotel(int id)
+        public ActionResult Platform(int id)
         {
             using (var db = new EventeamEntities())
             {
@@ -40,7 +40,7 @@ namespace Eventeam.Controllers
                         PlatformAddress = platform.Address,
                         PlatformSite = platform.Site,
 
-                        Hotels = new List<HotelViewModelNew>(),
+                        Hotels = new List<HotelViewModel>(),
                         /*HotelId = hotel.HotelID,
                         HotelCategoryName = hotel.HotelCategory.Name,
                         HotelName = hotel.Name,

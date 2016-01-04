@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Web;
 
@@ -13,7 +14,7 @@ namespace Eventeam.Models
         public string PlatformCityName { get; set; }
         public int PlatformLevelName { get; set; }
         public string PlatformLocationName { get; set; }
-        public System.Data.Entity.Spatial.DbGeography PlatformGeography { get; set; }
+        public DbGeography PlatformGeography { get; set; }
         public string PlatformAddress { get; set; }
         public string PlatformSite { get; set; }
 
@@ -21,8 +22,7 @@ namespace Eventeam.Models
         public IList<ImageViewModel> PlatformPhotos { get; set; }
 
         // Hotels
-        public IList<HotelViewModelNew> Hotels { get; set; }
-
+        public IList<HotelViewModel> Hotels { get; set; }
 
         // Restaurants
     }
