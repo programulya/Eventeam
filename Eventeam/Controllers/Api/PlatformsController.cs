@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using Eventeam.Contracts;
 using Eventeam.Models;
 using Eventeam.Services;
 
@@ -12,73 +13,47 @@ namespace Eventeam.Controllers.Api
 {
     public class PlatformsController : ApiController
     {
-        private readonly ImagesService _imagesService = new ImagesService();
+        private readonly IImagesService _imagesService;
+
+        public PlatformsController(IImagesService imagesService)
+        {
+            _imagesService = imagesService;
+        }
 
         // GET api/platforms
         public HttpResponseMessage GetAll()
         {
-            using (var db = new EventeamEntities())
+            try
             {
-                var platforms = db.Platforms.ToList();
-                var content = new List<PlatformInfoViewModel>();
-
-                foreach (var platform in platforms)
+                using (var db = new EventeamEntities())
                 {
-                    var photos = _imagesService.GetPlatformPhotos(platform.FolderName, platform.Name);
-                    var mainPhoto = _imagesService.FilterPlatformMainPhoto(photos);
+                    var platforms = db.Platforms.ToList();
+                    var content = new List<PlatformInfoViewModel>();
 
-                    content.Add(new PlatformInfoViewModel
+                    foreach (var platform in platforms)
                     {
-                        PlatformId = platform.PlatformID,
-                        Name = platform.Name,
-                        CityName = platform.City.Name,
-                        Address = platform.Address,
-                        MainPhoto = mainPhoto
-                    });
-                }
+                        var photos = _imagesService.GetPlatformPhotos(platform.FolderName, platform.Name);
+                        var mainPhoto = _imagesService.FilterPlatformMainPhoto(photos);
 
-                return Request.CreateResponse(HttpStatusCode.OK, content.ToList(),
+                        content.Add(new PlatformInfoViewModel
+                        {
+                            PlatformId = platform.PlatformID,
+                            Name = platform.Name,
+                            CityName = platform.City.Name,
+                            Address = platform.Address,
+                            MainPhoto = mainPhoto
+                        });
+                    }
+
+                    return Request.CreateResponse(HttpStatusCode.OK, content.ToList(),
+                        JsonMediaTypeFormatter.DefaultMediaType);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message,
                     JsonMediaTypeFormatter.DefaultMediaType);
             }
         }
-
-        // GET api/platforms/1
-        [Obsolete]
-        public HttpResponseMessage GetById(int id)
-        {
-            using (var db = new EventeamEntities())
-            {
-                var hotel = db.Hotels.FirstOrDefault(h => h.HotelID == id);
-
-                if (hotel != null)
-                {
-                    var content = new
-                    {
-                        hotel.Name,
-                        hotel.Capacity,
-                        hotel.Entertainment
-                    };
-
-                    return Request.CreateResponse(HttpStatusCode.OK, content, JsonMediaTypeFormatter.DefaultMediaType);
-                }
-
-                return Request.CreateResponse(HttpStatusCode.NotFound);
-            }
-        }
-
-        /*// POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-        }*/
     }
 }

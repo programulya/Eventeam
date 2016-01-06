@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -8,31 +9,94 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using Eventeam.Contracts;
 using Eventeam.Controllers.Api;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Eventeam.Controllers;
+using Eventeam.Models;
+using Moq;
 using Newtonsoft.Json;
 using PlatformsController = Eventeam.Controllers.Api.PlatformsController;
 
 namespace Eventeam.Tests.Controllers
 {
     [TestClass]
-    [Ignore]
     public class PlatformsControllerTests
     {
-        #region GetAll
+        #region Init
+
+        private Mock<IImagesService> _imagesServiceMock = new Mock<IImagesService>();
+        private const string ApiPlatforms = "http://localhost:7000/api/platforms";
+
+        [TestInitialize]
+        public void TestInit()
+        {
+            _imagesServiceMock = new Mock<IImagesService>();
+        }
+
+        #endregion
+
+        #region Cleanup
+
+        [TestCleanup]
+        public void TestCleanup()
+        {
+        }
+
+        #endregion
+
+        #region 'GetAll' method tests
 
         [TestMethod]
-        public void GetAll_should_return_platforms()
+        public void GetAll_should_return_status_code_ok_and_platforms()
         {
             // Arrange
-            var controller = new PlatformsController
+            var controller = new PlatformsController(_imagesServiceMock.Object)
             {
-                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:7000/api/platforms")
+                Request = new HttpRequestMessage(HttpMethod.Get, ApiPlatforms)
             };
 
             HttpContext.Current = new HttpContext(
-                new HttpRequest("", "http://localhost:7000/api/platforms", ""),
+                new HttpRequest("", ApiPlatforms, ""),
+                new HttpResponse(new StringWriter()));
+
+            controller.Request.SetConfiguration(new HttpConfiguration());
+
+            _imagesServiceMock.Setup(i => i
+                .GetPlatformPhotos(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(new List<ImageViewModel>
+                {
+                    new ImageViewModel {Link = "Link", LinkResponsive = "LinkResponsive", Alt = "Alt"}
+                });
+
+            _imagesServiceMock.Setup(i => i
+                .FilterPlatformMainPhoto(It.IsAny<IEnumerable<ImageViewModel>>()))
+                .Returns(new ImageViewModel {Link = "LinkMain", LinkResponsive = "LinkResponsiveMain", Alt = "AltMain"});
+
+            // Act
+            var result = controller.GetAll();
+            var content = result.Content;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
+            Assert.IsNotNull(content);
+
+            _imagesServiceMock.Verify(i => i.GetPlatformPhotos(It.IsAny<string>(), It.IsAny<string>()));
+            _imagesServiceMock.Verify(i => i.FilterPlatformMainPhoto(It.IsAny<IEnumerable<ImageViewModel>>()));
+        }
+
+        [TestMethod]
+        public void GetAll_should_return_status_code_internal_server_error_on_exception()
+        {
+            // Arrange
+            var controller = new PlatformsController(null)
+            {
+                Request = new HttpRequestMessage(HttpMethod.Get, ApiPlatforms)
+            };
+
+            HttpContext.Current = new HttpContext(
+                new HttpRequest("", ApiPlatforms, ""),
                 new HttpResponse(new StringWriter()));
 
             controller.Request.SetConfiguration(new HttpConfiguration());
@@ -43,89 +107,10 @@ namespace Eventeam.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(HttpStatusCode.InternalServerError, result.StatusCode);
             Assert.IsNotNull(content);
         }
 
         #endregion
-
-        #region GetById
-
-        [TestMethod]
-        public void GetById_should_return_platform_by_id()
-        {
-            // Arrange
-            var controller = new PlatformsController
-            {
-                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:7000/api/platforms/2")
-            };
-
-            controller.Request.SetConfiguration(new HttpConfiguration());
-
-            // Act
-            var result = controller.GetById(2);
-            var content = result.Content;
-
-            // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
-            Assert.IsNotNull(content);
-        }
-
-        [TestMethod]
-        public void GetById_should_return_not_found_platform_by_id()
-        {
-            // Arrange
-            var controller = new PlatformsController
-            {
-                Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:7000/api/platforms/0")
-            };
-
-            controller.Request.SetConfiguration(new HttpConfiguration());
-
-            // Act
-            var result = controller.GetById(0);
-            var content = result.Content;
-
-            // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(result.StatusCode, HttpStatusCode.NotFound);
-            Assert.IsNull(content);
-        }
-
-        #endregion
-
-        /*[TestMethod]
-        public void Post()
-        {
-            // Arrange
-            var controller = new HotelsController();
-
-            // Act
-            // Assert
-            controller.Post("value");
-        }
-
-        [TestMethod]
-        public void Put()
-        {
-            // Arrange
-            var controller = new HotelsController();
-
-            // Act
-            // Assert
-            controller.Put(5, "value");
-        }
-
-        [TestMethod]
-        public void Delete()
-        {
-            // Arrange
-            var controller = new HotelsController();
-
-            // Act
-            // Assert
-            controller.Delete(5);
-        }*/
     }
 }

@@ -13,6 +13,10 @@ namespace Eventeam
     {
         protected void Application_Start()
         {
+            // Dependency registration
+            DependencyRegistration.DependencyRegistration.Register();
+
+            // Configs
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

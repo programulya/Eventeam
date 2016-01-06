@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Formatting;
-using System.Web.Http;
-using System.Web.Http.Results;
 using System.Web.Mvc;
+using Eventeam.Contracts;
 using Eventeam.Models;
-using Eventeam.Services;
-using Newtonsoft.Json;
 
 namespace Eventeam.Controllers
 {
     public class ProjectsController : Controller
     {
-        private readonly ImagesService _imagesService = new ImagesService();
+        private readonly IImagesService _imagesService;
+
+        public ProjectsController(IImagesService imagesService)
+        {
+            _imagesService = imagesService;
+        }
 
         public ActionResult Portfolio()
         {

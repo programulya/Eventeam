@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Eventeam.Contracts;
 using Eventeam.Models;
 using Eventeam.Services;
 
@@ -10,7 +11,12 @@ namespace Eventeam.Controllers
 {
     public class PlatformsController : Controller
     {
-        private readonly ImagesService _imagesService = new ImagesService();
+        private readonly IImagesService _imagesService;
+
+        public PlatformsController(IImagesService imagesService)
+        {
+            _imagesService = imagesService;
+        }
 
         public ActionResult Platforms()
         {
