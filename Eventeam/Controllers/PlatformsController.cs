@@ -66,6 +66,25 @@ namespace Eventeam.Controllers
                             Internet = hotel.Internet,
                             Other = hotel.Other
                         };
+
+                        if (hotel.Rooms.Any())
+                        {
+                            content.Hotel.Rooms = new List<RoomViewModel>();
+
+                            foreach (var r in hotel.Rooms)
+                            {
+                                var c = new RoomViewModel
+                                {
+                                    RoomId = r.RoomID,
+                                    Name = r.Name,
+                                    RoomCategoryName = r.RoomCategory.Name,
+                                    RoomTypeName = r.RoomType.Name,
+                                    Quantity = r.Quantity
+                                };
+
+                                content.Hotel.Rooms.Add(c);
+                            }
+                        }
                     }
 
                     var restaurants = db.Restaurants.Where(p => p.PlatformID == id);
@@ -81,13 +100,38 @@ namespace Eventeam.Controllers
                                 Name = rest.Name,
                                 ClassificationName = rest.Classification.Name,
                                 KitchenName = rest.Kitchen.Name,
-                                Banquet = rest.Banquet ?? 0,
-                                Buffet = rest.Buffet ?? 0,
-                                TotalSquare = rest.TotalSquare ?? 0,
-                                Seating = rest.Seating ?? 0
+                                Banquet = rest.Banquet,
+                                Buffet = rest.Buffet,
+                                TotalSquare = rest.TotalSquare,
+                                Seating = rest.Seating
                             };
 
                             content.Restaurants.Add(c);
+                        }
+                    }
+
+                    var halls = db.Halls.Where(p => p.PlatformID == id);
+                    if (halls.Any())
+                    {
+                        content.Halls = new List<HallViewModel>();
+
+                        foreach (var h in halls)
+                        {
+                            var c = new HallViewModel
+                            {
+                                HallId = h.HallID,
+                                Name = h.Name,
+                                TotalSquare = h.TotalSquare,
+                                Theater = h.Theater,
+                                Class = h.Class,
+                                PPlanting = h.PPlanting,
+                                MeetingRoom = h.MeetingRoom,
+                                Banquet = h.Banquet,
+                                Buffet = h.Buffet,
+                                Equipment = h.Equipment
+                            };
+
+                            content.Halls.Add(c);
                         }
                     }
 
