@@ -146,6 +146,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="images\portfolio\belgium-2015\" />
+    <Folder Include="images\portfolio\deer-vs-hare\" />
+    <Folder Include="images\portfolio\eau-madrid-2015\" />
+    <Folder Include="images\portfolio\european-orl-hns-prague\" />
+    <Folder Include="images\portfolio\europediatrics-florence\" />
+    <Folder Include="images\portfolio\fetal-medicine\" />
+    <Folder Include="images\portfolio\fitoteka\" />
+    <Folder Include="images\portfolio\hipsters-golden-dawn\" />
+    <Folder Include="images\portfolio\indian-new-year-party\" />
+    <Folder Include="images\portfolio\munich-2015\" />
+    <Folder Include="images\portfolio\stars-of-renaissance\" />
+    <Folder Include="images\portfolio\strength-of-plants\" />
+    <Folder Include="images\portfolio\we-building-life\" />
+    <Folder Include="images\portfolio\workshop-by-sosnovskih\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
