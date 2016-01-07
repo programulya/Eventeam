@@ -39,10 +39,8 @@
                     </button>
                     <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img src="~/images/common/logo-eventeam-white.png" alt="Eventeam"></a>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <a class="btn btn-theme-primary navbar-btn navbar-right hidden-sm hidden-xs">Sign In</a>
+                <div class="collapse navbar-collapse">             
                     <ul id="navigation" class="nav navbar-nav navbar-right">
-
                         <li class="hidden-sm menu-item">
                             <a href="@Url.Action("Index", "Home")">Главная</a>
                         </li>
@@ -54,32 +52,8 @@
                         </li>
                         <li class="hidden-sm menu-item">
                             <a href="@Url.Action("ContactUs", "Home")">Контакты</a>
-                        </li>
-
-                        <!-- Navbar Search -->
-                        <li class="hidden-xs hidden-sm" id="navbar-search">
-                            <a href="#">
-                                <i class="fa fa-search"></i>
-                            </a>
-                            <div class="hidden" id="navbar-search-box">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">Go!</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <!-- Mobile Search -->
-                    <form class="navbar-form navbar-right visible-xs visible-sm" role="search">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                            <span class="input-group-btn">
-                                <button class="btn btn-theme-primary" type="button">Search!</button>
-                            </span>
-                        </div>
-                    </form>
+                        </li> 
+                    </ul>             
                 </div><!--/.nav-collapse -->
             </div>
         </div> <!-- / .navigation -->
@@ -118,12 +92,16 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="copyright">
-                        Copyright &copy; 2014 - @DateTime.Now.Year. Eventeam. All Rights Reserved
+                        Copyright &copy; 2014 - @DateTime.Now.Year. Eventeam. All Rights Reserved.
                     </div>
                 </div>
             </div>  <!-- / .row -->
         </div> <!-- / .container -->
-       
+
+        <div id="divLoading" class="loading">
+            <img src="~/images/loading.svg" alt="Загрузка..." class="loading-image">
+        </div>
+    
         <!-- JS Global -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="~/Scripts/bootstrap/bootstrap.min.js"></script>
