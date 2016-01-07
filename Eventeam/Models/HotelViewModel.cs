@@ -1,4 +1,6 @@
-﻿namespace Eventeam.Models
+﻿using System.Collections.Generic;
+
+namespace Eventeam.Models
 {
     public class HotelViewModel
     {
@@ -13,5 +15,6 @@
         public string Parking { get; set; }
         public string Internet { get; set; }
         public string Other { get; set; }
+        public IList<RoomViewModel> Rooms { get; set; }
     }
 }

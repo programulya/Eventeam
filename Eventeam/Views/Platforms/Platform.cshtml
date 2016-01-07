@@ -85,6 +85,23 @@
                             </p>
                         </div>
                     </div> <!-- / .row -->
+
+                    if (Model.Hotel.Rooms != null)
+                    {
+                        <h3 class="headline"><span>Номера</span></h3>
+
+                        foreach (var r in Model.Hotel.Rooms)
+                        {
+                            <div>
+                                <p>@r.Name</p>
+                                <ul>
+                                    <li>Категория номера: @r.RoomCategoryName</li>
+                                    <li>Тип размещения: @r.RoomTypeName</li>
+                                    <li>Количество: @r.Quantity</li>
+                                </ul>
+                            </div>
+                        }
+                    }
                 }
 
                 @if (Model.Restaurants != null)
@@ -101,22 +118,22 @@
                                         <li>Вид ресторана/зала (классификация): @r.ClassificationName</li>
                                         <li>Тип кухни (основная): @r.KitchenName</li>
 
-                                        @if (r.TotalSquare != 0)
+                                        @if (r.TotalSquare != null)
                                         {
                                             <li>Площадь, м2: @r.TotalSquare</li>
                                         }
 
-                                        @if (r.Seating != 0)
+                                        @if (r.Seating != null)
                                         {
                                             <li>Посадочных мест: @r.Seating</li>
                                         }
 
-                                        @if (r.Banquet != 0)
+                                        @if (r.Banquet != null)
                                         {
                                             <li>Банкет: @r.Banquet</li>
                                         }
 
-                                        @if (r.Buffet != 0)
+                                        @if (r.Buffet != null)
                                         {
                                             <li>Фуршет: @r.Buffet</li>
                                         }
@@ -125,7 +142,61 @@
                             }
                         </div>
                     </div> <!-- / .row -->
-                }         
+                }
+
+                @if (Model.Halls != null)
+                {
+                     <!-- Item Description -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="headline"><span>Залы</span></h3>
+                            @foreach (var h in Model.Halls)
+                            {
+                                <div>
+                                    <p>@h.Name</p>
+                                    <ul>
+                                        <li>Площадь, м2: @h.TotalSquare</li>
+                                        
+                                        @if (h.Theater != null)
+                                        {
+                                            <li>Театр: @h.Theater</li>
+                                        }
+
+                                        @if (h.Class != null)
+                                        {
+                                            <li>Класс: @h.Class</li>
+                                        }
+
+                                        @if (h.PPlanting != null)
+                                        {
+                                            <li>П-посадка: @h.PPlanting</li>
+                                        }
+
+                                        @if (h.MeetingRoom != null)
+                                        {
+                                            <li>Переговоры: @h.MeetingRoom</li>
+                                        }
+
+                                        @if (h.Banquet != null)
+                                        {
+                                            <li>Банкет: @h.Banquet</li>
+                                        }
+
+                                        @if (h.Buffet != null)
+                                        {
+                                            <li>Фуршет: @h.Buffet</li>
+                                        }
+
+                                        @if (h.Equipment != null)
+                                        {
+                                            <li>Оборудование: @h.Equipment</li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                        </div>
+                    </div> <!-- / .row -->
+                }
 
                 <!-- Item Description -->
                 <div class="row">

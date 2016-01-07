@@ -23,5 +23,8 @@ namespace Eventeam.Models
 
         // Restaurants
         public IList<RestaurantViewModel> Restaurants { get; set; }
+
+        // Halls
+        public IList<HallViewModel> Halls { get; set; }
     }
 }

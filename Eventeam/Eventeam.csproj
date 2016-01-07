@@ -205,12 +205,14 @@
     <Compile Include="Location.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HallViewModel.cs" />
     <Compile Include="Models\RestaurantViewModel.cs" />
     <Compile Include="Models\HotelViewModel.cs" />
     <Compile Include="Models\ImageViewModel.cs" />
     <Compile Include="Models\PlatformInfoViewModel.cs" />
     <Compile Include="Models\PlatformViewModel.cs" />
     <Compile Include="Models\ProjectViewModel.cs" />
+    <Compile Include="Models\RoomViewModel.cs" />
     <Compile Include="NonStandardType.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
