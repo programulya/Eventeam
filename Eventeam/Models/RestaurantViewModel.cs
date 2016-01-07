@@ -4,6 +4,7 @@
     {
         public int RestaurantId { get; set; }
         public string Name { get; set; }
+        public string Type { get; set; }
         public string ClassificationName { get; set; }
         public string KitchenName { get; set; }
         public int? Banquet { get; set; }

@@ -30,6 +30,10 @@ namespace Eventeam
         public System.Data.Entity.Spatial.DbGeography Geography { get; set; }
         public string Address { get; set; }
         public string Site { get; set; }
+        public string Subway { get; set; }
+        public Nullable<double> DistanceRailwayStation { get; set; }
+        public Nullable<double> DistanceAirportBorispil { get; set; }
+        public Nullable<double> DistanceAirportZhulyany { get; set; }
     
         public virtual City City { get; set; }
         public virtual Level Level { get; set; }

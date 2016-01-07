@@ -44,6 +44,10 @@ namespace Eventeam.Controllers
                         LocationName = platform.Location.Name,
                         Geography = platform.Geography,
                         Address = platform.Address,
+                        Subway = platform.Subway,
+                        DistanceRailwayStation = platform.DistanceRailwayStation,
+                        DistanceAirportBorispil = platform.DistanceAirportBorispil,
+                        DistanceAirportZhulyany = platform.DistanceAirportZhulyany,
                         Site = platform.Site,
                         MainPhoto = mainPhoto,
                         PlatformPhotos = platformPhotos,
@@ -92,18 +96,19 @@ namespace Eventeam.Controllers
                     {
                         content.Restaurants = new List<RestaurantViewModel>();
 
-                        foreach (var rest in restaurants)
+                        foreach (var r in restaurants)
                         {
                             var c = new RestaurantViewModel
                             {
-                                RestaurantId = rest.RestaurantID,
-                                Name = rest.Name,
-                                ClassificationName = rest.Classification.Name,
-                                KitchenName = rest.Kitchen.Name,
-                                Banquet = rest.Banquet,
-                                Buffet = rest.Buffet,
-                                TotalSquare = rest.TotalSquare,
-                                Seating = rest.Seating
+                                RestaurantId = r.RestaurantID,
+                                Name = r.Name,
+                                Type = r.RestaurantType.Name,
+                                ClassificationName = r.Classification.Name,
+                                KitchenName = r.Kitchen.Name,
+                                Banquet = r.Banquet,
+                                Buffet = r.Buffet,
+                                TotalSquare = r.TotalSquare,
+                                Seating = r.Seating
                             };
 
                             content.Restaurants.Add(c);

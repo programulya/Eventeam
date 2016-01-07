@@ -226,6 +226,9 @@
     <Compile Include="Restaurant.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
+    <Compile Include="RestaurantType.cs">
+      <DependentUpon>Eventeam.tt</DependentUpon>
+    </Compile>
     <Compile Include="Room.cs">
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>

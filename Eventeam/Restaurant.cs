@@ -24,9 +24,11 @@ namespace Eventeam
         public Nullable<int> Buffet { get; set; }
         public Nullable<int> TotalSquare { get; set; }
         public Nullable<int> Seating { get; set; }
+        public int TypeID { get; set; }
     
         public virtual Classification Classification { get; set; }
         public virtual Kitchen Kitchen { get; set; }
         public virtual Platform Platform { get; set; }
+        public virtual RestaurantType RestaurantType { get; set; }
     }
 }

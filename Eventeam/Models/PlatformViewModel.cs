@@ -13,6 +13,10 @@ namespace Eventeam.Models
         public string LocationName { get; set; }
         public DbGeography Geography { get; set; }
         public string Address { get; set; }
+        public string Subway { get; set; }
+        public double? DistanceRailwayStation { get; set; }
+        public double? DistanceAirportBorispil { get; set; }
+        public double? DistanceAirportZhulyany { get; set; }
         public string Site { get; set; }
 
         public ImageViewModel MainPhoto { get; set; }

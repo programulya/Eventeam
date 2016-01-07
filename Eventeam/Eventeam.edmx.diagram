@@ -35,6 +35,8 @@
         <AssociationConnector Association="EventeamModel.FK_Hall_Platform" />
         <AssociationConnector Association="EventeamModel.FK_Hotel_Platform" />
         <AssociationConnector Association="EventeamModel.FK_Restaurant_Platform" />
+        <EntityTypeShape EntityType="EventeamModel.RestaurantType" Width="1.5" PointX="13.375" PointY="0.875" />
+        <AssociationConnector Association="EventeamModel.FK_Restaurant_RestaurantType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

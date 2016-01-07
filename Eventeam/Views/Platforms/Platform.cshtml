@@ -113,27 +113,27 @@
                             @foreach (var r in Model.Restaurants)
                             {
                                 <div>
-                                    <p>@r.Name</p>
+                                    <p>@r.Type "@r.Name"</p>
                                     <ul>
                                         <li>Вид ресторана/зала (классификация): @r.ClassificationName</li>
                                         <li>Тип кухни (основная): @r.KitchenName</li>
 
-                                        @if (r.TotalSquare != null)
+                                        @if (r.TotalSquare.HasValue)
                                         {
                                             <li>Площадь, м2: @r.TotalSquare</li>
                                         }
 
-                                        @if (r.Seating != null)
+                                        @if (r.Seating.HasValue)
                                         {
                                             <li>Посадочных мест: @r.Seating</li>
                                         }
 
-                                        @if (r.Banquet != null)
+                                        @if (r.Banquet.HasValue)
                                         {
                                             <li>Банкет: @r.Banquet</li>
                                         }
 
-                                        @if (r.Buffet != null)
+                                        @if (r.Buffet.HasValue)
                                         {
                                             <li>Фуршет: @r.Buffet</li>
                                         }
@@ -157,40 +157,38 @@
                                     <ul>
                                         <li>Площадь, м2: @h.TotalSquare</li>
                                         
-                                        @if (h.Theater != null)
+                                        @if (h.Theater.HasValue)
                                         {
                                             <li>Театр: @h.Theater</li>
                                         }
 
-                                        @if (h.Class != null)
+                                        @if (h.Class.HasValue)
                                         {
                                             <li>Класс: @h.Class</li>
                                         }
 
-                                        @if (h.PPlanting != null)
+                                        @if (h.PPlanting.HasValue)
                                         {
                                             <li>П-посадка: @h.PPlanting</li>
                                         }
 
-                                        @if (h.MeetingRoom != null)
+                                        @if (h.MeetingRoom.HasValue)
                                         {
                                             <li>Переговоры: @h.MeetingRoom</li>
                                         }
 
-                                        @if (h.Banquet != null)
+                                        @if (h.Banquet.HasValue)
                                         {
                                             <li>Банкет: @h.Banquet</li>
                                         }
 
-                                        @if (h.Buffet != null)
+                                        @if (h.Buffet.HasValue)
                                         {
                                             <li>Фуршет: @h.Buffet</li>
                                         }
-
-                                        @if (h.Equipment != null)
-                                        {
-                                            <li>Оборудование: @h.Equipment</li>
-                                        }
+                                        
+                                        <li>Оборудование: @h.Equipment</li>
+                                        
                                     </ul>
                                 </div>
                             }
@@ -207,6 +205,26 @@
                                 <li>Город: @Model.CityName</li>
                                 <li>Расположение: @Model.LocationName</li>
                                 <li>Адрес: @Model.Address</li>
+
+                                @if (!String.IsNullOrEmpty(Model.Subway))
+                                {
+                                    <li>Ближайшее метро: @Model.Subway</li>
+                                }
+
+                                @if (Model.DistanceRailwayStation.HasValue)
+                                {
+                                    <li>Расстояние от ж/д вокзала, км: @Model.DistanceRailwayStation</li>
+                                }
+
+                                @if (Model.DistanceAirportBorispil.HasValue)
+                                {
+                                    <li>Расстояние от аэропорта Борисполь, км: @Model.DistanceAirportBorispil</li>
+                                }
+
+                                @if (Model.DistanceAirportZhulyany.HasValue)
+                                {
+                                    <li>Расстояние от аэропорта Жуляны, км: @Model.DistanceAirportZhulyany</li>
+                                }
                             </ul>
                         </p>
                     </div>
@@ -214,21 +232,6 @@
             </div>
 
             <div class="col-sm-3">
-                <!-- Search -->
-                <form role="form">
-                    <div class="well">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Найти">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-theme-primary" type="button"><i class="fa fa-search"></i></button>
-                                    </span>
-                                </div><!-- /input-group -->
-                            </div><!-- /.col-lg-6 -->
-                        </div><!-- /.row -->
-                    </div>
-                </form>
                 <!-- Categories -->
                 <div class="panel-group" id="help-nav">
                     <div class="panel panel-default">
