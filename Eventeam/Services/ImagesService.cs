@@ -14,8 +14,9 @@ namespace Eventeam.Services
         private const string ImagesPlatformsPath = "~/images/platforms/";
         private const string ImageFile = "-.jpg";
         private const string ImageMain = "_main-.jpg";
+        private const string ImageSlider = "_slider-.jpg";
 
-        public IEnumerable<ImageViewModel> GetPortfolioPhotos(string folderName, string name)
+        public IList<ImageViewModel> GetPortfolioPhotos(string folderName, string name)
         {
             if (folderName == null)
             {
@@ -54,6 +55,18 @@ namespace Eventeam.Services
             }
 
             return photoList;
+        }
+
+        public IList<ImageViewModel> FilterPortfolioSliderPhotos(IEnumerable<ImageViewModel> photos)
+        {
+            if (photos == null)
+            {
+                throw new ArgumentNullException(nameof(photos));
+            }
+
+            var sliderPhotos = photos.Where(p => p.Link.EndsWith(ImageSlider));
+
+            return sliderPhotos.ToList();
         }
 
         public IList<ImageViewModel> GetPlatformPhotos(string folderName, string name)

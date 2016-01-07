@@ -43,17 +43,10 @@ namespace Eventeam.Controllers
                     };
 
                     var portfolioPhotos = _imagesService.GetPortfolioPhotos(portfolio.FolderName, portfolio.ProjectName);
+                    var sliderPhotos = _imagesService.FilterPortfolioSliderPhotos(portfolioPhotos);
 
-                    foreach (var p in portfolioPhotos)
-                    {
-                        content.MainPhotoList.Add(new ImageViewModel
-                        {
-                            Link = p.Link,
-                            Alt = p.Alt
-                        });
-
-                        content.GalleryPhotoList.Add(p);
-                    }
+                    content.MainPhotoList = sliderPhotos;
+                    content.GalleryPhotoList = portfolioPhotos;
 
                     return View(content);
                 }

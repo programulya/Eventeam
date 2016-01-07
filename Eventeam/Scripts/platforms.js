@@ -31,7 +31,8 @@
             url: getContextPath() + '/api/platforms',
             type: 'GET',
             dataType: 'json',
-            contentType: 'application/json; charset=utf-8'
+            contentType: 'application/json; charset=utf-8',
+            timeout: 15000
         });
 
         request.done(function(data) {

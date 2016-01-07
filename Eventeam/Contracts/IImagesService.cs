@@ -18,7 +18,14 @@ namespace Eventeam.Contracts
         /// <param name="folderName">Portfolio folder name</param>
         /// <param name="name">Portfolio name</param>
         /// <returns>Photos</returns>
-        IEnumerable<ImageViewModel> GetPortfolioPhotos(string folderName, string name);
+        IList<ImageViewModel> GetPortfolioPhotos(string folderName, string name);
+
+        /// <summary>
+        /// Filter slider photos
+        /// </summary>
+        /// <param name="photos">All photos</param>
+        /// <returns>Slider photos</returns>
+        IList<ImageViewModel> FilterPortfolioSliderPhotos(IEnumerable<ImageViewModel> photos);
 
         /// <summary>
         /// Get platform photos
