@@ -1,4 +1,6 @@
-﻿namespace Eventeam.Models
+﻿using System.Collections.Generic;
+
+namespace Eventeam.Models
 {
     public class RestaurantViewModel
     {
@@ -11,5 +13,7 @@
         public int? Buffet { get; set; }
         public int? TotalSquare { get; set; }
         public int? Seating { get; set; }
+        public ImageViewModel MainPhoto { get; set; }
+        public IList<ImageViewModel> PlatformPhotos { get; set; }
     }
 }

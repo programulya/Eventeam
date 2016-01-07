@@ -135,7 +135,8 @@ namespace Eventeam.Services
 
         private static string GetDirectory(string path, string name)
         {
-            var directories = Directory.GetDirectories(HttpContext.Current.Server.MapPath(path)).ToList();
+            var directories = Directory.GetDirectories(HttpContext.Current.Server.MapPath(path),
+                "*.*", SearchOption.AllDirectories).ToList();
             var directory = directories.FirstOrDefault(d => d.EndsWith(name));
 
             return directory;
