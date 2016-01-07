@@ -10875,6 +10875,29 @@ footer .tweet > p > a {
     padding: 20px 0;
 }
 
+.loading {
+    display: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 30001;
+    opacity: 1;
+}
+
+.loading-image {
+    position: absolute;
+    color: grey;
+    top: 50%;
+    left: 45%;
+    width: 60px;
+    height: 60px;
+}
+
 @media (max-width: 767px) {
     footer {
         padding-top: 20px;

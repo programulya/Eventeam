@@ -2,26 +2,6 @@
     'use strict';
 
     /*** PRIVATE ***/
-    (function init() {
-        getPlatforms();
-    })();
-
-    function getPlatforms() {
-        var request = $.ajax({
-            url: getContextPath() + '/api/platforms',
-            type: 'GET',
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8'
-        });
-
-        request.done(function(data) {
-            $('#popular').html(renderPlatforms(data));
-        });
-
-        request.fail(function(jqXhr, textStatus) {
-            console.log('Failed: ' + textStatus + ', ' + jqXhr);
-        });
-    }
 
     function renderPlatforms(platforms) {
         var content = '';
@@ -43,6 +23,33 @@
 
         return content;
     }
+
+    function getPlatforms() {
+        $('#divLoading').show();
+
+        var request = $.ajax({
+            url: getContextPath() + '/api/platforms',
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8'
+        });
+
+        request.done(function(data) {
+            $('#popular').html(renderPlatforms(data));
+        });
+
+        request.fail(function(jqXhr, textStatus) {
+            console.log('Failed: ' + textStatus + ', ' + jqXhr);
+        });
+
+        request.always(function() {
+            $('#divLoading').hide();
+        });
+    }
+
+    (function init() {
+        getPlatforms();
+    })();
 
     /*** PUBLIC ***/
 
