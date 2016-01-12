@@ -9312,7 +9312,6 @@ body {
 /* ===== Main Services ===== */
 
 .main-services {
-    border-top: 1px solid #ddd;
     padding: 50px 0;
     background: url(../images/common/stripe-gray-dark-double.png) repeat-x center center fixed;
     color: white;
