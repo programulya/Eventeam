@@ -61,8 +61,10 @@
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
                             <li data-target="#portfolio-slideshow" data-slide-to="0" class="active"></li>
-                            <li data-target="#portfolio-slideshow" data-slide-to="1"></li>
-                            <li data-target="#portfolio-slideshow" data-slide-to="2"></li>
+                            @for (var i = 1; i < Model.MainPhotoList.Count; ++i)
+                            {
+                                <li data-target="#portfolio-slideshow" data-slide-to="@i"></li>
+                            }
                         </ol>
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner narrow">
