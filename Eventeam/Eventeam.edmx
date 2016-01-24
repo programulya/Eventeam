@@ -43,6 +43,11 @@
           <Property Name="DistanceAirportBorispil" Type="float" />
           <Property Name="DistanceAirportZhulyany" Type="float" />
           <Property Name="Site" Type="nvarchar" MaxLength="500" />
+          <Property Name="HallsCount" Type="int" />
+          <Property Name="HallCapacity" Type="int" />
+          <Property Name="RestaurantsCount" Type="int" />
+          <Property Name="BanquetCapacity" Type="int" />
+          <Property Name="BuffetCapacity" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -868,6 +873,11 @@
           <Property Name="DistanceRailwayStation" Type="Double" />
           <Property Name="DistanceAirportBorispil" Type="Double" />
           <Property Name="DistanceAirportZhulyany" Type="Double" />
+          <Property Name="HallsCount" Type="Int32" />
+          <Property Name="HallCapacity" Type="Int32" />
+          <Property Name="RestaurantsCount" Type="Int32" />
+          <Property Name="BanquetCapacity" Type="Int32" />
+          <Property Name="BuffetCapacity" Type="Int32" />
         </EntityType>
         <Association Name="FK_Platform_City">
           <End Type="EventeamModel.City" Role="City" Multiplicity="1" />
@@ -1167,6 +1177,11 @@
           <EntitySetMapping Name="Platforms">
             <EntityTypeMapping TypeName="EventeamModel.Platform">
               <MappingFragment StoreEntitySet="Platform">
+                <ScalarProperty Name="BuffetCapacity" ColumnName="BuffetCapacity" />
+                <ScalarProperty Name="BanquetCapacity" ColumnName="BanquetCapacity" />
+                <ScalarProperty Name="RestaurantsCount" ColumnName="RestaurantsCount" />
+                <ScalarProperty Name="HallCapacity" ColumnName="HallCapacity" />
+                <ScalarProperty Name="HallsCount" ColumnName="HallsCount" />
                 <ScalarProperty Name="DistanceAirportZhulyany" ColumnName="DistanceAirportZhulyany" />
                 <ScalarProperty Name="DistanceAirportBorispil" ColumnName="DistanceAirportBorispil" />
                 <ScalarProperty Name="DistanceRailwayStation" ColumnName="DistanceRailwayStation" />

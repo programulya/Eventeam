@@ -57,9 +57,6 @@
                         </ul>
                         <span class="text-muted reviews"></span>
                         <p class="text-muted">
-                            Nunc in neque nec arcu vulputate ullamcorper. Ut id orci ac arcu consectetur fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis hendrerit enim id arcu lacinia, id commodo ante semper. Sed vel ante nec nisi vestibulum congue. Pellentesque non lacus in tortor rutrum tristique.
-                        </p>
-                        <p class="text-muted">
                             <a href="@Model.Site">@Model.Site</a>
                         </p>
                     </div>
@@ -74,13 +71,40 @@
                             <p>
                                 <ul>
                                     <li>Категория: @Model.Hotel.CategoryName</li>
-                                    <li>Количество комнат: @Model.Hotel.RoomCount</li>
-                                    <li>Вместительность: @Model.Hotel.Capacity</li>
+                                    <li>Количество номеров: @Model.Hotel.RoomCount</li>
+                                    <li>Проживание, чел. макс.: @Model.Hotel.Capacity</li>
+
+                                    @if (Model.HallsCount.HasValue)
+                                    {
+                                        <li>Количество залов: @Model.HallsCount</li>
+                                    }
+
+                                    @if (Model.HallCapacity.HasValue)
+                                    {
+                                        <li>Конференция, чел. макс.: @Model.HallCapacity</li>
+                                    }
+
+                                    @if (Model.RestaurantsCount.HasValue)
+                                    {
+                                        <li>Количество ресторанов: @Model.RestaurantsCount</li>
+                                    }
+
+                                    @if (Model.BanquetCapacity.HasValue)
+                                    {
+                                        <li>Банкет, чел. макс.: @Model.BanquetCapacity</li>
+                                    }
+
+                                    @if (Model.BuffetCapacity.HasValue)
+                                    {
+                                        <li>Фуршет, чел. макс.: @Model.BuffetCapacity</li>
+                                    }
+
                                     <li>Развлечения: @Model.Hotel.Entertainment</li>
                                     <li>Оздоровление: @Model.Hotel.Rehabilitation</li>
                                     <li>Парковка: @Model.Hotel.Parking</li>
                                     <li>Internet: @Model.Hotel.Internet</li>
                                     <li>Дополнительно: @Model.Hotel.Other</li>
+
                                 </ul>
                             </p>
                         </div>

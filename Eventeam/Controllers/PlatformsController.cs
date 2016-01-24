@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Eventeam.Contracts;
 using Eventeam.Models;
-using Eventeam.Services;
 
 namespace Eventeam.Controllers
 {
@@ -49,6 +46,11 @@ namespace Eventeam.Controllers
                         DistanceAirportBorispil = platform.DistanceAirportBorispil,
                         DistanceAirportZhulyany = platform.DistanceAirportZhulyany,
                         Site = platform.Site,
+                        HallsCount = platform.HallsCount,
+                        HallCapacity = platform.HallCapacity,
+                        RestaurantsCount = platform.RestaurantsCount,
+                        BanquetCapacity = platform.BanquetCapacity,
+                        BuffetCapacity = platform.BuffetCapacity,
                         MainPhoto = mainPhoto,
                         PlatformPhotos = platformPhotos,
                     };

@@ -18,6 +18,11 @@ namespace Eventeam.Models
         public double? DistanceAirportBorispil { get; set; }
         public double? DistanceAirportZhulyany { get; set; }
         public string Site { get; set; }
+        public int? HallsCount { get; set; }
+        public int? HallCapacity { get; set; }
+        public int? RestaurantsCount { get; set; }
+        public int? BanquetCapacity { get; set; }
+        public int? BuffetCapacity { get; set; }
 
         public ImageViewModel MainPhoto { get; set; }
         public IList<ImageViewModel> PlatformPhotos { get; set; }

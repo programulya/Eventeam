@@ -34,6 +34,11 @@ namespace Eventeam
         public Nullable<double> DistanceRailwayStation { get; set; }
         public Nullable<double> DistanceAirportBorispil { get; set; }
         public Nullable<double> DistanceAirportZhulyany { get; set; }
+        public Nullable<int> HallsCount { get; set; }
+        public Nullable<int> HallCapacity { get; set; }
+        public Nullable<int> RestaurantsCount { get; set; }
+        public Nullable<int> BanquetCapacity { get; set; }
+        public Nullable<int> BuffetCapacity { get; set; }
     
         public virtual City City { get; set; }
         public virtual Level Level { get; set; }
