@@ -10,16 +10,10 @@
 
         <title>Eventeam</title>
 
-        <!-- CSS Global -->
-        <link href="~/Content/style.css" rel="stylesheet">
-
-        <!-- CSS Plugins -->
+        <!-- CSS -->
         <link href="~/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <link href="~/Content/animate.css" rel="stylesheet">
-        
-        <!-- CSS Custom -->
-        <link href="~/Content/site.css" rel="stylesheet">
-        <link href="~/Content/lightbox.css" rel="stylesheet">
+        @Styles.Render("~/Content/site")
+
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -107,30 +101,31 @@
         <script src="~/Scripts/bootstrap/bootstrap.min.js"></script>
 
         <!-- JS Plugins -->
-        <script src="~/Scripts/scrolltopcontrol.js"></script>
+        @Scripts.Render("~/bundles/plugins")
+        
         <script src="~/Scripts/lightbox.min.js"></script>
         <script src="~/Scripts/isotope.pkgd.min.js"></script>
         <script src="~/Scripts/imagesloaded.pkgd.min.js"></script>
         <script src="~/Scripts/jquery.bootpaq.min.js"></script>
 
         <!-- JS Custom -->
-        <script src="~/Scripts/custom.js"></script>
-        <script src="~/Scripts/index.js"></script>
+        @Scripts.Render("~/bundles/custom")
 
         <script>
             window.getContextPath = function() {
                 return window.location.origin;
             }
 
-            window.prepareLink = function (rawStringLink) {
+            window.prepareLink = function(rawStringLink) {
                 return rawStringLink.replace(/~/, getContextPath());
             }
-            $(document).ready(function () {
+            $(document).ready(function() {
                 $("#navigation li.menu-item").removeClass('active');
                 var item = $("#navigation li.menu-item:contains('@ViewBag.Active')");
                 item.addClass("active");
             });
         </script>
+
         @RenderSection("scripts", false)
                   
     </body>

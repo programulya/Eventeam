@@ -86,7 +86,6 @@
                         </a>
                     </div>
                 </div>
-
                
                 <br/>
                 <h3 class="headline second-child"><span>@Model.ProjectName</span></h3>
@@ -129,5 +128,6 @@
     <script type="text/javascript">
         var model = JSON.parse('@Html.Raw(Json.Encode(Model))');
     </script>
-    <script src="~/Scripts/portfolio.js"></script>
+
+    @Scripts.Render("~/bundles/portfolioItem")
 }
