@@ -270,7 +270,6 @@
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\lightbox.css" />
-    <Content Include="Content\site.css" />
     <Content Include="Content\style.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\font-awesome\css\font-awesome.css" />
@@ -882,6 +881,12 @@
     <Content Include="images\common\stripe-gray-dark-double.png" />
     <Content Include="images\special-event.jpg" />
     <Content Include="images\loading.svg" />
+    <Content Include="less\style.css">
+      <DependentUpon>style.less</DependentUpon>
+    </Content>
+    <Content Include="less\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\app\portfolio.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
@@ -1033,6 +1038,10 @@
     <Content Include="fonts\SourceSansProRegular\SourceSansProRegular.eot" />
     <Content Include="fonts\SourceSansProRegular\SourceSansProRegular.ttf" />
     <Content Include="fonts\SourceSansProRegular\SourceSansProRegular.woff" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Properties\PublishProfiles\eventeam.pubxml" />
     <None Include="Scripts\_references.js" />
     <None Include="Views\Home\AboutUs.cshtml" />

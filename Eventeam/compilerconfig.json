@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "less/elements.css",
+    "inputFile": "less/elements.less"
+  },
+  {
+    "outputFile": "less/global.css",
+    "inputFile": "less/global.less"
+  },
+  {
+    "outputFile": "less/style.css",
+    "inputFile": "less/style.less"
+  }
+]

@@ -7,8 +7,6 @@ namespace Eventeam
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            BundleTable.EnableOptimizations = true;
-
             bundles.Add(new ScriptBundle("~/bundles/plugins").Include(
                 "~/Scripts/scrolltopcontrol.js"));
 
