@@ -615,14 +615,10 @@
     <Content Include="images\portfolio\CIPP-XIII\belgiya_075-.jpg" />
     <Content Include="images\portfolio\CIPP-XIII\belgiya_076--400x250.jpg" />
     <Content Include="images\portfolio\CIPP-XIII\belgiya_076-.jpg" />
-    <Content Include="images\portfolio\ERS-2014\amsterdam_001--400x250.jpg" />
-    <Content Include="images\portfolio\ERS-2014\amsterdam_001-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_001_slider--400x250.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_001_slider-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_002--400x250.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_002-.jpg" />
-    <Content Include="images\portfolio\ERS-2014\amsterdam_004--400x250.jpg" />
-    <Content Include="images\portfolio\ERS-2014\amsterdam_004-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_004_slider--400x250.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_004_slider-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_005--400x250.jpg" />
@@ -643,12 +639,8 @@
     <Content Include="images\portfolio\ERS-2014\amsterdam_012-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_013--400x250.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_013-.jpg" />
-    <Content Include="images\portfolio\ERS-2014\amsterdam_014--400x250.jpg" />
-    <Content Include="images\portfolio\ERS-2014\amsterdam_014-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_014_slider--400x250.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_014_slider-.jpg" />
-    <Content Include="images\portfolio\ERS-2014\amsterdam_015--400x250.jpg" />
-    <Content Include="images\portfolio\ERS-2014\amsterdam_015-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_015_slider--400x250.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_015_slider-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_016--400x250.jpg" />
@@ -667,8 +659,6 @@
     <Content Include="images\portfolio\ERS-2014\amsterdam_023-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_024--400x250.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_024-.jpg" />
-    <Content Include="images\portfolio\ERS-2014\amsterdam_025--400x250.jpg" />
-    <Content Include="images\portfolio\ERS-2014\amsterdam_025-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_025_slider--400x250.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_025_slider-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_027--400x250.jpg" />
@@ -851,6 +841,7 @@
     <Content Include="images\portfolio\legendLviv\lviv_ira_044-.jpg" />
     <Content Include="images\portfolio\legendLviv\lviv_ira_045--400x250.jpg" />
     <Content Include="images\portfolio\legendLviv\lviv_ira_045-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_046-.jpg" />
     <Content Include="images\portfolio\legendLviv\lviv_ira_046_slider--400x250.jpg" />
     <Content Include="images\portfolio\legendLviv\lviv_ira_046_slider-.jpg" />
     <Content Include="images\portfolio\legendLviv\lviv_ira_047--400x250.jpg" />
