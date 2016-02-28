@@ -879,6 +879,12 @@
     <Content Include="images\common\stripe-gray-dark-double.png" />
     <Content Include="images\special-event.jpg" />
     <Content Include="images\loading.svg" />
+    <Content Include="less\bootstrap\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="less\bootstrap\variables.min.css">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
     <Content Include="less\style.css">
       <DependentUpon>style.less</DependentUpon>
     </Content>
@@ -1040,6 +1046,12 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="less\style.css.map">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="less\bootstrap\variables.css.map">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\eventeam.pubxml" />
     <None Include="Scripts\_references.js" />
     <None Include="Views\Home\AboutUs.cshtml" />

@@ -28,9 +28,9 @@ namespace Eventeam
                 "~/Scripts/app/platforms.js"));
 
             bundles.Add(new StyleBundle("~/Content/site") {Orderer = new AsDefinedBundleOrderer()}.Include(
-                "~/Content/style.css",
+                "~/less/style.css",
                 "~/Content/animate.css",
-                "~/Content/site.css",
+               // "~/Content/site.css",
                 "~/Content/lightbox.css"));
         }
 
