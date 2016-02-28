@@ -4,363 +4,382 @@
     ViewBag.Active = "Площадки";
 }
 <!-- Wrapper -->
+
 <div class="wrapper">
 
-    <!-- Topic Header -->
-    <div class="topic">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>Гостиница</h3>
-                </div>
-                <div class="col-sm-8">
-                    <ol class="breadcrumb pull-right hidden-xs">
-                        <li><a href="@Url.Action("Index", "Home")">Главная</a></li>
-                        <li><a href="@Url.Action("Platforms", "Platforms")">Площадки</a></li>
-                        <li class="active">Гостиница</li>
-                    </ol>
-                </div>
+<!-- Topic Header -->
+
+<div class="topic">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Гостиница</h3>
+            </div>
+            <div class="col-sm-8">
+                <ol class="breadcrumb pull-right hidden-xs">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">Главная</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Platforms", "Platforms")">Площадки</a>
+                    </li>
+                    <li class="active">Гостиница</li>
+                </ol>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="container shop-item">
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="product-img">
-                            <a href="@Url.Content(Model.MainPhoto.Link)" data-lightbox="products">
-                                <img src="@Url.Content(Model.MainPhoto.Link)" class="img-responsive main" alt="@Model.MainPhoto.Alt">
-                            </a>
+<div class="container shop-item">
+<div class="row">
+<div class="col-sm-9">
+<div class="row">
+    <div class="col-sm-6">
+        <h2 class="headline first-child">
+            <span>@Model.Name</span>         
+        </h2>
+        <ul class="rating list-inline">
+            @for (var i = 0; i < Model.LevelName; ++i)
+            {
+                <li>
+                    <i class="fa fa-star"></i>
+                </li>
+            }
+        </ul>
 
-                            <div class="row">
-                                @foreach (var p in Model.PlatformPhotos)
-                                {
-                                    <div class="col-xs-4">
-                                        <a href="@Url.Content(p.Link)" data-lightbox="products">
-                                            <img src="@Url.Content(p.Link)" class="img-responsive" alt="@Url.Content(p.Alt)">
-                                        </a>
-                                    </div>
-                                }
-                            </div> <!-- / .row -->
+        <div>@Model.CityName, @Model.Address</div>
+    </div>
 
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <h3 class="headline first-child"><span>@Model.Name</span></h3>
-                        <ul class="rating list-inline">
-                            @for (var i = 0; i < Model.LevelName; ++i)
-                            {
-                                <li><i class="fa fa-star"></i></li>
-                            }
-                        </ul>
-                        <span class="text-muted reviews"></span>
-                        <p class="text-muted">
-                            <a href="@Model.Site">@Model.Site</a>
-                        </p>
-                    </div>
-                </div>
+</div>
 
-                <!-- Item Description -->
-                @if (Model.Hotel != null)
-                {
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h3 class="headline"><span>Гостиница</span></h3>
-                            <p>
-                                <ul>
-                                    <li>Категория: @Model.Hotel.CategoryName</li>
-                                    <li>Количество номеров: @Model.Hotel.RoomCount</li>
-                                    <li>Проживание, чел. макс.: @Model.Hotel.Capacity</li>
-
-                                    @if (Model.HallsCount.HasValue)
-                                    {
-                                        <li>Количество залов: @Model.HallsCount</li>
-                                    }
-
-                                    @if (Model.HallCapacity.HasValue)
-                                    {
-                                        <li>Конференция, чел. макс.: @Model.HallCapacity</li>
-                                    }
-
-                                    @if (Model.RestaurantsCount.HasValue)
-                                    {
-                                        <li>Количество ресторанов: @Model.RestaurantsCount</li>
-                                    }
-
-                                    @if (Model.BanquetCapacity.HasValue)
-                                    {
-                                        <li>Банкет, чел. макс.: @Model.BanquetCapacity</li>
-                                    }
-
-                                    @if (Model.BuffetCapacity.HasValue)
-                                    {
-                                        <li>Фуршет, чел. макс.: @Model.BuffetCapacity</li>
-                                    }
-
-                                    <li>Развлечения: @Model.Hotel.Entertainment</li>
-                                    <li>Оздоровление: @Model.Hotel.Rehabilitation</li>
-                                    <li>Парковка: @Model.Hotel.Parking</li>
-                                    <li>Internet: @Model.Hotel.Internet</li>
-                                    <li>Дополнительно: @Model.Hotel.Other</li>
-
-                                </ul>
-                            </p>
-                        </div>
-                    </div> <!-- / .row -->
-
-                    if (Model.Hotel.Rooms != null)
+<div class="row">
+    <div class="col-sm-10">
+        <div class="portfolio-slideshow">
+            <!-- Image Carousel -->
+            <div id="portfolio-slideshow" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner narrow">
+                    @for (var i = 0; i < Model.PlatformPhotos.Count; ++i)
                     {
-                        <h3 class="headline"><span>Номера</span></h3>
+                        var p = @Model.PlatformPhotos[i];
+                        var item = i == 0 ? "item active" : "item";
 
-                        foreach (var r in Model.Hotel.Rooms)
-                        {
-                            <div>
-                                <p>@r.Name</p>
-                                <ul>
-                                    <li>Категория номера: @r.RoomCategoryName</li>
-                                    <li>Тип размещения: @r.RoomTypeName</li>
-                                    <li>Количество: @r.Quantity</li>
-                                </ul>
-                            </div>
-                        }
+                        <div class="@item">
+                            <img src=@Url.Content(p.Link) class="img-responsive" alt="@p.Alt">
+                        </div>
                     }
-                }
-
-                @if (Model.Restaurants != null)
-                {
-                     <!-- Item Description -->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h3 class="headline"><span>Рестораны</span></h3>
-                            @foreach (var r in Model.Restaurants)
-                            {
-                                <div>
-                                    <p>@r.Type "@r.Name"</p>
-                                    <ul>
-                                        <li>Вид ресторана/зала (классификация): @r.ClassificationName</li>
-                                        <li>Тип кухни (основная): @r.KitchenName</li>
-
-                                        @if (r.TotalSquare.HasValue)
-                                        {
-                                            <li>Площадь, м2: @r.TotalSquare</li>
-                                        }
-
-                                        @if (r.Seating.HasValue)
-                                        {
-                                            <li>Посадочных мест: @r.Seating</li>
-                                        }
-
-                                        @if (r.Banquet.HasValue)
-                                        {
-                                            <li>Банкет: @r.Banquet</li>
-                                        }
-
-                                        @if (r.Buffet.HasValue)
-                                        {
-                                            <li>Фуршет: @r.Buffet</li>
-                                        }
-                                    </ul>
-                                </div>
-                            }
-                        </div>
-                    </div> <!-- / .row -->
-                }
-
-                @if (Model.Halls != null)
-                {
-                     <!-- Item Description -->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h3 class="headline"><span>Залы</span></h3>
-                            @foreach (var h in Model.Halls)
-                            {
-                                <div>
-                                    <p>@h.Name</p>
-                                    <ul>
-                                        <li>Площадь, м2: @h.TotalSquare</li>
-                                        
-                                        @if (h.Theater.HasValue)
-                                        {
-                                            <li>Театр: @h.Theater</li>
-                                        }
-
-                                        @if (h.Class.HasValue)
-                                        {
-                                            <li>Класс: @h.Class</li>
-                                        }
-
-                                        @if (h.PPlanting.HasValue)
-                                        {
-                                            <li>П-посадка: @h.PPlanting</li>
-                                        }
-
-                                        @if (h.MeetingRoom.HasValue)
-                                        {
-                                            <li>Переговоры: @h.MeetingRoom</li>
-                                        }
-
-                                        @if (h.Banquet.HasValue)
-                                        {
-                                            <li>Банкет: @h.Banquet</li>
-                                        }
-
-                                        @if (h.Buffet.HasValue)
-                                        {
-                                            <li>Фуршет: @h.Buffet</li>
-                                        }
-                                        
-                                        <li>Оборудование: @h.Equipment</li>
-                                        
-                                    </ul>
-                                </div>
-                            }
-                        </div>
-                    </div> <!-- / .row -->
-                }
-
-                <!-- Item Description -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h3 class="headline"><span>Расположение</span></h3>
-                        <p>
-                            <ul>
-                                <li>Город: @Model.CityName</li>
-                                <li>Расположение: @Model.LocationName</li>
-                                <li>Адрес: @Model.Address</li>
-
-                                @if (!String.IsNullOrEmpty(Model.Subway))
-                                {
-                                    <li>Ближайшее метро: @Model.Subway</li>
-                                }
-
-                                @if (Model.DistanceRailwayStation.HasValue)
-                                {
-                                    <li>Расстояние от ж/д вокзала, км: @Model.DistanceRailwayStation</li>
-                                }
-
-                                @if (Model.DistanceAirportBorispil.HasValue)
-                                {
-                                    <li>Расстояние от аэропорта Борисполь, км: @Model.DistanceAirportBorispil</li>
-                                }
-
-                                @if (Model.DistanceAirportZhulyany.HasValue)
-                                {
-                                    <li>Расстояние от аэропорта Жуляны, км: @Model.DistanceAirportZhulyany</li>
-                                }
-                            </ul>
-                        </p>
-                    </div>
-                </div> <!-- / .row -->
-            </div>
-
-            <div class="col-sm-3">
-                <!-- Categories -->
-                <div class="panel-group" id="help-nav">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#help-nav" href="#help-nav-one">
-                                Books & CDs
-                            </a>
-                        </div>
-                        <div id="help-nav-one" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <ul>
-                                    <li><a href="#">Subcategory (17)</a></li>
-                                    <li><a href="#">Subcategory (8)</a></li>
-                                    <li><a href="#">Subcategory (10)</a></li>
-                                    <li><a href="#">Subcategory (24)</a></li>
-                                    <li><a href="#">Subcategory (4)</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#help-nav" href="#help-nav-two" class="collapsed">
-                                Electronics & Computers
-                            </a>
-                        </div>
-                        <div id="help-nav-two" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul>
-                                    <li><a href="#">Subcategory (17)</a></li>
-                                    <li><a href="#">Subcategory (8)</a></li>
-                                    <li><a href="#">Subcategory (10)</a></li>
-                                    <li><a href="#">Subcategory (24)</a></li>
-                                    <li><a href="#">Subcategory (4)</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#help-nav" href="#help-nav-three" class="collapsed">
-                                Home & Garden
-                            </a>
-                        </div>
-                        <div id="help-nav-three" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul>
-                                    <li><a href="#">Subcategory (17)</a></li>
-                                    <li><a href="#">Subcategory (8)</a></li>
-                                    <li><a href="#">Subcategory (10)</a></li>
-                                    <li><a href="#">Subcategory (24)</a></li>
-                                    <li><a href="#">Subcategory (4)</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#help-nav" href="#help-nav-four" class="collapsed">
-                                Toys & Kids
-                            </a>
-                        </div>
-                        <div id="help-nav-four" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul>
-                                    <li><a href="#">Subcategory (17)</a></li>
-                                    <li><a href="#">Subcategory (8)</a></li>
-                                    <li><a href="#">Subcategory (10)</a></li>
-                                    <li><a href="#">Subcategory (24)</a></li>
-                                    <li><a href="#">Subcategory (4)</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#help-nav" href="#help-nav-five" class="collapsed">
-                                Clothing & Shoes
-                            </a>
-                        </div>
-                        <div id="help-nav-five" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul>
-                                    <li><a href="#">Subcategory (17)</a></li>
-                                    <li><a href="#">Subcategory (8)</a></li>
-                                    <li><a href="#">Subcategory (10)</a></li>
-                                    <li><a href="#">Subcategory (24)</a></li>
-                                    <li><a href="#">Subcategory (4)</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+
+                <!-- Controls -->
+                <a class="carousel-arrow carousel-arrow-prev" href="#portfolio-slideshow" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="carousel-arrow carousel-arrow-next" href="#portfolio-slideshow" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
             </div>
-        </div> <!-- / .row -->
-        <div>
-            <!-- Google Map -->
-            <div id="canvasHotel" style="width: 100%; height: 400px;"></div>
-        </div> <!-- / .row -->
-    </div> <!-- / .container -->
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <table class="table">
+            <tbody>
+            @if (Model.Hotel.RoomCount.HasValue)
+            {
+                <tr>
+                    <td>Количество номеров</td>
+                    <td>@Model.Hotel.RoomCount</td>
+                </tr>
+            }
+
+            @if (Model.Hotel.Capacity.HasValue)
+            {
+                <tr>
+                    <td>Проживание, чел. макс.</td>
+                    <td>@Model.Hotel.Capacity</td>
+                </tr>
+            }
+
+            @if (Model.HallsCount.HasValue)
+            {
+                <tr>
+                    <td>Количество залов</td>
+                    <td>@Model.HallsCount</td>
+                </tr>
+            }
+
+            @if (Model.HallCapacity.HasValue)
+            {
+                <tr>
+                    <td>Конференция, чел. макс.</td>
+                    <td>@Model.HallCapacity</td>
+                </tr>
+            }
+
+            @if (Model.RestaurantsCount.HasValue)
+            {
+                <tr>
+                    <td>Количество ресторанов</td>
+                    <td>@Model.RestaurantsCount</td>
+                </tr>
+            }
+
+            @if (Model.BanquetCapacity.HasValue)
+            {
+                <tr>
+                    <td>Банкет, чел. макс.</td>
+                    <td>@Model.BanquetCapacity</td>
+                </tr>
+            }
+
+            @if (Model.BuffetCapacity.HasValue)
+            {
+                <tr>
+                    <td>Фуршет, чел. макс.</td>
+                    <td>@Model.BuffetCapacity</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (Model.Halls != null)
+{
+    <!-- Item Description -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="headline">
+                <span>Залы</span>
+            </h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>
+                        <span>Название</span>
+                    </th>
+                    <th>
+                        <span>Площадь, м2</span>
+                    </th>
+                    <th>
+                        <span>Театр</span>
+                    </th>
+                    <th>
+                        <span>Класс</span>
+                    </th>
+                    <th>
+                        <span>П-посадка</span>
+                    </th>
+                    <th>
+                        <span>Переговоры</span>
+                    </th>
+                    <th>
+                        <span>Банкет</span>
+                    </th>
+                    <th>
+                        <span>Фуршет</span>
+                    </th>
+                    <th>
+                        <span>Оборудование</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+
+                @foreach (var h in Model.Halls)
+                {
+                    var theater = h.Theater?.ToString() ?? "x";
+                    var classType = h.Class?.ToString() ?? "x";
+                    var pPlanting = h.PPlanting?.ToString() ?? "x";
+                    var meetingRoom = h.MeetingRoom?.ToString() ?? "x";
+                    var banquet = h.Banquet?.ToString() ?? "x";
+                    var buffet = h.Buffet?.ToString() ?? "x";
+
+                    <tr>
+                        <td>@h.Name</td>
+                        <td>@h.TotalSquare</td>
+                        <td>@theater</td>
+                        <td>@classType</td>
+                        <td>@pPlanting</td>
+                        <td>@meetingRoom</td>
+                        <td>@banquet</td>
+                        <td>@buffet</td>
+                        <td>@h.Equipment</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- / .row -->
+}
+
+@if (Model.Restaurants != null)
+{
+    <!-- Item Description -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="headline">
+                <span>Рестораны</span>
+            </h3>
+            @foreach (var r in Model.Restaurants)
+            {
+                <div>
+                    <p>@r.Type "@r.Name"</p>
+                    <ul>
+                        <li>Вид ресторана/зала (классификация): @r.ClassificationName</li>
+                        <li>Тип кухни (основная): @r.KitchenName</li>
+
+                        @if (r.TotalSquare.HasValue)
+                        {
+                            <li>Площадь, м2: @r.TotalSquare</li>
+                        }
+
+                        @if (r.Seating.HasValue)
+                        {
+                            <li>Посадочных мест: @r.Seating</li>
+                        }
+
+                        @if (r.Banquet.HasValue)
+                        {
+                            <li>Банкет: @r.Banquet</li>
+                        }
+
+                        @if (r.Buffet.HasValue)
+                        {
+                            <li>Фуршет: @r.Buffet</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- / .row -->
+}
+
+<!-- Item Description -->
+@if (Model.Hotel != null)
+{
+    @*<div class="row">
+        <div class="col-sm-12">
+            <h3 class="headline">
+                <span>Гостиница</span></h3>
+            <p>
+                <ul>
+                    <li>Категория: @Model.Hotel.CategoryName</li>
+                    <li>Количество номеров: @Model.Hotel.RoomCount</li>
+                    <li>Проживание, чел. макс.: @Model.Hotel.Capacity</li>
+
+                    @if (Model.HallsCount.HasValue)
+                    {
+                        <li>Количество залов: @Model.HallsCount</li>
+                    }
+
+                    @if (Model.HallCapacity.HasValue)
+                    {
+                        <li>Конференция, чел. макс.: @Model.HallCapacity</li>
+                    }
+
+                    @if (Model.RestaurantsCount.HasValue)
+                    {
+                        <li>Количество ресторанов: @Model.RestaurantsCount</li>
+                    }
+
+                    @if (Model.BanquetCapacity.HasValue)
+                    {
+                        <li>Банкет, чел. макс.: @Model.BanquetCapacity</li>
+                    }
+
+                    @if (Model.BuffetCapacity.HasValue)
+                    {
+                        <li>Фуршет, чел. макс.: @Model.BuffetCapacity</li>
+                    }
+
+                    <li>Развлечения: @Model.Hotel.Entertainment</li>
+                    <li>Оздоровление: @Model.Hotel.Rehabilitation</li>
+                    <li>Парковка: @Model.Hotel.Parking</li>
+                    <li>Internet: @Model.Hotel.Internet</li>
+                    <li>Дополнительно: @Model.Hotel.Other</li>
+
+                </ul>
+            </p>
+        </div>
+    </div>*@
+    <!-- / .row -->
+
+    if (Model.Hotel.Rooms != null)
+    {
+        <h3 class="headline">
+            <span>Номера</span></h3>
+
+        foreach (var r in Model.Hotel.Rooms)
+        {
+            <div>
+                <p>@r.Name</p>
+                <ul>
+                    <li>Категория номера: @r.RoomCategoryName</li>
+                    <li>Тип размещения: @r.RoomTypeName</li>
+                    <li>Количество: @r.Quantity</li>
+                </ul>
+            </div>
+        }
+    }
+}
+
+<!-- Item Description -->
+<div class="row">
+    <div class="col-sm-12">
+        <h3 class="headline">
+            <span>Расположение</span></h3>
+        <p>
+            <ul>
+                <li>Город: @Model.CityName</li>
+                <li>Расположение: @Model.LocationName</li>
+                <li>Адрес: @Model.Address</li>
+
+                @if (!string.IsNullOrEmpty(Model.Subway))
+                {
+                    <li>Ближайшее метро: @Model.Subway</li>
+                }
+
+                @if (Model.DistanceRailwayStation.HasValue)
+                {
+                    <li>Расстояние от ж/д вокзала, км: @Model.DistanceRailwayStation</li>
+                }
+
+                @if (Model.DistanceAirportBorispil.HasValue)
+                {
+                    <li>Расстояние от аэропорта Борисполь, км: @Model.DistanceAirportBorispil</li>
+                }
+
+                @if (Model.DistanceAirportZhulyany.HasValue)
+                {
+                    <li>Расстояние от аэропорта Жуляны, км: @Model.DistanceAirportZhulyany</li>
+                }
+            </ul>
+        </p>
+    </div>
+</div> <!-- / .row -->
+</div>
+
+</div> <!-- / .row -->
+
+<div>
+
+    <!-- Google Map -->
+
+    <div id="canvasHotel" style="width: 100%; height: 400px;"></div>
+
+</div> <!-- / .row -->
+
+</div> <!-- / .container -->
+
 
 </div> <!-- / .wrapper -->
 
+
 @section scripts {
     <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+
 
     <script>
         function initialize() {
@@ -384,5 +403,6 @@
         }
 
         google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+    </script>
+
 }
