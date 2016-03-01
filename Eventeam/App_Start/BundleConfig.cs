@@ -30,7 +30,6 @@ namespace Eventeam
             bundles.Add(new StyleBundle("~/Content/site") {Orderer = new AsDefinedBundleOrderer()}.Include(
                 "~/less/style.css",
                 "~/Content/animate.css",
-               // "~/Content/site.css",
                 "~/Content/lightbox.css"));
         }
 
