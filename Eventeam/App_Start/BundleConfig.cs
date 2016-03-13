@@ -25,6 +25,7 @@ namespace Eventeam
                 "~/Scripts/app/portfolioItem.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/platforms") {Orderer = new AsDefinedBundleOrderer()}.Include(
+                "~/Scripts/typeahead.bundle.js",
                 "~/Scripts/app/platforms.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/platform") {Orderer = new AsDefinedBundleOrderer()}.Include(

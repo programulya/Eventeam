@@ -1469,7 +1469,7 @@
     <None Include="Views\Home\BlogSidebarNo.cshtml" />
     <None Include="Views\Home\BlogSidebarRight.cshtml" />
     <None Include="Views\Home\ComingSoon.cshtml" />
-    <None Include="Views\Home\ContactUs.cshtml" />
+    <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\ContactUsOption1.cshtml" />
     <None Include="Views\Home\ErrorPage.cshtml" />
     <None Include="Views\Home\HelpCenter.cshtml" />
@@ -1494,6 +1494,7 @@
     <None Include="Views\Home\TimelineRight.cshtml" />
     <None Include="Views\Home\UiElements.cshtml" />
     <None Include="Views\Home\UserProfile.cshtml" />
+    <Content Include="Scripts\typeahead.bundle.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

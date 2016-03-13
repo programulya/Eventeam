@@ -54,7 +54,7 @@ namespace Eventeam.Controllers
             return View();
         }
 
-        public ActionResult ContactUs()
+        public ActionResult Contact()
         {
             return View();
         }

@@ -23,3 +23,4 @@
 /// <reference path="jquerysimplecounter.js" />
 /// <reference path="lightbox.js" />
 /// <reference path="scrolltopcontrol.js" />
+/// <reference path="typeahead.bundle.js" />

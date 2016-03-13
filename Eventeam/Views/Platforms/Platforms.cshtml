@@ -28,236 +28,93 @@
                 <div class="panel-group" id="help-nav">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#help-nav" href="#help-nav-one">
-                                Гостиницы
+                            <a data-parent="#help-nav" aria-expanded="true">
+                                Город
                             </a>
                         </div>
-                        <div id="help-nav-one" class="panel-collapse collapse in">
+                        <div id="help-nav-one" class="panel-collapse collapse in" aria-expanded="true">
+                            <div class="panel-body">
+                                <input id="city" class="typeahead" type="text" placeholder="City" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-parent="#help-nav" aria-expanded="true">
+                                Расположение
+                            </a>
+                        </div>
+                        <div id="help-nav-two" class="panel-collapse collapse in" aria-expanded="true">
                             <div class="panel-body">
                                 <ul>
-                                    <li><a href="#">1*</a></li>
-                                    <li><a href="#">2*</a></li>
-                                    <li><a href="#">3*</a></li>
-                                    <li><a href="#">4*</a></li>
-                                    <li><a href="#">5*</a></li>
+                                    <li><a href="#">В центре</a></li>
+                                    <li><a href="#">Возле метро</a></li>
+                                    <li><a href="#">За городом</a></li>
+                                </ul>
+
+                                <!--<label for="center">В центре</label><input id="center" type="radio" name="group1" value="Milk">
+                                <input type="radio" name="group1" value="Butter" checked>
+                                <input type="radio" name="group1" value="Cheese"> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-parent="#help-nav" aria-expanded="true">
+                                Площадка
+                            </a>
+                        </div>
+                        <div id="help-nav-three" class="panel-collapse collapse in" aria-expanded="true">
+                            <div class="panel-body">
+                                <ul>
+                                    <li><a href="#">Все</a></li>
+                                    <li><a href="#">Гостиница</a></li>
+                                    <li><a href="#">Ресторан</a></li>
+                                    <li><a href="#">Зал</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#help-nav" href="#help-nav-two" class="collapsed">
-                                Рестораны
+                            <a data-parent="#help-nav" aria-expanded="true">
+                                Вместимость
                             </a>
                         </div>
-                        <div id="help-nav-two" class="panel-collapse collapse">
+                        <div id="help-nav-four" class="panel-collapse collapse in" aria-expanded="true">
                             <div class="panel-body">
-                                <ul>
-                                    <li><a href="#">Классический</a></li>
-                                    <li><a href="#">Тематический</a></li>
-                                    <li><a href="#">Национальный</a></li>
-                                    <li><a href="#">Специализированный</a></li>
-                                    <li><a href="#">Паб</a></li>
-                                    <li><a href="#">Караоке</a></li>
-                                </ul>
+                                <input placeholder="Capacity"/>
                             </div>
                         </div>
                     </div>
+
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#help-nav" href="#help-nav-three" class="collapsed">
-                                Залы
-                            </a>
-                        </div>
-                        <div id="help-nav-three" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul>
-                                    <li><a href="#">Банкет</a></li>
-                                    <li><a href="#">Фуршет</a></li>
-                                    <li><a href="#">Конференц-зал</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#help-nav" href="#help-nav-four" class="collapsed">
-                                Разное
-                            </a>
-                        </div>
-                        <div id="help-nav-four" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul>
-                                    <li><a href="#">Теплоход</a></li>
-                                    <li><a href="#">Планетарий</a></li>
-                                    <li><a href="#">Кинотеатр</a></li>
-                                    <li><a href="#">Tеатр</a></li>
-                                    <li><a href="#">Филармония</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <a class="btn btn-default btn-theme-secondary" href="#"><i class="fa"></i>Поиск</a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-8">
                 <!-- Filters -->
                 <ul class="nav nav-tabs nav-justified">
-                    <li class="active"><a href="#popular" data-toggle="tab">Гостиницы</a></li>
-                    <li><a href="#recommended" data-toggle="tab">Рестораны</a></li>
+                    <li class="active"><a href="#hotels" data-toggle="tab">Гостиницы</a></li>
+                    <li><a href="#restaurants" data-toggle="tab">Рестораны</a></li>
                     <li><a href="#recent" data-toggle="tab">Залы</a></li>
                 </ul>
 
                 <div class="row">
                     <div class="tab-content">
-                        <!-- All-->
-                        <div class="tab-pane fade in active" id="popular">
+                        <!-- Hotels -->
+                        <div class="tab-pane fade in active" id="hotels">
                         </div>
 
-                        <!-- Ebooks -->
-                        <div class="tab-pane fade" id="recommended">
-                            <!--<div class="col-sm-4">
-                                <div class="shop-product featured">
-                                    <a href="@Url.Action("ShopItem", "Home")"><img src="~/images/imac.png" class="img-responsive" alt="..."></a>
-                                    <a href="@Url.Action("ShopItem", "Home")"><h5 class="primary-font">Product #1</h5></a>
-                                    <p class="text-muted">
-                                        Nunc in neque nec arcu vulputate ullamcorper.
-                                    </p>
-                                    <p class="price">
-                                        <span class="old">$80,99</span>
-                                        <span class="new">$59,99</span>
-                                    </p>
-                                    <a href="#" class="btn btn-sm btn-theme-secondary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="shop-product">
-                                    <a href="@Url.Action("ShopItem", "Home")"><img src="~/images/macbook.png" class="img-responsive" alt="..."></a>
-                                    <a href="@Url.Action("ShopItem", "Home")"><h5 class="primary-font">Product #2</h5></a>
-                                    <p class="text-muted">
-                                        Nunc in neque nec arcu vulputate ullamcorper.
-                                    </p>
-                                    <p>
-                                        $200,00
-                                    </p>
-                                    <a href="#" class="btn btn-sm btn-theme-secondary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>-->
+                        <!-- Restaurants -->
+                        <div class="tab-pane fade" id="restaurants">
                         </div>
 
-                        <!-- Audio CD -->
-                        <div class="tab-pane fade" id="recent">
-                            <div class="col-sm-4">
-                                <div class="shop-product">
-                                    <a href="@Url.Action("ShopItem", "Home")"><img src="~/images/ipad.png" class="img-responsive" alt="..."></a>
-                                    <a href="@Url.Action("ShopItem", "Home")"><h5 class="primary-font">Product #3</h5></a>
-                                    <p class="text-muted">
-                                        Nunc in neque nec arcu vulputate ullamcorper.
-                                    </p>
-                                    <p>
-                                        $50,00
-                                    </p>
-                                    <a href="#" class="btn btn-sm btn-theme-secondary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="shop-product">
-                                    <a href="@Url.Action("ShopItem", "Home")"><img src="~/images/imac.png" class="img-responsive" alt="..."></a>
-                                    <a href="@Url.Action("ShopItem", "Home")"><h5 class="primary-font">Product #1</h5></a>
-                                    <p class="text-muted">
-                                        Nunc in neque nec arcu vulputate ullamcorper.
-                                    </p>
-                                    <p>
-                                        $200,00
-                                    </p>
-                                    <a href="#" class="btn btn-sm btn-theme-secondary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="shop-product">
-                                    <a href="@Url.Action("ShopItem", "Home")"><img src="~/images/macbook.png" class="img-responsive" alt="..."></a>
-                                    <a href="@Url.Action("ShopItem", "Home")"><h5 class="primary-font">Product #2</h5></a>
-                                    <p class="text-muted">
-                                        Nunc in neque nec arcu vulputate ullamcorper.
-                                    </p>
-                                    <p>
-                                        $200,00
-                                    </p>
-                                    <a href="#" class="btn btn-sm btn-theme-secondary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Audio CD -->
-                        <div class="tab-pane fade" id="last">
-                            <div class="col-sm-4">
-                                <div class="shop-product">
-                                    <a href="@Url.Action("ShopItem", "Home")"><img src="~/images/ipad.png" class="img-responsive" alt="..."></a>
-                                    <a href="@Url.Action("ShopItem", "Home")"><h5 class="primary-font">Product #3</h5></a>
-                                    <p class="text-muted">
-                                        Nunc in neque nec arcu vulputate ullamcorper.
-                                    </p>
-                                    <p>
-                                        $50,00
-                                    </p>
-                                    <a href="#" class="btn btn-sm btn-theme-secondary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="shop-product">
-                                    <a href="@Url.Action("ShopItem", "Home")"><img src="~/images/ipad.png" class="img-responsive" alt="..."></a>
-                                    <a href="@Url.Action("ShopItem", "Home")"><h5 class="primary-font">Product #3</h5></a>
-                                    <p class="text-muted">
-                                        Nunc in neque nec arcu vulputate ullamcorper.
-                                    </p>
-                                    <p>
-                                        $50,00
-                                    </p>
-                                    <a href="#" class="btn btn-sm btn-theme-secondary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="shop-product">
-                                    <a href="@Url.Action("ShopItem", "Home")"><img src="~/images/imac.png" class="img-responsive" alt="..."></a>
-                                    <a href="@Url.Action("ShopItem", "Home")"><h5 class="primary-font">Product #1</h5></a>
-                                    <p class="text-muted">
-                                        Nunc in neque nec arcu vulputate ullamcorper.
-                                    </p>
-                                    <p>
-                                        $200,00
-                                    </p>
-                                    <a href="#" class="btn btn-sm btn-theme-secondary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="shop-product">
-                                    <a href="@Url.Action("ShopItem", "Home")"><img src="~/images/macbook.png" class="img-responsive" alt="..."></a>
-                                    <a href="@Url.Action("ShopItem", "Home")"><h5 class="primary-font">Product #2</h5></a>
-                                    <p class="text-muted">
-                                        Nunc in neque nec arcu vulputate ullamcorper.
-                                    </p>
-                                    <p>
-                                        $200,00
-                                    </p>
-                                    <a href="#" class="btn btn-sm btn-theme-secondary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
-                            </div>
+                        <!-- Halls -->
+                        <div class="tab-pane fade" id="recent"> 
                         </div>
                     </div> <!-- /.tab-content -->         
-                </div> <!-- / .row -->
-
-                <!-- Pagination -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <ul class="pagination pull-right">
-                            <li class="disabled"><a href="#">&laquo;</a></li>
-                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
-                    </div>
                 </div> <!-- / .row -->
             
             </div> <!-- / .col-sm-8 -->
