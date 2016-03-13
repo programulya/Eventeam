@@ -5,6 +5,7 @@
 /// <reference path="app/google-maps.js" />
 /// <reference path="app/home.js" />
 /// <reference path="app/index.js" />
+/// <reference path="app/map.js" />
 /// <reference path="app/platforms.js" />
 /// <reference path="app/portfolio.js" />
 /// <reference path="app/portfolioitem.js" />

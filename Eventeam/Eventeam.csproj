@@ -1296,6 +1296,7 @@
     <Content Include="less\style.min.css">
       <DependentUpon>style.css</DependentUpon>
     </Content>
+    <Content Include="Scripts\app\map.js" />
     <Content Include="Scripts\app\portfolio.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />

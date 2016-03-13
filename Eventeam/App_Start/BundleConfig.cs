@@ -27,6 +27,9 @@ namespace Eventeam
             bundles.Add(new ScriptBundle("~/bundles/platforms") {Orderer = new AsDefinedBundleOrderer()}.Include(
                 "~/Scripts/app/platforms.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/platform") {Orderer = new AsDefinedBundleOrderer()}.Include(
+                "~/Scripts/app/map.js"));
+
             bundles.Add(new StyleBundle("~/Content/site") {Orderer = new AsDefinedBundleOrderer()}.Include(
                 "~/less/style.css",
                 "~/Content/animate.css",

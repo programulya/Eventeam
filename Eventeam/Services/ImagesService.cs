@@ -18,16 +18,6 @@ namespace Eventeam.Services
 
         public IList<ImageViewModel> GetPortfolioPhotos(string folderName, string name)
         {
-            if (folderName == null)
-            {
-                throw new ArgumentNullException(nameof(folderName));
-            }
-
-            if (name == null)
-            {
-                throw new ArgumentNullException(nameof(name));
-            }
-
             var directory = GetDirectory(ImagesPortfolioPath, folderName);
             var photoList = new List<ImageViewModel>();
 
@@ -71,16 +61,6 @@ namespace Eventeam.Services
 
         public IList<ImageViewModel> GetPlatformPhotos(string folderName, string name)
         {
-            if (folderName == null)
-            {
-                throw new ArgumentNullException(nameof(folderName));
-            }
-
-            if (name == null)
-            {
-                throw new ArgumentNullException(nameof(name));
-            }
-
             var directory = GetDirectory(ImagesPlatformsPath, folderName);
             var photoList = new List<ImageViewModel>();
 
@@ -109,11 +89,6 @@ namespace Eventeam.Services
 
         public ImageViewModel FilterPlatformMainPhoto(IEnumerable<ImageViewModel> photos)
         {
-            if (photos == null)
-            {
-                throw new ArgumentNullException(nameof(photos));
-            }
-
             var mainPhoto = photos.FirstOrDefault(p => p.Link.EndsWith(ImageMain));
 
             return mainPhoto;
@@ -121,11 +96,6 @@ namespace Eventeam.Services
 
         public IList<ImageViewModel> FilterPlatformPhotos(IEnumerable<ImageViewModel> photos)
         {
-            if (photos == null)
-            {
-                throw new ArgumentNullException(nameof(photos));
-            }
-
             var platformPhotos = photos.Where(p => !p.Link.EndsWith(ImageMain));
 
             return platformPhotos.ToList();
