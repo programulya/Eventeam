@@ -2,14 +2,14 @@
 
 namespace Eventeam.Controllers
 {
-    public class HomeController : Controller
+    public class ErrorController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Error()
         {
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult NotFound()
         {
             return View();
         }
