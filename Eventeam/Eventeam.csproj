@@ -171,6 +171,7 @@
       <DependentUpon>Eventeam.tt</DependentUpon>
     </Compile>
     <Compile Include="Contracts\IImagesService.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\FormatsController.cs" />
     <Compile Include="Controllers\PlatformsController.cs" />
@@ -296,6 +297,8 @@
     <Content Include="images\browsers.png" />
     <Content Include="images\close.png" />
     <Content Include="images\coming-soon.jpg" />
+    <Content Include="images\common\404.png" />
+    <Content Include="images\common\error.png" />
     <Content Include="images\general-1.jpg" />
     <Content Include="images\general-2.jpg" />
     <Content Include="images\general-3.jpg" />
@@ -1464,6 +1467,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\eventeam.pubxml" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Views\Error\NotFound.cshtml" />
     <None Include="Views\Home\AboutUs.cshtml" />
     <None Include="Views\Home\AboutUsOption1.cshtml" />
     <None Include="Views\Home\BlogPostSidebarLeft.cshtml" />
@@ -1475,7 +1479,6 @@
     <None Include="Views\Home\ComingSoon.cshtml" />
     <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\ContactUsOption1.cshtml" />
-    <None Include="Views\Home\ErrorPage.cshtml" />
     <None Include="Views\Home\HelpCenter.cshtml" />
     <None Include="Views\Home\HelpItem.cshtml" />
     <None Include="Views\Home\IndexFull.cshtml" />
