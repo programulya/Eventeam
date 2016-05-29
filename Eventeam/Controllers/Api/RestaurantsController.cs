@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using Eventeam.Contracts;
+using Eventeam.Database;
 using Eventeam.Models;
 
 namespace Eventeam.Controllers.Api
@@ -25,7 +26,7 @@ namespace Eventeam.Controllers.Api
         {
             try
             {
-                using (var db = new EventeamEntities())
+                using (var db = new EventeamContext())
                 {
                     var restaurants = db.Restaurants.ToList();
                     var content = new List<RestaurantViewModel>();

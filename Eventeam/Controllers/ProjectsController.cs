@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using Eventeam.Contracts;
+using Eventeam.Database;
 using Eventeam.Models;
 
 namespace Eventeam.Controllers
@@ -20,9 +21,10 @@ namespace Eventeam.Controllers
             return View();
         }
 
+        // TODO: Move to repositories
         public ActionResult PortfolioItem(int id)
         {
-            using (var db = new EventeamEntities())
+            using (var db = new EventeamContext())
             {
                 var portfolio = db.Portfolios.FirstOrDefault(p => p.PortfolioID == id);
 

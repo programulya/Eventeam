@@ -1,21 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Entity;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
-using System.Web.Helpers;
 using System.Web.Http;
-using System.Web.Http.Controllers;
 using Eventeam.Contracts;
-using Eventeam.Controllers.Api;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Eventeam.Controllers;
 using Eventeam.Models;
 using Moq;
-using Newtonsoft.Json;
 using PlatformsController = Eventeam.Controllers.Api.PlatformsController;
 
 namespace Eventeam.Tests.Controllers

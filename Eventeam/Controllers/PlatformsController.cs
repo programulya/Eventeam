@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using Eventeam.Contracts;
+using Eventeam.Database;
 using Eventeam.Models;
 
 namespace Eventeam.Controllers
@@ -22,7 +23,7 @@ namespace Eventeam.Controllers
 
         public ActionResult Platform(int id)
         {
-            using (var db = new EventeamEntities())
+            using (var db = new EventeamContext())
             {
                 var platform = db.Platforms.FirstOrDefault(p => p.PlatformID == id);
 
