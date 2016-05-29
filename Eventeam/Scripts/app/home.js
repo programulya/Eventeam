@@ -6,12 +6,12 @@
 
         if ($(this).scrollTop() >= $('#services').position().top && isCounters === false) {
             $('#countries').jQuerySimpleCounter({
-                end: 7,
+                end: 19,
                 duration: 7000
             });
 
             $('#cities').jQuerySimpleCounter({
-                end: 28,
+                end: 37,
                 duration: 7000
             });
 
@@ -32,12 +32,7 @@
             $('#services .services-area').css('visibility', 'visible');
             $('#conferences').addClass('animated fadeInDown delay-1');
             $('#mice').addClass('animated fadeInUp delay-2');
-            $('#teamBuildings').addClass('animated fadeInUp delay-3');
-            $('#events').addClass('animated slideInRight delay-4');
-            $('#children').addClass('animated slideInLeft delay-5');
-            $('#weddings').addClass('animated fadeInDown delay-6');
-            $('#cathering').addClass('animated fadeInDown delay-7');
-            $('#production').addClass('animated slideInRight delay-8');
+            $('#events').addClass('animated slideInRight delay-3');
 
             isServices = true;
         }

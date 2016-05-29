@@ -1060,7 +1060,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -1159,7 +1159,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   line-height: 1.1;
   color: inherit;
@@ -5792,7 +5792,7 @@ button.close {
   z-index: 1070;
   display: block;
   visibility: visible;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   font-weight: normal;
   line-height: 1.4;
@@ -5899,7 +5899,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -6841,8 +6841,8 @@ hr.arrow-down:after {
 }
 /*** Navbar Brand ***/
 .navbar-brand {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   font-size: 22px;
 }
 .navbar-brand > img {
@@ -7007,7 +7007,7 @@ hr.arrow-down:after {
 .popover-title {
   border-bottom: 1px solid #e9e9e9;
   border-radius: 4px 4px 0 0;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 13px;
@@ -7235,8 +7235,8 @@ a.carousel-arrow-next {
   background: #f6f6f6;
   border-bottom: 1px solid #e4e4e4;
   font-size: 16px;
-  font-weight: 400;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
 }
 /* ===== Categories List ===== */
 .b-categories-list {
@@ -7776,7 +7776,7 @@ body {
   overflow: hidden;
 }
 .blog-desc h3 {
-  font-weight: 500;
+  font-weight: 300;
   font-size: 20px;
   line-height: 1.5;
   margin-top: 0;
@@ -7882,7 +7882,7 @@ body {
 .panel-body > ul > li > a {
   display: block;
   padding: 7px 0;
-  font-weight: 600;
+  font-weight: 300;
   font-size: 12px;
   color: #777777;
   text-transform: uppercase;
@@ -7925,7 +7925,7 @@ body {
 }
 .pricing-header h5 {
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 300;
 }
 .pricing-number {
   padding: 10px;
@@ -7946,7 +7946,7 @@ body {
   border-bottom: 1px solid #e9e9e9;
   text-transform: uppercase;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 300;
   color: #999;
 }
 .pricing-body ul > li:last-child {
@@ -8000,8 +8000,8 @@ body {
 .b-pricing-table__table > thead > tr > th.b-pricing-table__plan-title {
   padding: 10px;
   text-transform: uppercase;
-  font-weight: 600;
-  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
 }
 .b-pricing-table-price__title {
   padding: 10px 8px !important;
@@ -8101,7 +8101,7 @@ body {
   margin: 0 auto;
 }
 .shop-product h5 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
 }
 .shop-product.featured:before {
@@ -8506,7 +8506,7 @@ iframe[src="about:blank"] {
 }
 .timeline > .event .event__title > h3 {
   font-size: 20px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   margin: 0 0 5px 0;
   -webkit-transition: color 300ms;
@@ -8969,27 +8969,9 @@ footer .tweet > p > a {
 }
 /* site.css */
 @font-face {
-  font-family: "SourceSansProRegular";
-  src: url("../fonts/SourceSansProRegular/SourceSansProRegular.eot");
-  src: url("../fonts/SourceSansProRegular/SourceSansProRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansProRegular/SourceSansProRegular.woff") format("woff"), url("../fonts/SourceSansProRegular/SourceSansProRegular.ttf") format("truetype");
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
-  font-weight: normal;
-}
-/* font-family: "SourceSansProLight"; */
-@font-face {
-  font-family: "SourceSansProLight";
-  src: url("../fonts/SourceSansProLight/SourceSansProLight.eot");
-  src: url("../fonts/SourceSansProLight/SourceSansProLight.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansProLight/SourceSansProLight.woff") format("woff"), url("../fonts/SourceSansProLight/SourceSansProLight.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-}
-/* font-family: "SourceSansProBold"; */
-@font-face {
-  font-family: "SourceSansProBold";
-  src: url("../fonts/SourceSansProBold/SourceSansProBold.eot");
-  src: url("../fonts/SourceSansProBold/SourceSansProBold.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansProBold/SourceSansProBold.woff") format("woff"), url("../fonts/SourceSansProBold/SourceSansProBold.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
+  font-weight: 300;
 }
 .footer-block {
   margin-right: 20px;
