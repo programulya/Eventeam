@@ -1,0 +1,1483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1EA81050-F96B-4A2C-BF71-5771807A12E3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Eventeam</RootNamespace>
+    <AssemblyName>Eventeam</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SimpleInjector, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.1.2\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.1.2\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.3.1.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.3.1.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.WebApi.3.1.2\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="images\portfolio\belgium-2015\" />
+    <Folder Include="images\portfolio\eau-madrid-2015\" />
+    <Folder Include="images\portfolio\european-orl-hns-prague\" />
+    <Folder Include="images\portfolio\europediatrics-florence\" />
+    <Folder Include="images\portfolio\munich-2015\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Contracts\IImagesService.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Api\FormatsController.cs" />
+    <Compile Include="Controllers\PlatformsController.cs" />
+    <Compile Include="Controllers\Api\RestaurantsController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\Api\PlatformsController.cs" />
+    <Compile Include="DependencyRegistration\DependencyRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HallViewModel.cs" />
+    <Compile Include="Models\RestaurantViewModel.cs" />
+    <Compile Include="Models\HotelViewModel.cs" />
+    <Compile Include="Models\ImageViewModel.cs" />
+    <Compile Include="Models\PlatformInfoViewModel.cs" />
+    <Compile Include="Models\PlatformViewModel.cs" />
+    <Compile Include="Models\ProjectViewModel.cs" />
+    <Compile Include="Models\RoomViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ImagesService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\lightbox.css" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap\bootstrap.css.map" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\browsers.png" />
+    <Content Include="images\close.png" />
+    <Content Include="images\coming-soon.jpg" />
+    <Content Include="images\common\404.png" />
+    <Content Include="images\common\error.png" />
+    <Content Include="images\general-1.jpg" />
+    <Content Include="images\general-2.jpg" />
+    <Content Include="images\general-3.jpg" />
+    <Content Include="images\general-4.jpg" />
+    <Content Include="images\ico\favicon-paperclip.ico" />
+    <Content Include="images\ico\favicon.png" />
+    <Content Include="images\ico\favicon.ico" />
+    <Content Include="images\imac.png" />
+    <Content Include="images\image-1.png" />
+    <Content Include="images\image-2.png" />
+    <Content Include="images\image-3.png" />
+    <Content Include="images\image-4.png" />
+    <Content Include="images\img2.png" />
+    <Content Include="images\ipad.png" />
+    <Content Include="images\iphone.png" />
+    <Content Include="images\item-1.png" />
+    <Content Include="images\item-2.png" />
+    <Content Include="images\item-3.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\common\logo-eventeam-white.png" />
+    <Content Include="images\party-people.png" />
+    <Content Include="images\platforms\admiralClub\admiralClub_main-.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_main-.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_001-.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_002-.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\kazatskiyStan_003-.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\macbook.png" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--1024x683.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--1080x675.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--1080x720.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--150x150.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--300x200.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--400x250.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--400x284.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--e1424518534469-1024x632.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--e1424518534469-1080x667.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--e1424518534469-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--e1424518534469-150x150.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--e1424518534469-300x185.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--e1424518534469-400x250.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--e1424518534469-400x284.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events--e1424518534469.jpg" />
+    <Content Include="images\main-slider\slider_1-Corporate-Events-.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--1024x697.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--1080x675.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--1080x735.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--150x150.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--300x204.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--400x250.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--400x284.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--e1424519980555-1024x632.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--e1424519980555-1080x667.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--e1424519980555-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--e1424519980555-150x150.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--e1424519980555-300x185.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--e1424519980555-400x250.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--e1424519980555-400x284.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show--e1424519980555.jpg" />
+    <Content Include="images\main-slider\slider_10-Amazing-Show-.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--1024x601.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--1080x633.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--1080x675.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--150x150.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--300x176.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--400x250.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--400x284.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518690870-1024x540.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518690870-1080x569.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518690870-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518690870-150x150.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518690870-300x158.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518690870-400x250.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518690870-400x284.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518690870.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518791686-1024x497.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518791686-1080x524.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518791686-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518791686-150x150.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518791686-300x145.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518791686-400x250.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518791686-400x284.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events--e1424518791686.jpg" />
+    <Content Include="images\main-slider\slider_2-Special-Events-.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--1024x666.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--1080x675.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--1080x703.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--150x150.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--300x195.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--400x250.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--400x284.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519048769-1024x575.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519048769-1080x606.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519048769-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519048769-300x168.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519048769-400x250.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519048769-400x284.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519048769.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519068905-1024x560.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519068905-1080x591.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519068905-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519068905-150x150.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519068905-300x164.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519068905-400x250.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519068905-400x284.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424519068905.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424520006307-1024x504.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424520006307-1080x532.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424520006307-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424520006307-150x150.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424520006307-300x148.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424520006307-400x250.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424520006307-400x284.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events--e1424520006307.jpg" />
+    <Content Include="images\main-slider\slider_3-Business-Events-.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--1024x683.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--1080x675.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--1080x720.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--150x150.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--300x200.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--400x250.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--400x284.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424519687421-1024x535.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424519687421-1080x564.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424519687421-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424519687421-150x150.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424519687421-300x157.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424519687421-400x250.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424519687421-400x284.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424519687421.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424520057455-1024x484.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424520057455-1080x510.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424520057455-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424520057455-150x150.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424520057455-300x142.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424520057455-400x250.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424520057455-400x284.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel--e1424520057455.jpg" />
+    <Content Include="images\main-slider\slider_4-Corporate-Travel-.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--1024x683.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--1080x675.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--1080x720.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--150x150.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--300x200.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--400x250.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--400x284.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--e1424519634376-1024x647.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--e1424519634376-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--e1424519634376-1080x683.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--e1424519634376-150x150.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--e1424519634376-300x190.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--e1424519634376-400x250.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--e1424519634376-400x284.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise--e1424519634376.jpg" />
+    <Content Include="images\main-slider\slider_5-Conference-Servise-.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--1024x683.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--1080x675.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--1080x720.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--150x150.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--300x200.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--400x250.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--400x284.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424519574692-1024x655.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424519574692-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424519574692-1080x691.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424519574692-150x150.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424519574692-300x192.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424519574692-400x250.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424519574692-400x284.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424519574692.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424520098715-1024x635.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424520098715-1080x669.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424520098715-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424520098715-150x150.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424520098715-300x186.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424520098715-400x250.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424520098715-400x284.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program--e1424520098715.jpg" />
+    <Content Include="images\main-slider\slider_6-Entertainment-Program-.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--1024x683.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--1080x675.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--1080x720.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--150x150.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--300x200.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--400x250.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--400x284.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519502734-1024x571.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519502734-1080x602.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519502734-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519502734-150x150.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519502734-300x167.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519502734-400x250.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519502734-400x284.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519502734.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519524580-1024x528.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519524580-1080x557.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519524580-1080x675.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519524580-150x150.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519524580-300x155.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519524580-400x250.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519524580-400x284.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours--e1424519524580.jpg" />
+    <Content Include="images\main-slider\slider_7-Incentive-Tours-.jpg" />
+    <Content Include="images\main-slider\slider_8-Extraordinary-Events--1024x682.jpg" />
+    <Content Include="images\main-slider\slider_8-Extraordinary-Events--1080x675.jpg" />
+    <Content Include="images\main-slider\slider_8-Extraordinary-Events--1080x719.jpg" />
+    <Content Include="images\main-slider\slider_8-Extraordinary-Events--150x150.jpg" />
+    <Content Include="images\main-slider\slider_8-Extraordinary-Events--300x200.jpg" />
+    <Content Include="images\main-slider\slider_8-Extraordinary-Events--400x250.jpg" />
+    <Content Include="images\main-slider\slider_8-Extraordinary-Events--400x284.jpg" />
+    <Content Include="images\main-slider\slider_8-Extraordinary-Events-.jpg" />
+    <Content Include="images\main-slider\slider_9-Exclusive-Weddings--1024x692.jpg" />
+    <Content Include="images\main-slider\slider_9-Exclusive-Weddings--1080x675.jpg" />
+    <Content Include="images\main-slider\slider_9-Exclusive-Weddings--1080x730.jpg" />
+    <Content Include="images\main-slider\slider_9-Exclusive-Weddings--150x150.jpg" />
+    <Content Include="images\main-slider\slider_9-Exclusive-Weddings--300x203.jpg" />
+    <Content Include="images\main-slider\slider_9-Exclusive-Weddings--400x250.jpg" />
+    <Content Include="images\main-slider\slider_9-Exclusive-Weddings--400x284.jpg" />
+    <Content Include="images\main-slider\slider_9-Exclusive-Weddings-.jpg" />
+    <Content Include="images\next.png" />
+    <Content Include="images\our-team.jpg" />
+    <Content Include="images\photo-1.jpg" />
+    <Content Include="images\photo-2.jpg" />
+    <Content Include="images\photo-3.jpg" />
+    <Content Include="images\photo-4.jpg" />
+    <Content Include="images\photo-5.jpg" />
+    <Content Include="images\photo-6.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\restaurants\litoral\kazatskiyStan_001-.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\restaurants\litoral\kazatskiyStan_002-.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\restaurants\litoral\kazatskiyStan_003-.jpg" />
+    <Content Include="images\platforms\kazatskiyStan\restaurants\litoral\kazatskiyStan_main-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_001--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_001-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_004--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_004-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_006--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_006-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_006-1-400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_007-1--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_007-1-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_008-1--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_008-1-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_009-1--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_009-1-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_010-2-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_011--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_016--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_016-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_017-1--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_018--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_018-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_019_slider--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_019_slider-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_020-1--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_020-1-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_021--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_021-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_022--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_022-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_023--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_024--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_024-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_025--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_025-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_027--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_027-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_028--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_030--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_030-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_031_slider--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_031_slider-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_032--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_032-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_033--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_033-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_034--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_034-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_037--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_039--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_039-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_040--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_040-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_041--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_041-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_042-1--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_043--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_044-1--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_044-1-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_047_slider--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_047_slider-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_048--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_048-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_050--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_050-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_051_slider--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_051_slider-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_053_slider--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_053_slider-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_055--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_056--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_056-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_057--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_057-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_058--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_058-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_060--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_060-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_061--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_061-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_063--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_063-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_068--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_068-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_073--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_074--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_074-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_075--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_075-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_076--400x250.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_076-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_slider_001-1024x734.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_001_slider--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_001_slider-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_002--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_002-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_003--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_003-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_004--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_004-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_005_slider--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_005_slider-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_006--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_006-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_007--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_007-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_008--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_008-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_009--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_009-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_010--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_010-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_011--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_011-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_012_slider--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_012_slider-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_013--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_013-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_014--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_014-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_015--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_015-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_016--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_016-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_017--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_017-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_018--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_018-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_019_slider--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_019_slider-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_020_slider--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_020_slider-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_021--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_021-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_022--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_022-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_023--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_023-.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_024--400x250.jpg" />
+    <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_024-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_001_slider--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_001_slider-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_002--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_002-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_004_slider--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_004_slider-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_005--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_005-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_006--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_006-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_007--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_007-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_008--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_008-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_009--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_009-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_010--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_010-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_011--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_011-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_012--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_012-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_013--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_013-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_014_slider--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_014_slider-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_0151-e1424526621999-1024x760.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_015_slider--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_015_slider-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_016--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_016-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_017--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_017-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_018--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_018-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_020--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_020-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_021--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_021-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_022--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_022-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_023--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_023-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_024--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_024-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_025_slider--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_025_slider-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_027--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_027-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_028--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_028-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_030--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_030-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_032--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_032-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_033--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_033-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_034--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_034-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_035--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_035-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_036--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_036-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_037--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_037-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_038--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_038-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_039--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_039-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_040--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_040-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_041--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_041-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_043--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_043-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_044--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_044-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_046--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_046-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_047--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_047-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_048--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_048-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_049--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_049-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_050--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_050-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_051--400x250.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_051-.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_001--400x250.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_001-.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_002_slider--400x250.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_002_slider-.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_003--400x250.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_003-.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_004_slider--400x250.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_004_slider-.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_005_slider--400x250.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_005_slider-.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_006_slider--400x250.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_006_slider-.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_007_slider--400x250.jpg" />
+    <Content Include="images\portfolio\fetal-medicine\slider_isida_007_slider-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_001--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_001-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_002--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_002-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_003--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_003-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_004--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_004-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_005--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_005-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_006--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_006-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_007_slider--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_007_slider-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_008--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_008-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_009_slider--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_009_slider-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_010--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_010-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_011--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_011-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_012--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_012-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_013--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_013-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_014_slider--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_014_slider-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_015--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_015-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_016--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_016-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_017_slider--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_017_slider-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_018--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_018-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_019--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_019-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_020--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_020-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_021--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_021-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_022--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_022-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_023_slider--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_023_slider-.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_024--400x250.jpg" />
+    <Content Include="images\portfolio\fitoteka\fitoteka_024-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_001_slider--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_001_slider-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_0023--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_0023-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_002_slider--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_002_slider-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_003--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_003-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_004--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_004-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_005--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_005-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_006--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_006-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_007--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_007-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_008--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_008-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_009--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_009-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_010--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_010-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_011--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_011-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_012--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_012-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_013--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_013-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_014_slider--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_014_slider-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_015--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_015-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_016_slider--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_016_slider-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_017--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_017-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_018_slider--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_018_slider-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_019--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_019-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_021--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_021-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_022--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_022-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_024--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_024-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_025--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_025-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_026--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_026-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_027--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_027-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_028--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_028-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_029--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_029-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_030--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_030-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_031--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_031-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_032--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_032-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_033--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_033-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_034--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_034-.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_035--400x250.jpg" />
+    <Content Include="images\portfolio\hipsters-golden-dawn\stilyagi_035-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_0011--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_001_slider--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_001_slider-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_0021--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_0021-e1420670759216--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_0021-e1420670941478--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_002_slider--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_002_slider-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_003--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_003-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_004--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_004-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_005--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_005-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_006--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_006-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_0071--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_0072--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_007_slider--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_007_slider-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_008--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_008-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_0081--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_009--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_009-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_010--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_010-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_0111--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_011_slider--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_011_slider-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_012--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_012-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_013--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_013-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_014--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_014-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_015--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_015-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_0161--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_016_slider--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_016_slider-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_017--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_017-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_018--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_018-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_019--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_019-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_020--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_020-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_021_slider--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_021_slider-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_022--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_022-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_023--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_023-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_024--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_024-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_025--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_025-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_026--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_026-.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_027--400x250.jpg" />
+    <Content Include="images\portfolio\indian-new-year-party\indian_027-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_001_slider--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_001_slider-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_002--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_002-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_003--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_003-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_004--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_004-.jpg" />
+    <Content Include="images\capabilities\1-Conferences.png" />
+    <Content Include="images\capabilities\2-MICE.png" />
+    <Content Include="images\capabilities\3-Teambuildings.png" />
+    <Content Include="images\capabilities\4-Events.png" />
+    <Content Include="images\capabilities\5-Children.png" />
+    <Content Include="images\capabilities\6-Weddings.png" />
+    <Content Include="images\capabilities\7-Catering.png" />
+    <Content Include="images\capabilities\8-Production.png" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_005--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_005-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_006--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_006-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_007--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_007-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008-1080x720.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008-e1420614955567-1024x747.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008_slider--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008_slider-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_009--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_009-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_010--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_010-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_011--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_011-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_012_slider--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_012_slider-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_013--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_013-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_014--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_014-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_015--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_015-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_016--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_016-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_017--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_017-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_018--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_018-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_019--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_019-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_020--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_020-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_021--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_021-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_022--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_022-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_023_slider--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_023_slider-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_024_slider--400x250.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_024_slider-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_001_slider--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_001_slider-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_003--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_003-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_004--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_004-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_005--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_005-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_006--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_006-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_007--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_007-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_008--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_008-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_009--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_009-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_010--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_010-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_011--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_011-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_012--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_012-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_013--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_013-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_014--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_014-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_015--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_015-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_016--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_016-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_017--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_017-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_018--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_018-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_019--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_019-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_020--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_020-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_022--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_022-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_023--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_023-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_024--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_024-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_027_slider--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_027_slider-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_028--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_028-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_030--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_030-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_031_slider--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_031_slider-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_032--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_032-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_033--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_033-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_034--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_034-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_035_slider--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_035_slider-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_036--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_036-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_037--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_037-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_038--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_038-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_039--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_039-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_040--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_040-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_041--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_041-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_042--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_042-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_043--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_043-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_044--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_044-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_045--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_045-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_046-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_046_slider--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_046_slider-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_047--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_047-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_048--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_048-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_049--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_049-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_050--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_050-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_051--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_051-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_052--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_052-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_053--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_053-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_054--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_054-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_055--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_055-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_056--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_056-.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_057--400x250.jpg" />
+    <Content Include="images\portfolio\legendLviv\lviv_ira_057-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_001-1080x675.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_001-1080x810.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_001_slider--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_001_slider-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_002--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_002-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_003--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_003-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_004--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_004-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_005--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_005-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_006_slider--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_006_slider-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_007--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_007-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_008_slider--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_008_slider-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_009--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_009-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_010--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_010-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_011_slider--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_011_slider-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_012--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_012-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_013--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_013-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_014--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_014-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_016--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_016-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_017_slider--400x250.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_017_slider-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_001--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_001-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_002--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_002-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_003--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_003-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_004--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_004-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_005--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_005-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_006--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_006-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_007--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_007-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_008--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_008-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_009--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_009-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_010--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_010-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_011--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_011-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_012--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_012-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_013--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_013-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_014-1080x764.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_014_slider--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_014_slider-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_015--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_015-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_016--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_016-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_0161--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_017--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_017-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_018--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_018-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_019_slider--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_019_slider-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_020--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_020-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_021_slider--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_021_slider-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_022--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_022-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_023--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_023-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_024--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_024-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_slider_001--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_slider_0011--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_slider_003--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_slider_004--400x250.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_slider_005--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_001--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_001-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_0011--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_002--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_002-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_0021--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_003--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_003-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_0031--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_004--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_004-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_0041--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_005--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_005-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_0051--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_006--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_006-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_0061--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_0071--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_007_slider--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_007_slider-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_0081--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_008_slider--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_008_slider-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_009_slider--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_009_slider-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_010--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_010-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_011--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_011-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_012--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_012-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_013--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_013-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_014--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_014-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_015--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_015-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_016--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_016-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_017--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_017-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_018_slider--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_018_slider-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_019_slider--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_019_slider-.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_020--400x250.jpg" />
+    <Content Include="images\portfolio\we-building-life\bosch-fotoquest_020-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_001_slider--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_001_slider-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_002--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_002-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_003--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_003-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_004--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_004-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_005--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_005-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_006_slider--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_006_slider-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_007_slider--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_007_slider-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_008--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_008-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_009--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_009-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_010--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_010-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_011_slider--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_011_slider-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_012--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_012-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_013--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_013-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_014_slider--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_014_slider-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_015--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_015-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_016--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_016-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_017--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_017-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_018--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_018-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_019--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_019-.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_020--400x250.jpg" />
+    <Content Include="images\portfolio\workshop-by-sosnovskih\sosnovskih_020-.jpg" />
+    <Content Include="images\prev.png" />
+    <Content Include="images\screenshot.png" />
+    <Content Include="images\showcase.png" />
+    <Content Include="images\common\stripe-gray-dark-double.png" />
+    <Content Include="images\special-event.jpg" />
+    <Content Include="images\loading.svg" />
+    <Content Include="less\bootstrap\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="less\bootstrap\variables.min.css">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
+    <Content Include="less\style.css">
+      <DependentUpon>style.less</DependentUpon>
+    </Content>
+    <Content Include="less\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app\map.js" />
+    <Content Include="Scripts\app\portfolio.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\npm.js" />
+    <Content Include="Scripts\app\coming-soon.js" />
+    <Content Include="Scripts\app\contact.js" />
+    <Content Include="Scripts\app\custom.js" />
+    <Content Include="Scripts\app\google-maps.js" />
+    <Content Include="Scripts\app\home.js" />
+    <Content Include="Scripts\imagesloaded.pkgd.js" />
+    <Content Include="Scripts\imagesloaded.pkgd.min.js" />
+    <Content Include="Scripts\app\index.js" />
+    <Content Include="Scripts\isotope.pkgd.js" />
+    <Content Include="Scripts\isotope.pkgd.min.js" />
+    <Content Include="Scripts\jquery.bootpaq.min.js" />
+    <Content Include="Scripts\jquery.countdown.js" />
+    <Content Include="Scripts\jquery.countdown.min.js" />
+    <Content Include="Scripts\jquery.plugin.js" />
+    <Content Include="Scripts\jquery.plugin.min.js" />
+    <Content Include="Scripts\jQuerySimpleCounter.js" />
+    <Content Include="Scripts\lightbox.js" />
+    <Content Include="Scripts\lightbox.min.js" />
+    <Content Include="Scripts\app\platforms.js" />
+    <Content Include="Scripts\app\portfolioItem.js" />
+    <Content Include="Scripts\app\pricing-table.js" />
+    <Content Include="Scripts\scrolltopcontrol.js" />
+    <Content Include="Scripts\app\search-results.js" />
+    <Content Include="Scripts\app\sign-up.js" />
+    <Content Include="Scripts\app\ui-elements.js" />
+    <Content Include="images\item-1.psd" />
+    <Content Include="images\item-2.psd" />
+    <Content Include="images\item-3.psd" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="fonts\font-awesome\less\animated.less" />
+    <Content Include="fonts\font-awesome\less\bordered-pulled.less" />
+    <Content Include="fonts\font-awesome\less\core.less" />
+    <Content Include="fonts\font-awesome\less\fixed-width.less" />
+    <Content Include="fonts\font-awesome\less\font-awesome.less" />
+    <Content Include="fonts\font-awesome\less\icons.less" />
+    <Content Include="fonts\font-awesome\less\larger.less" />
+    <Content Include="fonts\font-awesome\less\list.less" />
+    <Content Include="fonts\font-awesome\less\mixins.less" />
+    <Content Include="fonts\font-awesome\less\path.less" />
+    <Content Include="fonts\font-awesome\less\rotated-flipped.less" />
+    <Content Include="fonts\font-awesome\less\stacked.less" />
+    <Content Include="fonts\font-awesome\less\variables.less" />
+    <Content Include="fonts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="fonts\font-awesome\scss\_animated.scss" />
+    <Content Include="fonts\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="fonts\font-awesome\scss\_core.scss" />
+    <Content Include="fonts\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="fonts\font-awesome\scss\_icons.scss" />
+    <Content Include="fonts\font-awesome\scss\_larger.scss" />
+    <Content Include="fonts\font-awesome\scss\_list.scss" />
+    <Content Include="fonts\font-awesome\scss\_mixins.scss" />
+    <Content Include="fonts\font-awesome\scss\_path.scss" />
+    <Content Include="fonts\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="fonts\font-awesome\scss\_stacked.scss" />
+    <Content Include="fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="less\bootstrap\mixins\alerts.less" />
+    <Content Include="less\bootstrap\mixins\background-variant.less" />
+    <Content Include="less\bootstrap\mixins\border-radius.less" />
+    <Content Include="less\bootstrap\mixins\buttons.less" />
+    <Content Include="less\bootstrap\mixins\center-block.less" />
+    <Content Include="less\bootstrap\mixins\clearfix.less" />
+    <Content Include="less\bootstrap\mixins\forms.less" />
+    <Content Include="less\bootstrap\mixins\gradients.less" />
+    <Content Include="less\bootstrap\mixins\grid-framework.less" />
+    <Content Include="less\bootstrap\mixins\grid.less" />
+    <Content Include="less\bootstrap\mixins\hide-text.less" />
+    <Content Include="less\bootstrap\mixins\image.less" />
+    <Content Include="less\bootstrap\mixins\labels.less" />
+    <Content Include="less\bootstrap\mixins\list-group.less" />
+    <Content Include="less\bootstrap\mixins\nav-divider.less" />
+    <Content Include="less\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="less\bootstrap\mixins\opacity.less" />
+    <Content Include="less\bootstrap\mixins\pagination.less" />
+    <Content Include="less\bootstrap\mixins\panels.less" />
+    <Content Include="less\bootstrap\mixins\progress-bar.less" />
+    <Content Include="less\bootstrap\mixins\reset-filter.less" />
+    <Content Include="less\bootstrap\mixins\resize.less" />
+    <Content Include="less\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="less\bootstrap\mixins\size.less" />
+    <Content Include="less\bootstrap\mixins\tab-focus.less" />
+    <Content Include="less\bootstrap\mixins\table-row.less" />
+    <Content Include="less\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="less\bootstrap\mixins\text-overflow.less" />
+    <Content Include="less\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="less\bootstrap\.csscomb.json" />
+    <Content Include="less\bootstrap\.csslintrc" />
+    <Content Include="less\bootstrap\alerts.less" />
+    <Content Include="less\bootstrap\badges.less" />
+    <Content Include="less\bootstrap\bootstrap.less" />
+    <Content Include="less\bootstrap\breadcrumbs.less" />
+    <Content Include="less\bootstrap\button-groups.less" />
+    <Content Include="less\bootstrap\buttons.less" />
+    <Content Include="less\bootstrap\carousel.less" />
+    <Content Include="less\bootstrap\close.less" />
+    <Content Include="less\bootstrap\code.less" />
+    <Content Include="less\bootstrap\component-animations.less" />
+    <Content Include="less\bootstrap\dropdowns.less" />
+    <Content Include="less\bootstrap\forms.less" />
+    <Content Include="less\bootstrap\glyphicons.less" />
+    <Content Include="less\bootstrap\grid.less" />
+    <Content Include="less\bootstrap\input-groups.less" />
+    <Content Include="less\bootstrap\jumbotron.less" />
+    <Content Include="less\bootstrap\labels.less" />
+    <Content Include="less\bootstrap\list-group.less" />
+    <Content Include="less\bootstrap\media.less" />
+    <Content Include="less\bootstrap\mixins.less" />
+    <Content Include="less\bootstrap\modals.less" />
+    <Content Include="less\bootstrap\navbar.less" />
+    <Content Include="less\bootstrap\navs.less" />
+    <Content Include="less\bootstrap\normalize.less" />
+    <Content Include="less\bootstrap\pager.less" />
+    <Content Include="less\bootstrap\pagination.less" />
+    <Content Include="less\bootstrap\panels.less" />
+    <Content Include="less\bootstrap\popovers.less" />
+    <Content Include="less\bootstrap\print.less" />
+    <Content Include="less\bootstrap\progress-bars.less" />
+    <Content Include="less\bootstrap\responsive-embed.less" />
+    <Content Include="less\bootstrap\responsive-utilities.less" />
+    <Content Include="less\bootstrap\scaffolding.less" />
+    <Content Include="less\bootstrap\tables.less" />
+    <Content Include="less\bootstrap\theme.less" />
+    <Content Include="less\bootstrap\thumbnails.less" />
+    <Content Include="less\bootstrap\tooltip.less" />
+    <Content Include="less\bootstrap\type.less" />
+    <Content Include="less\bootstrap\utilities.less" />
+    <Content Include="less\bootstrap\variables.less" />
+    <Content Include="less\bootstrap\wells.less" />
+    <Content Include="less\elements.less" />
+    <Content Include="less\global.less" />
+    <Content Include="less\style.less" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="less\style.css.map">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="less\bootstrap\variables.css.map">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\eventeam.pubxml" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <None Include="Views\Home\AboutUs.cshtml" />
+    <None Include="Views\Home\AboutUsOption1.cshtml" />
+    <None Include="Views\Home\BlogPostSidebarLeft.cshtml" />
+    <None Include="Views\Home\BlogPostSidebarNo.cshtml" />
+    <None Include="Views\Home\BlogPostSidebarRight.cshtml" />
+    <None Include="Views\Home\BlogSidebarLeft.cshtml" />
+    <None Include="Views\Home\BlogSidebarNo.cshtml" />
+    <None Include="Views\Home\BlogSidebarRight.cshtml" />
+    <None Include="Views\Home\ComingSoon.cshtml" />
+    <None Include="Views\Home\Contact.cshtml" />
+    <None Include="Views\Home\ContactUsOption1.cshtml" />
+    <None Include="Views\Home\HelpCenter.cshtml" />
+    <None Include="Views\Home\HelpItem.cshtml" />
+    <None Include="Views\Home\IndexFull.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Projects\Portfolio.cshtml" />
+    <None Include="Views\Home\Pricing.cshtml" />
+    <None Include="Views\Home\PricingJoint.cshtml" />
+    <None Include="Views\Home\PricingTable.cshtml" />
+    <None Include="Views\Home\ResponsiveVideo.cshtml" />
+    <None Include="Views\Home\SearchResults.cshtml" />
+    <None Include="Views\Home\Services.cshtml" />
+    <None Include="Views\Platforms\Platform.cshtml" />
+    <None Include="Views\Platforms\Platforms.cshtml" />
+    <None Include="Views\Home\ShoppingCart.cshtml" />
+    <None Include="Views\Home\SignIn.cshtml" />
+    <None Include="Views\Home\SignUp.cshtml" />
+    <None Include="Views\Home\Template.cshtml" />
+    <None Include="Views\Home\TimelineCenter.cshtml" />
+    <None Include="Views\Home\TimelineLeft.cshtml" />
+    <None Include="Views\Home\TimelineRight.cshtml" />
+    <None Include="Views\Home\UiElements.cshtml" />
+    <None Include="Views\Home\UserProfile.cshtml" />
+    <Content Include="Scripts\typeahead.bundle.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Projects\PortfolioItem.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eventeam.Database\Eventeam.Database.csproj">
+      <Project>{E5744A6B-17BC-4A2E-9EDC-BB6DCDFF70CC}</Project>
+      <Name>Eventeam.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1652</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:7000</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

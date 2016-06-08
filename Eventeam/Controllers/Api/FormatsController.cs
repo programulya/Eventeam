@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using Eventeam.Database;
 
 namespace Eventeam.Controllers.Api
 {
@@ -11,7 +12,7 @@ namespace Eventeam.Controllers.Api
         // GET api/formats
         public HttpResponseMessage GetAll()
         {
-            using (var db = new EventeamEntities())
+            using (var db = new EventeamContext())
             {
                 var formats = db.Formats.ToList();
 
