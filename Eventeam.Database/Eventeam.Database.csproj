@@ -84,6 +84,8 @@
     <EmbeddedResource Include="Migrations\201605291816228_Initial.resx">
       <DependentUpon>201605291816228_Initial.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="SQL\201605291816228_Initial.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
