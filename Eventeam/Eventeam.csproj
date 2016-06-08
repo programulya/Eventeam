@@ -619,6 +619,7 @@
     <Content Include="images\portfolio\CIPP-XIII\belgiya_075-.jpg" />
     <Content Include="images\portfolio\CIPP-XIII\belgiya_076--400x250.jpg" />
     <Content Include="images\portfolio\CIPP-XIII\belgiya_076-.jpg" />
+    <Content Include="images\portfolio\CIPP-XIII\belgiya_slider_001-1024x734.jpg" />
     <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_001_slider--400x250.jpg" />
     <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_001_slider-.jpg" />
     <Content Include="images\portfolio\deer-vs-hare\zaici-vs-oleni_002--400x250.jpg" />
@@ -693,6 +694,7 @@
     <Content Include="images\portfolio\ERS-2014\amsterdam_013-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_014_slider--400x250.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_014_slider-.jpg" />
+    <Content Include="images\portfolio\ERS-2014\amsterdam_0151-e1424526621999-1024x760.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_015_slider--400x250.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_015_slider-.jpg" />
     <Content Include="images\portfolio\ERS-2014\amsterdam_016--400x250.jpg" />
@@ -972,6 +974,8 @@
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_007-.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008--400x250.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008-.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008-1080x720.jpg" />
+    <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008-e1420614955567-1024x747.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008_slider--400x250.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_008_slider-.jpg" />
     <Content Include="images\portfolio\kanefronfest-2014\kanefronfest_009--400x250.jpg" />
@@ -1111,6 +1115,8 @@
     <Content Include="images\portfolio\legendLviv\lviv_ira_056-.jpg" />
     <Content Include="images\portfolio\legendLviv\lviv_ira_057--400x250.jpg" />
     <Content Include="images\portfolio\legendLviv\lviv_ira_057-.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_001-1080x675.jpg" />
+    <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_001-1080x810.jpg" />
     <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_001_slider--400x250.jpg" />
     <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_001_slider-.jpg" />
     <Content Include="images\portfolio\stars-of-renaissance\renassans_mart_002--400x250.jpg" />
@@ -1169,6 +1175,7 @@
     <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_012-.jpg" />
     <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_013--400x250.jpg" />
     <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_013-.jpg" />
+    <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_014-1080x764.jpg" />
     <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_014_slider--400x250.jpg" />
     <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_014_slider-.jpg" />
     <Content Include="images\portfolio\strength-of-plants\poltava_kalendar_015--400x250.jpg" />
