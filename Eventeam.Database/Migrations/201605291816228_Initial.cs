@@ -10,7 +10,7 @@ namespace Eventeam.Database.Migrations
     {
         public override void Up()
         {
-            Sql(ResourceHelper.ReadEmbedded("Eventeam.Database.SQL.201605291816228_Initial.sql"));
+            Sql(ResourceHelper.ReadEmbedded("Eventeam.Database.Migrations.201605291816228_Initial.sql"));
         }
 
         public override void Down()
