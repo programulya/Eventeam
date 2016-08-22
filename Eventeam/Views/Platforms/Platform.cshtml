@@ -49,7 +49,6 @@
 
         <div>@Model.CityName, @Model.Address</div>
     </div>
-
 </div>
 
 <div class="row">
@@ -307,12 +306,27 @@
             <span>Дополнительно</span>
         </h3>
         <p>
-            <ul>
-                <li>Развлечения: @Model.Hotel.Entertainment</li>
-                <li>Оздоровление: @Model.Hotel.Rehabilitation</li>
-                <li>Парковка: @Model.Hotel.Parking</li>
-                <li>Internet: @Model.Hotel.Internet</li>
-                <li>Дополнительно: @Model.Hotel.Other</li>
+            <ul class="list-style-none">
+                <li>
+                    <img src="../../images/icons/ico-entertainment.svg" class="platform-icon" />
+                    @Model.Hotel.Entertainment
+                </li>
+                <li>
+                    <img src="../../images/icons/ico-health.svg" class="platform-icon" />
+                    @Model.Hotel.Rehabilitation
+                </li>
+                <li>
+                    <img src="../../images/icons/ico-parking.svg" class="platform-icon" />
+                    @Model.Hotel.Parking
+                </li>
+                <li>
+                    <img src="../../images/icons/ico-internet.svg" class="platform-icon" />
+                    @Model.Hotel.Internet
+                </li>
+                <li>
+                    <img src="../../images/icons/ico-other.svg" class="platform-icon" />
+                    @Model.Hotel.Other
+                </li>
             </ul>
         </p>
     </div>
@@ -323,29 +337,41 @@
         <h3 class="headline">
             <span>Расположение</span></h3>
         <p>
-            <ul>
+            <ul class="list-style-none">
                 <li>Город: @Model.CityName</li>
                 <li>Расположение: @Model.LocationName</li>
                 <li>Адрес: @Model.Address</li>
 
                 @if (!string.IsNullOrEmpty(Model.Subway))
                 {
-                    <li>Ближайшее метро: @Model.Subway</li>
+                    <li>
+                        <img src="../../images/icons/ico-metro.svg" class="platform-icon" />
+                        @Model.Subway
+                    </li>
                 }
 
                 @if (Model.DistanceRailwayStation.HasValue)
                 {
-                    <li>Расстояние от ж/д вокзала, км: @Model.DistanceRailwayStation</li>
+                    <li>
+                        <img src="../../images/icons/ico-train.svg" class="platform-icon" />
+                        @Model.DistanceRailwayStation
+                    </li>
                 }
 
                 @if (Model.DistanceAirportBorispil.HasValue)
                 {
-                    <li>Расстояние от аэропорта Борисполь, км: @Model.DistanceAirportBorispil</li>
+                    <li>
+                        <img src="../../images/icons/ico-airport-b.svg" class="platform-icon" />
+                        "Борисполь" @Model.DistanceAirportBorispil
+                    </li>
                 }
 
                 @if (Model.DistanceAirportZhulyany.HasValue)
                 {
-                    <li>Расстояние от аэропорта Жуляны, км: @Model.DistanceAirportZhulyany</li>
+                    <li>
+                        <img src="../../images/icons/ico-airport-g.svg" class="platform-icon" />
+                        "Жуляны" @Model.DistanceAirportZhulyany
+                    </li>
                 }
             </ul>
         </p>

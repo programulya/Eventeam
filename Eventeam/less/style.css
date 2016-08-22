@@ -9040,3 +9040,8 @@ div.browser-showcase {
 .carousel-inner.narrow {
   height: 437px;
 }
+/* Platforms */
+.platform-icon {
+  width: 1.2em;
+  height: 1.2em;
+}
