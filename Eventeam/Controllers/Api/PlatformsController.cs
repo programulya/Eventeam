@@ -8,12 +8,13 @@ using System.Web.Http;
 using Eventeam.Contracts;
 using Eventeam.Database;
 using Eventeam.Models;
-using Eventeam.Services;
+using NLog;
 
 namespace Eventeam.Controllers.Api
 {
     public class PlatformsController : ApiController
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IImagesService _imagesService;
 
         public PlatformsController(IImagesService imagesService)
@@ -52,6 +53,8 @@ namespace Eventeam.Controllers.Api
             }
             catch (Exception ex)
             {
+                Logger.Error(ex.Message);
+
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message,
                     JsonMediaTypeFormatter.DefaultMediaType);
             }

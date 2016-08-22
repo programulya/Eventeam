@@ -89,6 +89,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.3.7\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SimpleInjector, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.3.1.2\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
@@ -189,6 +193,7 @@
     <Folder Include="images\portfolio\european-orl-hns-prague\" />
     <Folder Include="images\portfolio\europediatrics-florence\" />
     <Folder Include="images\portfolio\munich-2015\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -1399,43 +1404,49 @@
     <Content Include="less\bootstrap\variables.css.map">
       <DependentUpon>variables.css</DependentUpon>
     </Content>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\eventeam.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
-    <None Include="Views\Error\NotFound.cshtml" />
-    <None Include="Views\Home\AboutUs.cshtml" />
-    <None Include="Views\Home\AboutUsOption1.cshtml" />
-    <None Include="Views\Home\BlogPostSidebarLeft.cshtml" />
-    <None Include="Views\Home\BlogPostSidebarNo.cshtml" />
-    <None Include="Views\Home\BlogPostSidebarRight.cshtml" />
-    <None Include="Views\Home\BlogSidebarLeft.cshtml" />
-    <None Include="Views\Home\BlogSidebarNo.cshtml" />
-    <None Include="Views\Home\BlogSidebarRight.cshtml" />
-    <None Include="Views\Home\ComingSoon.cshtml" />
-    <None Include="Views\Home\Contact.cshtml" />
-    <None Include="Views\Home\ContactUsOption1.cshtml" />
-    <None Include="Views\Home\HelpCenter.cshtml" />
-    <None Include="Views\Home\HelpItem.cshtml" />
-    <None Include="Views\Home\IndexFull.cshtml" />
-    <None Include="Views\Home\Index.cshtml" />
-    <None Include="Views\Projects\Portfolio.cshtml" />
-    <None Include="Views\Home\Pricing.cshtml" />
-    <None Include="Views\Home\PricingJoint.cshtml" />
-    <None Include="Views\Home\PricingTable.cshtml" />
-    <None Include="Views\Home\ResponsiveVideo.cshtml" />
-    <None Include="Views\Home\SearchResults.cshtml" />
-    <None Include="Views\Home\Services.cshtml" />
-    <None Include="Views\Platforms\Platform.cshtml" />
-    <None Include="Views\Platforms\Platforms.cshtml" />
-    <None Include="Views\Home\ShoppingCart.cshtml" />
-    <None Include="Views\Home\SignIn.cshtml" />
-    <None Include="Views\Home\SignUp.cshtml" />
-    <None Include="Views\Home\Template.cshtml" />
-    <None Include="Views\Home\TimelineCenter.cshtml" />
-    <None Include="Views\Home\TimelineLeft.cshtml" />
-    <None Include="Views\Home\TimelineRight.cshtml" />
-    <None Include="Views\Home\UiElements.cshtml" />
-    <None Include="Views\Home\UserProfile.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\AboutUsOption1.cshtml" />
+    <Content Include="Views\Home\BlogPostSidebarLeft.cshtml" />
+    <Content Include="Views\Home\BlogPostSidebarNo.cshtml" />
+    <Content Include="Views\Home\BlogPostSidebarRight.cshtml" />
+    <Content Include="Views\Home\BlogSidebarLeft.cshtml" />
+    <Content Include="Views\Home\BlogSidebarNo.cshtml" />
+    <Content Include="Views\Home\BlogSidebarRight.cshtml" />
+    <Content Include="Views\Home\ComingSoon.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\ContactUsOption1.cshtml" />
+    <Content Include="Views\Home\HelpCenter.cshtml" />
+    <Content Include="Views\Home\HelpItem.cshtml" />
+    <Content Include="Views\Home\IndexFull.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Projects\Portfolio.cshtml" />
+    <Content Include="Views\Home\Pricing.cshtml" />
+    <Content Include="Views\Home\PricingJoint.cshtml" />
+    <Content Include="Views\Home\PricingTable.cshtml" />
+    <Content Include="Views\Home\ResponsiveVideo.cshtml" />
+    <Content Include="Views\Home\SearchResults.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Platforms\Platform.cshtml" />
+    <Content Include="Views\Platforms\Platforms.cshtml" />
+    <Content Include="Views\Home\ShoppingCart.cshtml" />
+    <Content Include="Views\Home\SignIn.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\Home\Template.cshtml" />
+    <Content Include="Views\Home\TimelineCenter.cshtml" />
+    <Content Include="Views\Home\TimelineLeft.cshtml" />
+    <Content Include="Views\Home\TimelineRight.cshtml" />
+    <Content Include="Views\Home\UiElements.cshtml" />
+    <Content Include="Views\Home\UserProfile.cshtml" />
     <Content Include="Scripts\typeahead.bundle.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1449,10 +1460,10 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Web.config" />
-    <None Include="Views\Shared\Error.cshtml" />
-    <None Include="Views\_ViewStart.cshtml" />
-    <None Include="Views\Shared\_Layout.cshtml" />
-    <None Include="Views\Projects\PortfolioItem.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Projects\PortfolioItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

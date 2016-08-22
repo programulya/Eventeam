@@ -9,12 +9,14 @@ using System.Web.Http;
 using Eventeam.Contracts;
 using Eventeam.Database;
 using Eventeam.Models;
+using NLog;
 
 namespace Eventeam.Controllers.Api
 {
     public class RestaurantsController : ApiController
     {
         private readonly IImagesService _imagesService;
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         public RestaurantsController(IImagesService imagesService)
         {
@@ -57,6 +59,8 @@ namespace Eventeam.Controllers.Api
             }
             catch (Exception ex)
             {
+                Logger.Error(ex.Message);
+
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message,
                     JsonMediaTypeFormatter.DefaultMediaType);
             }
